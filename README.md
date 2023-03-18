@@ -48,7 +48,28 @@ The gear sets themselves should look something like this
 
 Then you need to add code to the 
 > function job_buff_change(buff, gain)
+
 To handle the following buffs 
 > buff == 'Level Restriction' or buff == 'Level Sync' or buff == 'Battlefield' 
+
 (I have a function called handle_standard_buffs in chaotic-include that handles these and calls handle_level_sync)
-I've left the handle_level_sync function in the individual job files so each job can decide which 
+I've left the handle_level_sync function in the individual job files so each job can decide which level sets they want.
+
+The handle_level_sync should look like this
+> function handle_level_sync(gain)
+>   if gain then
+>     if player.main_job_level>59 then
+>       send_command('gs c set LevelCap Normal')
+>     elseif player.main_job_level>49 then
+>       send_command('gs c set LevelCap 50')
+>     elseif player.main_job_level>39 then
+>       send_command('gs c set LevelCap 40')
+>     elseif player.main_job_level>29 then
+>       send_command('gs c set LevelCap 30')
+>       end
+>   else
+>     send_command('gs c set LevelCap Normal')
+>   end
+> end
+
+There is one final function to look at check_buffs_on_load in chaotic-include
