@@ -72,4 +72,4 @@ The handle_level_sync should look like this
 >   end
 > end
 
-There is one final function to look at check_buffs_on_load in chaotic-include
+There is one final function to look at check_buffs_on_load in chaotic-include.  This function checks the buffs that are active for if you reload your gearswap or sign in already under the effects of level sync (It kept coming up when I was testing ;-) )
