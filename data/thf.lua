@@ -45,7 +45,7 @@ include('Mote-TreasureHunter.lua')
 
 state.OffenseMode:options('Normal','HybridAcc','Acc','MDT')
 state.WeaponskillMode:options('Normal','Atk','Acc','AtkAcc')
-state.RangedMode:options('Normal','Acid','Bloody','Sleep')
+state.RangedMode:options('Normal','Acid','Bloody','Sleep','Blind')
 state.PhysicalDefenseMode:options('Evasion','SubtleBlow','PDT')
 state.MagicalDefenseMode:options('MDT')
 state.RestingMode:options('Normal','TP')

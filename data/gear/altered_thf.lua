@@ -39,26 +39,28 @@ function init_gear_sets()
     waist="Scouter's Rope",
      }  
 
-  sets['Normal'] = {
-                    range="Power Crossbow",
+  sets.Crossbow = {
+                    range="Power Crossbow"
+                  }
+  sets['Normal'] = set_combine(sets.Crossbow,{
                     ammo="Crossbow Bolt"
-                  }
+                  })
   
-  sets['Acid'] = {
-                    range="Power Crossbow",
+  sets['Acid'] = set_combine(sets.Crossbow,{
                     ammo="Acid Bolt"
-                  }
+                  })
                 
-  sets['Bloody'] = {
-                    range="Power Crossbow",
+  sets['Bloody'] = set_combine(sets.Crossbow,{
                     ammo="Bloody Bolt"
-                  }
+                  })
                 
-  sets['Sleep'] = {
-                    range="Power Crossbow",
+  sets['Sleep'] = set_combine(sets.Crossbow,{
                     ammo="Sleep Bolt"
-                  }
-     
+                  })
+  sets['Blind'] = set_combine(sets.Crossbow,{
+                    ammo="Blind Bolt"
+                  })
+
   sets.Regen = {}
 
   sets.Regen.daytime = set_combine(sets.Regen,{})
@@ -122,7 +124,7 @@ function init_gear_sets()
     feet="Trotter Boots",
     left_ear="Suppanomimi",
     right_ear="Drone Earring",
-    left_ring="Warp Ring",
+    left_ring="Lava's Ring",
     right_ring="Kusha's Ring",
     back="Nomad's Mantle +1",
   }
@@ -138,9 +140,9 @@ function init_gear_sets()
     back="Nomad's Mantle +1",
     waist="Scouter's Rope",
   }
-  sets.defense.SubtleBlow = {
+  sets.defense.SubtleBlow = set_combine(sets.defense.Evasion,{
     body="Dragon Harness",
-  }
+  })
   
   sets.defense.PDT = {}
      

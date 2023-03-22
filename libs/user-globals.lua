@@ -131,6 +131,7 @@ function user_buff_change(buff, gain, eventArgs)
 end
 
 function user_status_change(new,old)
+	handle_locks()
     if new == 'Resting' then
         if player.tp > 50 then
 			if state.RestingMode.value ~= 'DW' then

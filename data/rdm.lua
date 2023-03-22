@@ -1,4 +1,3 @@
-
 function get_sets()
 
   mote_include_version = 2
@@ -71,6 +70,10 @@ function user_unload()
 
     windower.send_command('sta !packets off')
 
+end
+
+function job_precast(spell,action,spellMap,eventsArgs)
+  handle_locks()
 end
 
 function job_get_spell_map(spell, default_spell_map)

@@ -78,9 +78,9 @@ function init_gear_sets()
         waist="Penitent's Rope",
         left_ear="Helenus's Earring",
         right_ear="Cass. Earring",
-        left_ring="Warp ring",
+        left_ring="Turquoise Ring",
         right_ring="Vilma's Ring",
-        back="Nexus cape"
+        back="White Cape +1"
 }
      
   sets.idle.Town = set_combine(sets.idle,

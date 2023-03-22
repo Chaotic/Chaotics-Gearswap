@@ -114,3 +114,16 @@ function initialize_skins(name)
     
     end
     
+    function fix_casting_times()
+        local res = require('resources')
+    
+        if not res.eraPatched then
+            local cast_times = require('spell_cast_times')
+    
+            for i, o in ipairs(cast_times) do
+                res.spells[i].cast_time = o.cast_time
+            end
+    
+            res.eraPatched = true
+        end
+    end

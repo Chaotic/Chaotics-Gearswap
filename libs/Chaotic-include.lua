@@ -21,9 +21,6 @@ function job_self_command(commandArgs,eventArgs)
         wards.flag = false
         wards.spell = ''
         eventArgs.handled = true
-    elseif commandArgs[1] == 'lock_ranged' then
-        lock_ranged()
-        eventArgs.handled = true
 --  elseif commandArgs[1] == 'handle_shot' then
 --    handle_shot()
 --    eventArgs.handled = true
@@ -39,6 +36,9 @@ function job_self_command(commandArgs,eventArgs)
     elseif commandArgs[1]:lower() == 'scholar' then
         handle_scholar(commandArgs)
         eventArgs.handled = true
+    elseif commandArgs[1] == 'tlock' then
+        toggle_slots(commandArgs)
+        eventArgs.handled = true
     end
 end
 
@@ -49,6 +49,8 @@ function initialize_job()
     initialize_skins(player.name)
     initialize_crafting_mode(player.name)
     check_buffs_on_load()
+    load_lock_items()
+
 
     if custom_job_sub_job_change then
         custom_job_sub_job_change(player.sub_job,"")
@@ -163,6 +165,43 @@ function ammo_recharge()
 
 end
 
+function handle_locks()
+    if equip_lock[player.equipment.left_ring] or equip_lock[player.equipment.right_ring] then
+        disable('ring1','ring2')
+    else
+        enable('ring1','ring2')
+    end
+    if equip_lock[player.equipment.range] then
+        disable('range','ammo')
+    else
+        enable('range','ammo')
+    end
+    if equip_lock[player.equipment.back] then
+        disable('back')
+    else
+        enable('back')
+    end
+end
+
+function load_lock_items()
+    equip_lock = S{
+        "Warp Ring",
+        "Halcyon Rod",
+        "Mithran Fish. Rod",
+        "Comp. Fishing Rod",
+        "S.H. Fishing Rod",
+        "Carbon Fish. Rod",
+        "Glass Fiber F. Rod",
+        "Yew Fishing Rod",
+        "Hume Fishing Rod",
+        "Nexus Cape",
+      }
+    end
+
+function toggle_slots()
+    
+end
+
 function lock_ranged()
     
     if state.Range.value then
@@ -172,62 +211,6 @@ function lock_ranged()
     end
     
 end
-
-function handle_cor_rolls(roll)
-   
-    rolls = {
-        ["Corsair's Roll"]   = {lucky=5, unlucky=9, bonus="Experience Points"},
-        ["Ninja Roll"]       = {lucky=4, unlucky=8, bonus="Evasion"},
-        ["Hunter's Roll"]    = {lucky=4, unlucky=8, bonus="Accuracy"},
-        ["Chaos Roll"]       = {lucky=4, unlucky=8, bonus="Attack"},
-        ["Magus's Roll"]     = {lucky=2, unlucky=6, bonus="Magic Defense"},
-        ["Healer's Roll"]    = {lucky=3, unlucky=7, bonus="Cure Potency Received"},
-        ["Puppet Roll"]      = {lucky=4, unlucky=8, bonus="Pet Magic Accuracy/Attack"},
-        ["Choral Roll"]      = {lucky=2, unlucky=6, bonus="Spell Interruption Rate"},
-        ["Monk's Roll"]      = {lucky=3, unlucky=7, bonus="Subtle Blow"},
-        ["Beast Roll"]       = {lucky=4, unlucky=8, bonus="Pet Attack"},
-        ["Samurai Roll"]     = {lucky=2, unlucky=6, bonus="Store TP"},
-        ["Evoker's Roll"]    = {lucky=5, unlucky=9, bonus="Refresh"},
-        ["Rogue's Roll"]     = {lucky=5, unlucky=9, bonus="Critical Hit Rate"},
-        ["Warlock's Roll"]   = {lucky=4, unlucky=8, bonus="Magic Accuracy"},
-        ["Fighter's Roll"]   = {lucky=5, unlucky=9, bonus="Double Attack Rate"},
-        ["Drachen Roll"]     = {lucky=3, unlucky=7, bonus="Pet Accuracy"},
-        ["Gallant's Roll"]   = {lucky=3, unlucky=7, bonus="Defense"},
-        ["Wizard's Roll"]    = {lucky=5, unlucky=9, bonus="Magic Attack"},
-        ["Dancer's Roll"]    = {lucky=3, unlucky=7, bonus="Regen"},
-        ["Scholar's Roll"]   = {lucky=2, unlucky=6, bonus="Conserve MP"},
-        ["Bolter's Roll"]    = {lucky=3, unlucky=9, bonus="Movement Speed"},
-        ["Caster's Roll"]    = {lucky=2, unlucky=7, bonus="Fast Cast"},
-        ["Courser's Roll"]   = {lucky=3, unlucky=9, bonus="Snapshot"},
-        ["Blitzer's Roll"]   = {lucky=4, unlucky=9, bonus="Attack Delay"},
-        ["Tactician's Roll"] = {lucky=5, unlucky=8, bonus="Regain"},
-        ["Allies's Roll"]    = {lucky=3, unlucky=10, bonus="Skillchain Damage"},
-        ["Miser's Roll"]     = {lucky=5, unlucky=7, bonus="Save TP"},
-        ["Companion's Roll"] = {lucky=2, unlucky=10, bonus="Pet Regain and Regen"},
-        ["Avenger's Roll"]   = {lucky=4, unlucky=8, bonus="Counter Rate"},
-    }
-    
-    rollinfo = rolls[roll]
-    if rollinfo then
-        add_to_chat(roll..': '..rollinfo.bonus..'.')
-        add_to_chat('Lucky: '..tostring(rollinfo.lucky)..', Unlucky: '..tostring(rollinfo.unlucky)..'.')
-    end
-end
-
-function fix_casting_times()
-    local res = require('resources')
-
-    if not res.eraPatched then
-        local cast_times = require('spell_cast_times')
-
-        for i, o in ipairs(cast_times) do
-            res.spells[i].cast_time = o.cast_time
-        end
-
-        res.eraPatched = true
-    end
-end
-
 
 function handle_scholar(cmdParams)
 
@@ -420,7 +403,10 @@ function initialize_crafting_sets(name)
                     body="Tanner's Apron",
                     hands="Tanner's Gloves",
                 }
-        sets.idle['Smithing'] = {}
+        sets.idle['Smithing'] = {
+                    body="Blacksmith's Apn.",
+                    hands="Smithy's Mitts",
+                }
         sets.idle['Woodworking'] = {}
         sets.idle['Gathering'] = {
                     body="Field Tunica",
@@ -446,32 +432,35 @@ function initialize_crafting_sets(name)
                             {
                                 left_ring="Tanner's Ring",
                             })
-        sets.idle['Smithing-Ring'] = set_combine(sets.idle['Smithing'],{})
+        sets.idle['Smithing-Ring'] = set_combine(sets.idle['Smithing'],
+                            {
+                                left_ring="Smith's Ring",
+                            })
         sets.idle['Woodworking-Ring'] = set_combine(sets.idle['Woodworking'],{})
 elseif name == "Asen" then
     sets.idle['Fishing'] = {
-        body="Fsh. Tunica",
-        legs="Fisherman's Hose",
-    }
+                                body="Fsh. Tunica",
+                                legs="Fisherman's Hose",
+                            }
         sets.idle['Gathering'] = {
                                   body="Field Tunica",
                                   hands="Field Gloves",
                                   legs="Field Hose",
                                   feet="Field Boots",
-                                }
+                            }
     elseif name == "Altered" then
         sets.idle['Fishing'] = {
                                 body="Fsh. Tunica",
                                 hands="Fsh. Gloves",
                                 legs="Fisherman's Hose",
                                 feet="Angler's Boots",
-                                 }
-        sets.idle['Gathering'] = {
-                  body="Choc. Jack Coat",
-                  hands="Chocobo Gloves",
-                  legs="Chocobo Hose",
-                  feet="Chocobo Boots",
-                                }
+                            }
+        sets.idle['Digging'] = {
+                                body="Choc. Jack Coat",
+                                hands="Chocobo Gloves",
+                                legs="Chocobo Hose",
+                                feet="Chocobo Boots",
+                            }
     end
 end
 
@@ -482,7 +471,7 @@ function initialize_crafting_mode(name)
     elseif name == "Asen" then
         state.CraftingMode = M{['description'] = 'Crafting Mode','None','Fishing','Gathering'}
     elseif name == "Altered" then
-        state.CraftingMode = M{['description'] = 'Crafting Mode','None','Fishing','Gathering'}
+        state.CraftingMode = M{['description'] = 'Crafting Mode','None','Fishing','Digging'}
     end
 end
 
@@ -492,3 +481,44 @@ function maybe_equip_crafting(idleSet,crafting_mode)
     return set_combine(idleSet, sets.idle[crafting_mode])
 end
 -----------------------------------------------------------------------------------------------------
+
+function handle_cor_rolls(roll)
+   
+    rolls = {
+        ["Corsair's Roll"]   = {lucky=5, unlucky=9, bonus="Experience Points"},
+        ["Ninja Roll"]       = {lucky=4, unlucky=8, bonus="Evasion"},
+        ["Hunter's Roll"]    = {lucky=4, unlucky=8, bonus="Accuracy"},
+        ["Chaos Roll"]       = {lucky=4, unlucky=8, bonus="Attack"},
+        ["Magus's Roll"]     = {lucky=2, unlucky=6, bonus="Magic Defense"},
+        ["Healer's Roll"]    = {lucky=3, unlucky=7, bonus="Cure Potency Received"},
+        ["Puppet Roll"]      = {lucky=4, unlucky=8, bonus="Pet Magic Accuracy/Attack"},
+        ["Choral Roll"]      = {lucky=2, unlucky=6, bonus="Spell Interruption Rate"},
+        ["Monk's Roll"]      = {lucky=3, unlucky=7, bonus="Subtle Blow"},
+        ["Beast Roll"]       = {lucky=4, unlucky=8, bonus="Pet Attack"},
+        ["Samurai Roll"]     = {lucky=2, unlucky=6, bonus="Store TP"},
+        ["Evoker's Roll"]    = {lucky=5, unlucky=9, bonus="Refresh"},
+        ["Rogue's Roll"]     = {lucky=5, unlucky=9, bonus="Critical Hit Rate"},
+        ["Warlock's Roll"]   = {lucky=4, unlucky=8, bonus="Magic Accuracy"},
+        ["Fighter's Roll"]   = {lucky=5, unlucky=9, bonus="Double Attack Rate"},
+        ["Drachen Roll"]     = {lucky=3, unlucky=7, bonus="Pet Accuracy"},
+        ["Gallant's Roll"]   = {lucky=3, unlucky=7, bonus="Defense"},
+        ["Wizard's Roll"]    = {lucky=5, unlucky=9, bonus="Magic Attack"},
+        ["Dancer's Roll"]    = {lucky=3, unlucky=7, bonus="Regen"},
+        ["Scholar's Roll"]   = {lucky=2, unlucky=6, bonus="Conserve MP"},
+        ["Bolter's Roll"]    = {lucky=3, unlucky=9, bonus="Movement Speed"},
+        ["Caster's Roll"]    = {lucky=2, unlucky=7, bonus="Fast Cast"},
+        ["Courser's Roll"]   = {lucky=3, unlucky=9, bonus="Snapshot"},
+        ["Blitzer's Roll"]   = {lucky=4, unlucky=9, bonus="Attack Delay"},
+        ["Tactician's Roll"] = {lucky=5, unlucky=8, bonus="Regain"},
+        ["Allies's Roll"]    = {lucky=3, unlucky=10, bonus="Skillchain Damage"},
+        ["Miser's Roll"]     = {lucky=5, unlucky=7, bonus="Save TP"},
+        ["Companion's Roll"] = {lucky=2, unlucky=10, bonus="Pet Regain and Regen"},
+        ["Avenger's Roll"]   = {lucky=4, unlucky=8, bonus="Counter Rate"},
+    }
+    
+    rollinfo = rolls[roll]
+    if rollinfo then
+        add_to_chat(roll..': '..rollinfo.bonus..'.')
+        add_to_chat('Lucky: '..tostring(rollinfo.lucky)..', Unlucky: '..tostring(rollinfo.unlucky)..'.')
+    end
+end
