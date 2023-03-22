@@ -6,18 +6,24 @@ I'm not going to be reincluding those files here however.
 These were also based of Kayrah's Gearswap files.  I've included the Kay-Include file but it isn't used (I've copied the functions and changed them to Chaotic-include)
 
 # Changes from the offical Motes
-Support for Level syncing.
-Support for the Elemental Grips
+- Support for Level syncing.
+- Support for the Elemental Grips
 
 # Other interesting functions
-    Some of these were copied from Kay-include or other files
+ *Some of these were copied from Kay-include or other files*
 
-Era speficic functions (These are located in the Era-Utilities.lua file)
-Better Summon Pact handling (From Kay's include)
-Automatic elemental selection for Elemental siphon (will select the best one cast siphon and release then recast if you had an avatar out.)
-Automatic selection of the best Helix spell (Based off the Siphon code)
-Ability to set a crafting mode to automatically equip your crafting gear.
-Better Scholar handling (1 command for both light/dark arts)
+- Era speficic functions (These are located in the Era-Utilities.lua file)
+
+- Better Summon Pact handling (From Kay's include)
+
+- Automatic elemental selection for Elemental siphon (will select the best one cast siphon 
+and release then recast if you had an avatar out.)
+
+- Automatic selection of the best Helix spell (Based off the Siphon code)
+
+- Ability to set a crafting mode to automatically equip your crafting gear.
+
+- Better Scholar handling (1 command for both light/dark arts)
 
 
 
@@ -53,6 +59,7 @@ To handle the following buffs
 > buff == 'Level Restriction' or buff == 'Level Sync' or buff == 'Battlefield' 
 
 (I have a function called handle_standard_buffs in chaotic-include that handles these and calls handle_level_sync)
+
 I've left the handle_level_sync function in the individual job files so each job can decide which level sets they want.
 
 The handle_level_sync should look like this
