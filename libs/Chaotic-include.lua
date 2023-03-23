@@ -1,6 +1,3 @@
-
---include('Chaotic-HUD.lua')
-
 -- The Following were copied from Kay-include and then modified to work with my understanding of Motes
 
 function job_self_command(commandArgs,eventArgs)
@@ -39,6 +36,9 @@ function job_self_command(commandArgs,eventArgs)
     elseif commandArgs[1] == 'tlock' then
         toggle_slots(commandArgs)
         eventArgs.handled = true
+    elseif commandArgs[1] == 'hud' then
+        hud_command(commandArgs)
+        eventArgs.handled = true
     end
 end
 
@@ -46,6 +46,8 @@ end
 
 function initialize_job()
     include('Era-Utilities.lua')
+    include('Chaotic-HUD.lua')
+    
     fix_casting_times()
 
     initialize_skins(player.name)
@@ -489,7 +491,7 @@ end
 
 -----------------------------------------------------------------------------------------------------
 function custom_debug(label,value)
-    add_to_chat(123,label..':'..tostring(value)..':')
+    add_to_chat(4,label..':'..tostring(value)..':')
 end
 -----------------------------------------------------------------------------------------------------
 

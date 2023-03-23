@@ -30,9 +30,11 @@ function init_gear_sets()
 
   --Idle Sets
   sets.idle = {
-    head="Brass Cap",
-    body="Brass Harness",
-    hands="Brass Mittens",
+    main="Greataxe",
+    sub="Tenax Strap",
+    head="Garrison Sallet",
+    body="Chocobo Shirt",
+    hands="Garrison Gloves",
     legs="Brass Subligar",
     feet="Bounding Boots",
     neck="Justice Badge",

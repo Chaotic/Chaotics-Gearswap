@@ -4,6 +4,7 @@ This makes use of my modified Motes Library that can be found at https://github.
 
 I'm not going to be reincluding those files here however.
 These were also based of Kayrah's Gearswap files.  I've included the Kay-Include file but it isn't used (I've copied the functions and changed them to Chaotic-include)
+The Basis for the HUD came from https://github.com/Tunaliz/Liz_Gearswap_DEV
 
 # Changes from the offical Motes
 - Support for Level syncing.
