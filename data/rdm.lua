@@ -57,7 +57,7 @@ function user_setup()
   spikes            = S{'Blaze Spikes','Shock Spikes','Ice Spikes'}
 
   casting_mode = ''
-  
+
   -- ^ = Ctrl  ! = Alt   @ = Win
   send_command('bind !f9 gs c cycle IdleMode')
 
@@ -205,6 +205,7 @@ function job_post_midcast(spell,action,spellMap,eventsArgs)
   
 
 --  Still working on this.
+
 function load_hud_info()
   --------------------------------------------------------------------------------------------------------------
 -- HUD Initial setup and Positioning

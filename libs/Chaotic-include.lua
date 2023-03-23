@@ -42,6 +42,8 @@ function job_self_command(commandArgs,eventArgs)
     end
 end
 
+
+
 function initialize_job()
     include('Era-Utilities.lua')
     fix_casting_times()
@@ -68,13 +70,15 @@ function initialize_job()
     windower.register_event('zone change', 
     function(new, old)
         send_command('gs c update')
+        --  Clear ring / back locks to get rid of nexus / warp ring
+        slots_to_lock.islocked['ring'] = false
+        slots_to_lock.islocked['back'] = false
+        handle_locks()
     end)
 
     windower.register_event('time change', time_change)
     
 end
-
-
 
 function job_sub_job_change(new,old)
 
@@ -165,52 +169,53 @@ function ammo_recharge()
 
 end
 
+function load_lock_items()
+    slots_to_lock = {}
+    slots_to_lock.islocked = {['main'] = false, ['range'] = false, ['ring'] = false, ['back'] = false}
+    slots_to_lock.tocheck = S{'main','range','ring','back'}
+end
+
+function toggle_slots(cmdParams)
+    if not cmdParams[2] then
+        add_to_chat(123,'Error: No strategem command given.')
+        return
+    end
+    local temp = cmdParams[2]
+    if slots_to_lock.tocheck:contains(temp) then
+        if slots_to_lock.islocked[temp] then
+            slots_to_lock.islocked[temp] = false
+        else
+              slots_to_lock.islocked[temp] = true
+        end
+
+        handle_locks()
+    end
+
+end
+
 function handle_locks()
-    if equip_lock[player.equipment.left_ring] or equip_lock[player.equipment.right_ring] then
+    if slots_to_lock.islocked['ring'] then
         disable('ring1','ring2')
     else
         enable('ring1','ring2')
     end
-    if equip_lock[player.equipment.range] then
+    if slots_to_lock.islocked['main'] then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
+    if slots_to_lock.islocked['range'] then
         disable('range','ammo')
     else
         enable('range','ammo')
     end
-    if equip_lock[player.equipment.back] then
+    if slots_to_lock.islocked['back'] then
         disable('back')
     else
         enable('back')
     end
 end
 
-function load_lock_items()
-    equip_lock = S{
-        "Warp Ring",
-        "Halcyon Rod",
-        "Mithran Fish. Rod",
-        "Comp. Fishing Rod",
-        "S.H. Fishing Rod",
-        "Carbon Fish. Rod",
-        "Glass Fiber F. Rod",
-        "Yew Fishing Rod",
-        "Hume Fishing Rod",
-        "Nexus Cape",
-      }
-    end
-
-function toggle_slots()
-    
-end
-
-function lock_ranged()
-    
-    if state.Range.value then
-        disable("range","ammo")
-    else
-        enable("range","ammo")
-    end
-    
-end
 
 function handle_scholar(cmdParams)
 
@@ -482,6 +487,13 @@ function maybe_equip_crafting(idleSet,crafting_mode)
 end
 -----------------------------------------------------------------------------------------------------
 
+-----------------------------------------------------------------------------------------------------
+function custom_debug(label,value)
+    add_to_chat(123,label..':'..tostring(value)..':')
+end
+-----------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------
 function handle_cor_rolls(roll)
    
     rolls = {
