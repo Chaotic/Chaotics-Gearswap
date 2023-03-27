@@ -3,11 +3,19 @@ function init_gear_sets()
 
   windower.send_command('sta !packets on')
 -- misc
-sets.MND = {}
+sets.MND = {
+  hands="Zealot's Mitts",
+}
 
 sets.INT = {}
 
-sets.CHR = {}
+sets.CHR = {
+  main="Monster Signa",
+  head="Noble's Ribbon",
+  neck="Chocobo Whistle",
+  left_ring="Opal Ring",
+  right_ring="Opal Ring",
+}
 
 sets.Singing = {}
 sets.Wind = set_combine(sets.Singing,{})
@@ -34,13 +42,13 @@ range="Ryl.Spr. Horn",
 sets.midcast['Mambo'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
 range="Gemshorn +1",
 })
-sets.midcast['Madrigal'] = sets.midcast['Requiem']
-sets.midcast['Prelude'] = sets.midcast['Requiem']
-sets.midcast['Etude'] = sets.midcast['Requiem']
-sets.midcast['Ballad'] = sets.midcast['Requiem']
+sets.midcast['Madrigal'] = sets.midcast['March']
+sets.midcast['Prelude'] = sets.midcast['March']
+sets.midcast['Etude'] = sets.midcast['March']
+sets.midcast['Ballad'] = sets.midcast['March']
 sets.midcast['Paeon'] = sets.midcast['Minne']
-sets.midcast['Carol'] = sets.midcast['Requiem']
-sets.midcast['Elegy'] = sets.midcast['Requiem']
+sets.midcast['Carol'] = sets.midcast['March']
+sets.midcast['Elegy'] = sets.midcast['March']
 --[[
 sets.midcast['Madrigal'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
 range="Maple Harp +1",
@@ -67,14 +75,17 @@ range="Maple Harp +1",
 
 -- idle
 sets.idle = {
-  main="Bronze Sword",
+  main="Monster Signa",
   range="Cornette +2",
+  head="Empress Hairpin",
   body="Chocobo Shirt",
-  hands="Mithran Gauntlets",
-  legs="Mithran Loincloth",
-  feet="Mithran Gaiters",
-  left_ring="Warp Ring",
-  right_ring="Anniversary Ring",
+  hands="Zealot's Mitts",
+  legs="Beetle Subligar +1",
+  feet="Bounding Boots",
+  neck="Chocobo Whistle",
+  left_ring="Opal Ring",
+  right_ring="Opal Ring",
+  back="Traveler's Mantle",
 }
    
 sets.idle.Town = set_combine(sets.idle,
@@ -117,7 +128,6 @@ sets.midcast['Enfeebling Magic']['WhiteMagic'].Acc = set_combine(sets.midcast['E
 sets.midcast['Elemental Magic'] = set_combine(sets.INT,
               {
                   ear2="Moldavite earring",
-                  hands="Zenith mitts"
               })
  
 sets.midcast['Elemental Magic'].Acc = set_combine(sets.midcast['Elemental Magic'],{})
@@ -155,6 +165,5 @@ sets.precast.WS = {}
  
 sets.precast.WS.Acc = set_combine(sets.precast.WS,{})
 
-  
-    initialize_crafting_sets(player.name)
+initialize_crafting_sets(player.name)
 end
