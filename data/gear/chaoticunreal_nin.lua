@@ -4,7 +4,11 @@ function init_gear_sets()
     
     -- misc.
     sets.INT = {
-      hands="Garrison Gloves"
+      hands="Garrison Gloves",
+      left_ear="Morion Earring",
+      right_ear="Morion Earring",
+      left_ring="Eremite's Ring",
+      right_ring="Eremite's Ring",
     }
        
     sets.enmityUp = {}
@@ -34,17 +38,20 @@ function init_gear_sets()
   
     -- idle
     sets.idle= {
-      main="Suzume",
-      sub="Suzume",
-      head="Empress Hairpin",
-                    body="Brass Harness",
-                    hands="Brass Mittens",
-                    legs="Brass Subligar",
-                    feet="Bounding Boots",
-                    neck="Justice Badge",
-                    waist="Friar's Rope",
-                    left_ring="Silver Ring",
-                    back="Traveler's Mantle",
+                main="Zushio",
+                sub="Anju",
+                range="Jr.Msk. Chakram",
+                head="Empress Hairpin",
+                body="Jujitsu Gi",
+                hands="Ochiudo's Kote",
+                legs="Ryl.Sqr. Breeches",
+                feet="Sarutobi Kyahan",
+                neck="Peacock Amulet",
+                left_ear="Dodge Earring",
+                right_ear="Dodge Earring",
+                left_ring="Archer's Ring",
+                right_ring="Archer's Ring",
+                back="Traveler's Mantle",
                 }
   
     sets.idle.Town = set_combine(sets.idle,
@@ -62,17 +69,20 @@ function init_gear_sets()
   
     -- engaged
     sets.engaged = {
-      main="Suzume",
-      sub="Suzume",
-      head="Empress Hairpin",
-                        body="Brass Harness",
-                        hands="Brass Mittens",
-                        legs="Brass Subligar",
-                        feet="Bounding Boots",
-                        neck="Justice Badge",
-                        waist="Friar's Rope",
-                        left_ring="Silver Ring",
-                        back="Traveler's Mantle",
+                    main="Zushio",
+                    sub="Anju",
+                    range="Jr.Msk. Chakram",
+                    head="Empress Hairpin",
+                    body="Jujitsu Gi",
+                    hands="Ochiudo's Kote",
+                    legs="Ryl.Sqr. Breeches",
+                    feet="Sarutobi Kyahan",
+                    neck="Peacock Amulet",
+                    left_ear="Dodge Earring",
+                    right_ear="Dodge Earring",
+                    left_ring="Archer's Ring",
+                    right_ring="Archer's Ring",
+                    back="Traveler's Mantle",
                     }
        
     sets.engaged.HybridAcc = set_combine(sets.engaged,
@@ -85,7 +95,12 @@ function init_gear_sets()
                                     {})
   
     -- ranged
-    sets.precast.RA = {}
+    sets.precast.RA = {
+                        neck="Peacock Amulet",
+                        left_ring="Horn Ring +1",
+                        right_ring="Horn Ring +1",
+                        feet="Bounding Boots",
+                      }
   
     sets.midcast.RA = set_combine(sets.precast.RA,
                                     {})
@@ -131,8 +146,8 @@ function init_gear_sets()
   
   initialize_crafting_sets(player.name)
   sets.idle['Cooking'] = {
-    main="Hocho",
-    head="Chef's Hat",
-    body="Culinarian's Apron",
-    }
+                          main="Hocho",
+                          head="Chef's Hat",
+                          body="Culinarian's Apron",
+                         }
   end

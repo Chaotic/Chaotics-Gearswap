@@ -5,7 +5,7 @@ function initialize_skins(name)
         if name == "Asen" then
             skins = {
                 ['PLD'] = {set=157},
-                ['SMN'] = {head=116,body=578,hands=215,legs=577,feet=577}
+                ['SMN'] = {head=116,body=577,hands=215,legs=577,feet=577}
             }
         elseif name == "Chaoticunreal" then
             skins = {
@@ -14,7 +14,7 @@ function initialize_skins(name)
             }
         elseif name == "Altered" then
             skins = {
-                ['THF'] = {set=225},
+                ['THF'] = {set=225,main=756,sub=756},
                 ['SMN'] = {head=116,body=578,hands=215,legs=577,feet=577}
             }
       end
@@ -126,4 +126,18 @@ function initialize_skins(name)
     
             res.eraPatched = true
         end
+    end
+
+    function find_skins(slot,num)
+        slots = S{"head","body","hands","legs","feet","main","sub","ranged","ammo","set"}
+        if not slots:contains(slot) then
+            add_to_chat(123,'Unknown slot: '..tostring(slot))
+            return
+        end
+        local command = ''
+        send_command('input /lockstyle off;')
+        for item = num,num+100 do
+            command = command..'wait 2;input /s !setskin '..slot..' '..item..';'
+        end
+        send_command(command)
     end

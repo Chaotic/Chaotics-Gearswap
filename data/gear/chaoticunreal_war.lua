@@ -30,14 +30,12 @@ function init_gear_sets()
 
   --Idle Sets
   sets.idle = {
-    main="Greataxe",
-    sub="Tenax Strap",
-    head="Garrison Sallet",
-    body="Chocobo Shirt",
-    hands="Garrison Gloves",
-    legs="Brass Subligar",
+    head="Empress Hairpin",
+    body="Savage Separates",
+    hands="Savage Gauntlets",
+    legs="Savage Loincloth",
     feet="Bounding Boots",
-    neck="Justice Badge",
+    neck="Peacock Amulet",
     waist="Friar's Rope",
     left_ring="Anniversary Ring",
     right_ring="Warp Ring",
@@ -56,12 +54,13 @@ function init_gear_sets()
 
   -- default engaged
   sets.engaged = {
-    head="Brass Cap",
-    body="Brass Harness",
-    hands="Brass Mittens",
-    legs="Brass Subligar",
+
+    head="Empress Hairpin",
+    body="Savage Separates",
+    hands="Savage Gauntlets",
+    legs="Savage Loincloth",
     feet="Bounding Boots",
-    neck="Justice Badge",
+    neck="Peacock Amulet",
     waist="Friar's Rope",
     left_ring="Anniversary Ring",
     right_ring="Warp Ring",

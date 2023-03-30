@@ -39,6 +39,9 @@ function job_self_command(commandArgs,eventArgs)
     elseif commandArgs[1] == 'hud' then
         hud_command(commandArgs)
         eventArgs.handled = true
+    elseif commandArgs[1] == 'findskin' then
+        find_skins(commandArgs[2],commandArgs[3])
+        eventArgs.handled = true
     end
 end
 
@@ -185,8 +188,10 @@ function toggle_slots(cmdParams)
     local temp = cmdParams[2]
     if slots_to_lock.tocheck:contains(temp) then
         if slots_to_lock.islocked[temp] then
+            add_to_chat(123,'Unlocking '..tostring(temp))
             slots_to_lock.islocked[temp] = false
         else
+            add_to_chat(123,'Locking '..tostring(temp))
               slots_to_lock.islocked[temp] = true
         end
 

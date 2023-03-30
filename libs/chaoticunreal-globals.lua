@@ -40,3 +40,8 @@ function define_global_sets()
 	gear.default.recast_staff = ""
 	]]
 end
+-- Global intercept on precast.
+function user_precast(spell, action, spellMap, eventArgs)
+    cancel_conflicting_buffs(spell, action, spellMap, eventArgs)
+    refine_waltz(spell, action, spellMap, eventArgs)
+end
