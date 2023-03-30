@@ -396,7 +396,10 @@ function initialize_crafting_sets(name)
                     body="Alchemist's Apron",
                 }
         sets.idle['Bonecraft'] = {}
-        sets.idle['Clothcraft'] = {}
+        sets.idle['Clothcraft'] = {
+                    head="Magnifying Specs.",
+                    body="Weaver's Apron",
+                }       
         sets.idle['Cooking'] = {
                     head="Chef's Hat",
                     body="Culinarian's Apron",
@@ -431,7 +434,10 @@ function initialize_crafting_sets(name)
                                 left_ring="Alchemist's Ring",
                             })
         sets.idle['Bonecraft-Ring'] = set_combine(sets.idle['Bonecraft'],{})
-        sets.idle['Clothcraft-Ring'] = set_combine(sets.idle['Clothcraft'],{})
+        sets.idle['Clothcraft-Ring'] = set_combine(sets.idle['Clothcraft'],
+                            {
+                                left_ring="Tailor's Ring",
+                            })
         sets.idle['Cooking-Ring'] = set_combine(sets.idle['Cooking'],
                             {
                                 left_ring="Chef's Ring",
