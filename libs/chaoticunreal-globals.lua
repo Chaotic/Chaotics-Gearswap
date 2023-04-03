@@ -21,7 +21,7 @@ function define_global_sets()
 	-- Staffs
 	gear.Staff = {}
 	gear.Staff.HMP = 'Iridal Staff'
-	gear.Staff.PDT = 'Terra Staff'
+	gear.Staff.PDT = "Terra's Staff"
 	gear.default.ElementalGrip = 'Lizard Strap'
 	
 	--[[  I don't have these currently
