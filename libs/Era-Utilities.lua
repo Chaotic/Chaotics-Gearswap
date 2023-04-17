@@ -4,16 +4,19 @@
 function initialize_skins(name)
         if name == "Asen" then
             skins = {
+                ['BLM'] = {set=285},
                 ['PLD'] = {set=157},
-                ['SMN'] = {head=116,body=577,hands=215,legs=577,feet=577}
+                ['SMN'] = {head=116,body=578,hands=215,legs=577,feet=577}
             }
         elseif name == "Chaoticunreal" then
             skins = {
+                ['BLM'] = {set=285},
                 ['RDM'] = {body=334,hands=334,legs=334,feet=334},
                 ['SMN'] = {head=116,body=578,hands=215,legs=577,feet=577}
             }
         elseif name == "Altered" then
             skins = {
+                ['BLM'] = {set=285},
                 ['THF'] = {set=225,main=756,sub=756},
                 ['SMN'] = {head=116,body=578,hands=215,legs=577,feet=577}
             }

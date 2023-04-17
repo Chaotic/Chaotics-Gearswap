@@ -1,6 +1,6 @@
 function init_gear_sets()
   
-  windower.send_command('sta !packets on')
+  windower.send_command('sta !packets on; wait 1; gs equip sets.idle')
 
   -- misc
   sets.MND = {
@@ -37,6 +37,7 @@ function init_gear_sets()
   sets.precast.JA['Elemental Siphon'] = {
     head="Evoker's Horn",
     waist="Summoning Belt",
+    left_ring="Evoker's Ring",
   }
 
   -- bp precast
@@ -123,10 +124,11 @@ function init_gear_sets()
     body="Errant Hpl.",
     ammo="Bibiki Seashell",
     legs="Yigit Seraweels",
+    left_ear="Antivenom Earring",
   }
   -- Idle sets
   sets.idle = {
-    main="Iridal Staff",
+    main=gear.Staff.PDT,
     ammo="Bibiki Seashell",
     head="Evoker's Horn",  
     body="Yinyang Robe",
@@ -137,15 +139,17 @@ function init_gear_sets()
     waist="Summoning Belt",
     left_ear="Bloodbead Earring",
     right_ring="Vilma's Ring",
-    left_ring="Warp Ring",
+    left_ring="Evoker's Ring",
   }
      
   sets.idle.Avatar = set_combine(sets.idle,{
+    left_ring="Evoker's Ring",
     legs="Evoker's Spats",
     feet="Evoker's Pigaches",
   })
                  
   sets.idle.Spirit = set_combine(sets.idle,{
+    left_ring="Evoker's Ring",
     legs="Evoker's Spats",
     feet="Evoker's Pigaches",
   })
@@ -156,13 +160,16 @@ function init_gear_sets()
     hands="Evoker's Bracers",
     legs="Evoker's Spats",
     feet="Evoker's Pigaches",
+    left_ring="Evoker's Ring",
     back="Nexus cape"
   })
 
   -- Favor uses Caller's Horn instead of Convoker's Horn for refresh
   sets.idle.Avatar.Melee = set_combine(sets.idle.Avatar,{})
 
-  sets.perp = {}
+  sets.perp = {
+                left_ring="Evoker's Ring",
+              }
      
   sets.perp.Day = {}
    
@@ -189,7 +196,7 @@ function init_gear_sets()
     waist="Summoning Belt",
     left_ear="Bloodbead Earring",
     right_ring="Vilma's Ring",
-    left_ring="Warp Ring",
+    left_ring="Evoker's Ring",
   }
 
   -- ws

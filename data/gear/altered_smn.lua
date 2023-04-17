@@ -1,6 +1,6 @@
 function init_gear_sets()
   
-  windower.send_command('sta !packets on')
+  windower.send_command('sta !packets on; wait 1; gs equip sets.idle')
 
   -- misc
   sets.MND = {
@@ -38,12 +38,15 @@ function init_gear_sets()
   sets.precast.JA['Elemental Siphon'] = {
     head="Evoker's Horn",
     waist="Summoning Belt",
+    hands="Summoner's Brcr.",
+    left_ring="Evoker's Ring",
   }
 
   -- bp precast
   sets.precast.BloodPactWard = set_combine(sets.precast.JA['Elemental Siphon'],{
     body="Yinyang Robe",
     feet="Summoner's Pgch.",
+    hands="Summoner's Brcr.",
   })
                  
   sets.precast.BloodPactRage = set_combine(sets.precast.BloodPactWard,{})
@@ -125,19 +128,21 @@ function init_gear_sets()
     body="Errant Hpl.",
     ammo="Bibiki Seashell",
     legs="Yigit Seraweels",
+    left_ear="Antivenom Earring",
   }
 
   -- Idle sets
   sets.idle = {
-    main="Iridal Staff",
+    main=gear.Staff.PDT,
     ammo="Bibiki Seashell",
     head="Evoker's Horn",  
     body="Yinyang Robe",
-    hands="Evoker's Bracers",
+    hands="Summoner's Brcr.",
     legs="Evoker's Spats",
-    feet="Evoker's Pigaches",
+    feet="Summoner's Pgch.",
     neck="Justice Badge",
-    left_ring="Warp Ring",
+    left_ear="Antivenom Earring",
+    left_ring="Evoker's Ring",
     right_ring="Vilma's Ring",
     waist="Summoning Belt",
     back="Mist Silk Cape",
@@ -146,11 +151,13 @@ function init_gear_sets()
   sets.idle.Avatar = {
     legs="Evoker's Spats",
     feet="Evoker's Pigaches",
+    left_ring="Evoker's Ring",
   }
                  
   sets.idle.Spirit = set_combine(sets.idle,{
     legs="Evoker's Spats",
     feet="Evoker's Pigaches",
+    left_ring="Evoker's Ring",
   })
                  
   sets.idle.Town = set_combine(sets.idle,{
@@ -159,13 +166,16 @@ function init_gear_sets()
     hands="Evoker's Bracers",
     legs="Evoker's Spats",
     feet="Evoker's Pigaches",
+    left_ring="Evoker's Ring",
     back="Nexus cape"
   })
 
   -- Favor uses Caller's Horn instead of Convoker's Horn for refresh
   sets.idle.Avatar.Melee = set_combine(sets.idle.Avatar,{})
 
-  sets.perp = {}
+  sets.perp = {
+                left_ring="Evoker's Ring",
+             }
      
   sets.perp.Day = {}
    
@@ -185,11 +195,11 @@ function init_gear_sets()
     ammo="Bibiki Seashell",
     head="Evoker's Horn",  
     body="Yinyang Robe",
-    hands="Evoker's Bracers",
+    hands="Summoner's Brcr.",
     legs="Evoker's Spats",
-    feet="Evoker's Pigaches",
+    feet="Summoner's Pgch.",
     neck="Justice Badge",
-    left_ring="Warp Ring",
+    left_ring="Evoker's Ring",
     right_ring="Vilma's Ring",
     waist="Summoning Belt",
     back="Mist Silk Cape",

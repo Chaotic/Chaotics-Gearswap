@@ -55,11 +55,11 @@ elements.recast_staff_of = {['Light']='Arka II', ['Dark']='Xsaeta II', ['Fire']=
     ['Wind']='Vayuvata II', ['Earth']='Vishrava II', ['Lightning']='Apamajas II', ['Water']='Haoma II', ['Thunder']='Apamajas II'}
 
 elements.perpetuance_staff_of = {['Light']='Iridal Staff', ['Dark']='Iridal Staff', ['Fire']='Iridal Staff', ['Ice']='Iridal Staff',
-    ['Wind']='Iridal Staff', ['Earth']="Terra's Staff", ['Lightning']='Iridal Staff', ['Water']='Iridal Staff', ['Thunder']='Iridal Staff'}
+    ['Wind']='Iridal Staff', ['Earth']="Iridal Staff", ['Lightning']='Iridal Staff', ['Water']='Iridal Staff', ['Thunder']='Iridal Staff'}
 
 elements.elemental_staff_of = {['Light']='Iridal Staff', ['Dark']='Iridal Staff', ['Fire']='Iridal Staff', ['Ice']='Iridal Staff',
-    ['Wind']='Iridal Staff', ['Earth']="Terra's Staff", ['Lightning']='Iridal Staff', ['Water']='Iridal Staff', ['Thunder']='Iridal Staff'}
-    
+    ['Wind']='Iridal Staff', ['Earth']="Iridal Staff", ['Lightning']='Iridal Staff', ['Water']='Iridal Staff', ['Thunder']='Iridal Staff'}
+
     -- Colors for elements
 Colors = {
     ["Fire"] = "\\cs(204, 0, 0)", 
