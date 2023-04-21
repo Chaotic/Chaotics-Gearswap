@@ -33,10 +33,6 @@ function user_setup()
   spikes            = S{'Blaze Spikes','Shock Spikes','Ice Spikes'}
   
   bard_debuffs      = S{'Lullaby','Elegy','Requiem','Threnody'}
-  minne = S{'Knight\'s Minne','Knight\'s Minne II','Knight\'s Minne III','Knight\'s Minne IV','Knight\'s Minne V',}
-  minne = S{'Valor Minuet','Knight\'s Minne II','Knight\'s Minne III','Knight\'s Minne IV','Knight\'s Minne V',}
-  minne = S{'Knight\'s Minne','Knight\'s Minne II','Knight\'s Minne III','Knight\'s Minne IV','Knight\'s Minne V',}
-  minne = S{'Knight\'s Minne','Knight\'s Minne II','Knight\'s Minne III','Knight\'s Minne IV','Knight\'s Minne V',}
 
   casting_mode = ''
 
@@ -44,7 +40,11 @@ function user_setup()
 
 end
 
+function user_unload()
 
+  windower.send_command('sta !packets on')
+
+end
 
 
 -- Auto-Pianissimo

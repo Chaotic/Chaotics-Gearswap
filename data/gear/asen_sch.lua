@@ -1,6 +1,6 @@
 function init_gear_sets()
   
-    windower.send_command('sta !packets on')
+    windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
     
 
 	-- misc
@@ -26,59 +26,44 @@ function init_gear_sets()
     left_ring="Wisdom Ring",
     right_ring="Wisdom Ring",
   }
-       
-	
-    sets.grip= {
-                Fire 	  = {sub="Fire Grip"},
-                Earth 	  = {sub="Earth Grip"},
-                Water 	  = {sub="Water Grip"},
-                Wind 	  = {sub="Wind Grip"},
-                Ice 	  = {sub="Ice Grip"},
-                Lightning = {sub="Thunder Grip"},
-                Light 	  = {sub="Light Grip"},
-                Dark 	  = {sub="Dark Grip"}
-                }
      
 	-- idle/resting
     --idle
 	sets.idle = {
-		main="Elm Staff",
-		sub="Lizard Strap",
-		head="Seer's Crown +1",
-		body="Seer's Tunic +1",
-		hands="Seer's Mitts +1",
-		legs="Seer's Slacks +1",
-		feet="Seer's Pumps +1",
-		neck="Justice Badge",
-		waist="Shaman's Belt",
-		left_ear="Morion Earring",
-		right_ear="Morion Earring",
-		left_ring="Warp ring",
-		right_ring="Eremite's Ring",
+      main="Elm Staff",
+      sub="Lizard Strap",
+      head="Seer's Crown +1",
+      body="Seer's Tunic +1",
+      hands="Seer's Mitts +1",
+      legs="Seer's Slacks +1",
+      feet="Seer's Pumps +1",
+      neck="Justice Badge",
+      waist="Shaman's Belt",
+      left_ear="Morion Earring",
+      right_ear="Morion Earring",
+      left_ring="Eremite's Ring",
+      right_ring="Eremite's Ring",
 	  }
     sets.idle.DW = {
       main="Yew Wand +1",
       sub="Yew Wand +1",
       head="Seer's Crown +1",
-		body="Seer's Tunic +1",
-		hands="Seer's Mitts +1",
-		legs="Seer's Slacks +1",
-		feet="Seer's Pumps +1",
-		neck="Justice Badge",
-		waist="Shaman's Belt",
-		left_ear="Morion Earring",
-		right_ear="Morion Earring",
-		left_ring="Warp ring",
-		right_ring="Eremite's Ring",
+      body="Seer's Tunic +1",
+      hands="Seer's Mitts +1",
+      legs="Seer's Slacks +1",
+      feet="Seer's Pumps +1",
+      neck="Justice Badge",
+      waist="Shaman's Belt",
+      left_ear="Morion Earring",
+      right_ear="Morion Earring",
+      left_ring="Eremite's Ring",
+      right_ring="Eremite's Ring",
 	  }
-	sets.idle.Town
-	 = set_combine(sets.idle,
+	sets.idle.Town = set_combine(sets.idle,
                     {
-                        ring2="Warp ring",
                         back="Nexus cape"
                     })
-                    sets.idle.Town.DW
-                    = set_combine(sets.idle.DW,{
+  sets.idle.Town.DW = set_combine(sets.idle.DW,{
                                         back="Nexus cape",
                                       })
 	sets.resting = {

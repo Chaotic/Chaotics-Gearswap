@@ -1,6 +1,6 @@
 function init_gear_sets()
 
-    windower.send_command('sta !packets on')
+    windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
 
    --Misc.
   sets.enmityUp = {}
@@ -38,7 +38,7 @@ function init_gear_sets()
     right_ear="Cassie Earring",
     body="Bone Harness",
     hands="Bone Mittens +1",
-    left_ring="Warp Ring",
+    left_ring="Courage Ring",
     right_ring="Courage Ring",
     back="Traveler's mantle",
     waist="Barbarian's Belt",

@@ -74,7 +74,7 @@ end
 
 function user_unload()
 
-    windower.send_command('sta !packets off')
+    windower.send_command('sta !packets on')
 
 end
 
@@ -147,10 +147,6 @@ function handle_level_sync(gain)
   if gain then
     if player.main_job_level>59 then
       send_command('gs c set LevelCap Normal')
-    elseif player.main_job_level>49 then
-      send_command('gs c set LevelCap 50')
-    elseif player.main_job_level>39 then
-      send_command('gs c set LevelCap 40')
     elseif player.main_job_level>29 then
       send_command('gs c set LevelCap 30')
       end

@@ -1,6 +1,6 @@
 function init_gear_sets()
   
-    windower.send_command('sta !packets on')
+    windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
     
     -- misc.
     sets.INT = {
@@ -45,13 +45,12 @@ function init_gear_sets()
                   feet="Bounding Boots",
                   neck="Spike Necklace",
                   left_ring="Balance Ring",
-                  right_ring="Warp Ring",
+                  right_ring="Balance Ring",
                   back="Traveler's Mantle",
                 }
   
     sets.idle.Town = set_combine(sets.idle,
                                 {
-                                    ring2="Warp ring",
                                     back="Nexus cape"
                                 })
   

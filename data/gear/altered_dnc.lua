@@ -1,6 +1,6 @@
 function init_gear_sets()
   
-    windower.send_command('sta !packets on')
+    windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
     
     -- misc
     sets.enmityUp = {}
@@ -12,6 +12,7 @@ function init_gear_sets()
       neck="Peacock Amulet",
       waist="Life Belt",
       body="Scp. Harness +1",
+      hands="Dancer's Bangles",
     }
   
     sets.CHR = {

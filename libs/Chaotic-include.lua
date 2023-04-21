@@ -42,9 +42,11 @@ function job_self_command(commandArgs,eventArgs)
     elseif commandArgs[1] == 'findskin' then
         find_skins(commandArgs[2],commandArgs[3])
         eventArgs.handled = true
+    elseif commandArgs[1] == 'cyclegear' then
+        cycle_gear()
+        eventArgs.handled = true
     end
 end
-
 
 
 function initialize_job()
@@ -546,4 +548,12 @@ function handle_cor_rolls(roll)
         add_to_chat(roll..': '..rollinfo.bonus..'.')
         add_to_chat('Lucky: '..tostring(rollinfo.lucky)..', Unlucky: '..tostring(rollinfo.unlucky)..'.')
     end
+end
+
+function cycle_gear()
+    
+    gear.main = player.equipment.main
+    gear.sub = player.equipment.sub
+regear()
+
 end

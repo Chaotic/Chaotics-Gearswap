@@ -12,7 +12,8 @@ function initialize_skins(name)
             skins = {
                 ['BLM'] = {set=285},
                 ['RDM'] = {body=334,hands=334,legs=334,feet=334},
-                ['SMN'] = {head=116,body=578,hands=215,legs=577,feet=577}
+                ['SMN'] = {head=116,body=578,hands=215,legs=577,feet=577},
+                ['NIN'] = {head=186,body=196,hands=89,legs=294,feet=294}
             }
         elseif name == "Altered" then
             skins = {
@@ -33,7 +34,7 @@ function initialize_skins(name)
             command = command..'wait 2;input /s !setskin '..slots[slot]..' '..ids[slots[slot]]..';'
           end
         end 
-        send_command('input /lockstyle off;wait 2;gs c update;'..command..'wait 2; input /lockstyle on')
+        send_command('input /lockstyle off;wait 2;gs c update;'..command..'wait 10; input /lockstyle on')
       
       end
     

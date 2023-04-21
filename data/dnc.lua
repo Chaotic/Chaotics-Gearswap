@@ -44,7 +44,7 @@ function get_sets()
   
   function user_unload()
 
-    windower.send_command('sta !packets off')
+    windower.send_command('sta !packets on')
 
 end
 function job_post_precast(spell,action,spellMap,eventArgs)

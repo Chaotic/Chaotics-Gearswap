@@ -1,6 +1,6 @@
 function init_gear_sets()
   
-  windower.send_command('sta !packets on; wait 1; gs equip sets.idle')
+  windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
 
   -- misc
   sets.MND = {

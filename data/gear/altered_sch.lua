@@ -1,6 +1,6 @@
 function init_gear_sets()
   
-    windower.send_command('sta !packets on')
+    windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
     
 
 	-- misc
@@ -27,17 +27,6 @@ function init_gear_sets()
     right_ring="Wisdom Ring",
   }
 	
-    sets.grip= {
-                Fire 	  = {sub="Fire Grip"},
-                Earth 	  = {sub="Earth Grip"},
-                Water 	  = {sub="Water Grip"},
-                Wind 	  = {sub="Wind Grip"},
-                Ice 	  = {sub="Ice Grip"},
-                Lightning = {sub="Thunder Grip"},
-                Light 	  = {sub="Light Grip"},
-                Dark 	  = {sub="Dark Grip"}
-                }
-     
 	-- idle/resting
     --idle
 	sets.idle = {
@@ -52,7 +41,7 @@ function init_gear_sets()
 		waist="Shaman's Belt",
 		left_ear="Morion Earring",
 		right_ear="Morion Earring",
-		left_ring="Warp ring",
+		left_ring="Eremite's Ring",
 		right_ring="Eremite's Ring",
 	  }
     sets.idle.DW = {
@@ -67,14 +56,13 @@ function init_gear_sets()
       waist="Shaman's Belt",
       left_ear="Morion Earring",
       right_ear="Morion Earring",
-      left_ring="Warp ring",
+      left_ring="Eremite's Ring",
       right_ring="Eremite's Ring",
       }
   
 	sets.idle.Town
 	 = set_combine(sets.idle,
                     {
-                        ring2="Warp ring",
                         back="Nexus cape"
                     })
   sets.idle.Town.DW

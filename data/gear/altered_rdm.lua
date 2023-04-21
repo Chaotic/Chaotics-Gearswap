@@ -1,6 +1,6 @@
 function init_gear_sets()
     
-    windower.send_command('sta !packets on')
+    windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
 
 	--Misc
 	sets.MND = {
@@ -36,18 +36,6 @@ function init_gear_sets()
         back="Black Cape +1"
     }
 	
-	-- grips														 	   
-	sets.grip = {
-        Fire 	    = {sub="Fire Grip"},
-        Earth 	  = {sub="Earth Grip"},
-        Water 	  = {sub="Water Grip"},
-        Wind 	    = {sub="Wind Grip"},
-        Ice 	    = {sub="Ice Grip"},
-        Lightning = {sub="Thunder Grip"},
-        Light 	  = {sub="Light Grip"},
-        Dark 	    = {sub="Dark Grip"}
-    }
-     
 	-- idle
 	sets.idle = { 
         main="Brass Xiphos",
@@ -65,7 +53,6 @@ function init_gear_sets()
    
   sets.idle.Town = set_combine(sets.idle,
                 {
-                    right_ring="Warp ring",
                     back="Nexus cape"
                 })
    
@@ -73,7 +60,6 @@ function init_gear_sets()
    
   sets.idle.Town.Combat = set_combine(sets.idle.Combat,
                 {
-                    right_ring="Warp ring",
                     back="Nexus cape"
                 })
 	

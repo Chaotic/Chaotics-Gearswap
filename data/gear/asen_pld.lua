@@ -1,6 +1,6 @@
 function init_gear_sets()
     
-    windower.send_command('sta !packets on')
+    windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
 
     -- misc
     sets.enmity = {
@@ -28,10 +28,23 @@ function init_gear_sets()
       }
   
       -- Waltz set (chr and vit)
-      sets.precast.Waltz = {}
+      sets.precast.Waltz = {
+        head="Noble's Ribbon",
+        neck="Bird Whistle",
+        body="Savage Separates",
+        left_ring="Opal Ring",
+        right_ring="Opal Ring",
+        feet="Gallant Leggings",
+        waist="Corsette +1",
+      }
     
       sets.precast.WaltzSelf = set_combine(sets.precast.Waltz,
-                                          {})
+                                          {
+                                            body="Gallant Surcoat",
+                                            legs="Savage Loincloth",
+                                            left_ear="Knight's earring",
+                                            right_ear="Cassie Earring",
+                                        })
     
       -- Don't need any special gear for Healing Waltz.
       sets.precast.Waltz['Healing Waltz']= {}
@@ -136,7 +149,12 @@ function init_gear_sets()
       left_ring="Jelly Ring",
       right_ring="Nasatya's Ring",
     }
-    
+    sets.defense.SPDT = {
+      main=gear.Staff.PDT,
+      ammo={ name="Bibiki Seashell", augments={'HP recovered while healing +5','MP recovered while healing +5','Phys. dmg. taken -3%',}},
+      left_ring="Jelly Ring",
+      right_ring="Nasatya's Ring",
+    }
     sets.defense.MDT = set_combine(
                                     sets.MND,
                                     {
@@ -183,10 +201,12 @@ function init_gear_sets()
     
     sets.resting.Normal = {
                             main="Pluto's Staff",
-      ammo="Bibiki Seashell",
+                            ammo="Bibiki Seashell",
+                            left_ear="Antivenom Earring",
                           }
     sets.resting.TP = {
-      ammo="Bibiki Seashell",
+                        ammo="Bibiki Seashell",
+                        left_ear="Antivenom Earring",
                       }
   
     -- engaged
@@ -247,7 +267,8 @@ function init_gear_sets()
                                                     sets.precast.WS,
                                                     {
                                                       hands="Pallas's Bracelets",
-                                                       back="Cerberus Mantle",
+                                                      back="Cerberus Mantle",
+                                                      waist="Potent Belt",
                                                     }
                                                 )
      
@@ -256,7 +277,7 @@ function init_gear_sets()
                                                         {
                                                           neck="Peacock amulet",
                                                           body="Haubergeon +1",
-                                                          waist="Life Belt",
+                                                          waist="Potent Belt",
                                                           left_ring="Lava's Ring",
                                                           right_ring="Kusha's Ring",
                                                         }
@@ -266,8 +287,8 @@ function init_gear_sets()
 sets.precast.WS['Swift Blade'] = set_combine(
   sets.precast.WS,
   {
-      hands="Pallas's Bracelets",
-      back="Cerberus Mantle",
+    waist="Potent Belt",
+    back="Cerberus Mantle",
   }
 )
 

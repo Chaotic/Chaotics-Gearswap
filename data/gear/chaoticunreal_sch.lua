@@ -1,6 +1,6 @@
 function init_gear_sets()
   
-    windower.send_command('sta !packets on')
+    windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
     
 
 	-- misc
@@ -29,17 +29,6 @@ function init_gear_sets()
 		right_ring="Eremite's Ring",
 	  }
 	
-    sets.grip= {
-                Fire 	  = {sub="Fire Grip"},
-                Earth 	  = {sub="Earth Grip"},
-                Water 	  = {sub="Water Grip"},
-                Wind 	  = {sub="Wind Grip"},
-                Ice 	  = {sub="Ice Grip"},
-                Lightning = {sub="Thunder Grip"},
-                Light 	  = {sub="Light Grip"},
-                Dark 	  = {sub="Dark Grip"}
-                }
-     
 	-- idle/resting
     --idle
 	sets.idle = {

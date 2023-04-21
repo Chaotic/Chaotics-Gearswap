@@ -35,7 +35,7 @@
 
 function init_gear_sets()
     
-    windower.send_command('sta !packets on')
+    windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
 
     -- Auto equipped sets should look like
     -- sets.idle[idleScope][state.IdleMode][Pet[Engaged]][CustomIdleGroups]
@@ -99,11 +99,13 @@ function init_gear_sets()
     body="Errant Hpl.",
     ammo="Bibiki Seashell",
     legs="Yigit Seraweels",
+    left_ear="Antivenom Earring",
   }
   sets.resting.TP = {
     body="Errant Hpl.",
     ammo="Bibiki Seashell",
     legs="Yigit Seraweels",
+    left_ear="Antivenom Earring",
     }
   -- precast magic
   sets.precast.FC= {
@@ -114,7 +116,6 @@ function init_gear_sets()
 	-- midcast magic                                   
 	sets.midcast.FastRecast = set_combine(sets.precast.FC,
   {
-    head="Walahra Turban",
     waist="Velocious Belt",
     hands="Dusk Gloves",
     feet="Dusk Ledelsens",
@@ -222,38 +223,37 @@ function init_gear_sets()
                   legs="Yigit Seraweels",
                   feet="Dusk Ledelsens",
                   waist="Velocious Belt",
-                  left_ear="Helenus's Earring",
-                  right_ear="Cass. Earring",
+                  left_ear="Dodge Earring",
+                  right_ear="Dodge Earring",
                   left_ring="Lava's Ring",
                   right_ring="Kusha's Ring",
                   back="Cerberus Mantle",
                 }
    sets.engaged.Sword = set_combine(sets.engaged,{
-    left_ear="Suppanomimi"
-                })     
-    sets.engaged.DW                                   
-              = set_combine(sets.engaged,{left_ear="Suppanomimi"})
-  
-   sets.engaged.Sword.DW = set_combine(sets.engaged.Sword,sets.engaged.DW,{
+                  left_ear="Suppanomimi"
                 })
+
+    sets.engaged.DW = set_combine(sets.engaged,{
+                  left_ear="Suppanomimi"
+                })
+  
+   sets.engaged.Sword.DW = set_combine(sets.engaged.Sword,sets.engaged.DW,{})
   -- ws
   sets.precast.WS = {}
 
 -- STR 60
-sets.precast.WS['Vorpal Blade'] = set_combine(
-  sets.precast.WS,
-  {
+sets.precast.WS['Vorpal Blade'] = set_combine(sets.precast.WS,
+                {
                   back="Cerberus Mantle",
                   hands="Pallas's Bracelets",
-                }
-)
+                  waist="Potent Belt",
+                })
 
-sets.precast.WS['Vorpal Blade'].Acc = set_combine(
-      sets.precast.WS['Vorpal Blade'],
+sets.precast.WS['Vorpal Blade'].Acc = set_combine(sets.precast.WS['Vorpal Blade'],
       {
         neck="Peacock amulet",
         body="Scorpion Harness",
-        waist="Life Belt",
+        waist="Potent Belt",
         left_ring="Lava's Ring",
         right_ring="Kusha's Ring",
       }

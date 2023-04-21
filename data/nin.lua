@@ -27,7 +27,7 @@ function get_sets()
     state.Buff['Innin'] = buffactive['Innin'] or false
     state.Buff['Sange'] = buffactive['Sange'] or false
     
-    offhand_katana = S{'Narigitsune','Mamushito +1','Shusui'}
+    --offhand_katana = S{'Narigitsune','Mamushito +1','Shusui'}
   
     initialize_job()
   
@@ -47,7 +47,7 @@ function get_sets()
   
   function user_unload()
 
-    windower.send_command('sta !packets off')
+    windower.send_command('sta !packets on')
 
 end
   function job_buff_change(buff,gain)
@@ -103,6 +103,8 @@ end
       crafting_mode = state.CraftingMode.value
       if daytime then
         idleSet = set_combine(idleSet,{waist="Lycopodium sash"})
+      elseif not daytime then
+        idleSet = set_combine(idleSet,{waist="Lycopodium sash"})
       end
       idleSet = maybe_equip_crafting(idleSet,crafting_mode)
       return idleSet
@@ -120,10 +122,11 @@ end
       meleeSet = set_combine(meleeSet,{hands="Koga tekko"})
     end
     
+    --[[
     if not offhand_katana:contains(player.equipment.sub) then
       meleeSet = set_combine(meleeSet,{neck="Ancient torque"})
     end
-    
+    ]]
     return meleeSet
   
   end

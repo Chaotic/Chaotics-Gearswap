@@ -1,6 +1,6 @@
 function init_gear_sets()
   
-    windower.send_command('sta !packets on')
+    windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
     
     
 
@@ -62,7 +62,7 @@ function init_gear_sets()
     waist="Shaman's Belt",
     left_ear="Morion Earring",
     right_ear="Morion Earring",
-    left_ring="Warp Ring",
+    left_ring="Eremite's Ring",
     right_ring="Eremite's Ring",
   }
  

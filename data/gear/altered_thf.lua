@@ -1,6 +1,6 @@
 function init_gear_sets()
   
-    windower.send_command('sta !packets on')
+    windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
     
   -- misc sets
   sets.postPrecast = {}
@@ -162,7 +162,7 @@ function init_gear_sets()
     right_ear="Drone Earring",
     left_ring="Lava's Ring",
     right_ring="Kusha's Ring",
-    back="Nomad's Mantle +1",
+    back="Cerberus Mantle",
   }
      
   sets.engaged.HybridAcc = set_combine(sets.engaged,
@@ -188,10 +188,6 @@ function init_gear_sets()
   }
      
   sets.midcast.RA = {}
-  
-  sets.midcast.RA['Bloody'] = set_combine(sets.midcast.RA,{})
-    
-  sets.midcast.RA['Holy'] = set_combine(sets.midcast.RA,{})
   
   -- BASE WEAPONSKILL SETS
   sets.precast.WS  = {
@@ -220,8 +216,13 @@ function init_gear_sets()
 
   -- Evisceration
   -- DEX 50
-  sets.precast.WS['Evisceration'] = set_combine(sets.DEX,{body="Dragon Harness",
-})
+  sets.precast.WS['Evisceration'] = set_combine(sets.DEX,{
+                                                            head="Empress Hairpin",
+                                                            body="Dragon Harness",
+                                                            neck="Peacock amulet",
+                                                            waist="Life Belt",
+                                                            back="Cerberus Mantle",
+                                                          })
   
   sets.precast.WS['Evisceration'].Atk = set_combine(sets.precast.WS['Evisceration'],{})
                  
@@ -245,7 +246,12 @@ function init_gear_sets()
 
   -- Dancing Edge
   -- Dex 40 CHR 40
-  sets.precast.WS['Dancing Edge'] = set_combine(sets.DEX,{body="Dragon Harness",
+  sets.precast.WS['Dancing Edge'] = set_combine(sets.DEX,{
+    head="Empress Hairpin",
+    body="Dragon Harness",
+    neck="Peacock amulet",
+    waist="Life Belt",
+    back="Cerberus Mantle",
 })
     
   sets.precast.WS['Dancing Edge'].Atk = set_combine(sets.precast.WS['Dancing Edge'],{})
@@ -280,7 +286,11 @@ function init_gear_sets()
                 
   -- Mercy Stroke
   -- STR 80
-  sets.precast.WS['Mercy Stroke'] = {}
+  sets.precast.WS['Mercy Stroke'] = {
+    
+        back="Cerberus Mantle",
+        waist="Potent Belt",
+      }
     
   sets.precast.WS['Mercy Stroke'].Atk = set_combine(sets.precast.WS['Mercy Stroke'],{})
                 
@@ -288,7 +298,7 @@ function init_gear_sets()
   {
     neck="Peacock amulet",
     body="Scp. Harness +1",
-    waist="Life Belt",
+    waist="Potent Belt",
     left_ring="Lava's Ring",
     right_ring="Kusha's Ring",
   })
@@ -340,7 +350,9 @@ function init_gear_sets()
                 
   -- Mandalic Stab
   -- DEX
-  sets.precast.WS['Mandalic Stab'] = set_combine(sets.DEX,{body="Dragon Harness",
+  sets.precast.WS['Mandalic Stab'] = set_combine(sets.DEX,{
+    body="Dragon Harness",
+    back="Cerberus Mantle",
 })
   
   sets.precast.WS['Mandalic Stab'].Atk = set_combine(sets.precast.WS['Mandalic Stab'],{})  
@@ -393,7 +405,10 @@ function init_gear_sets()
                 
   -- Shark Bite
   -- DEX 40 AGI 40
-  sets.precast.WS['Shark Bite'] = set_combine(sets.DEXAGI,{body="Dragon Harness",
+  sets.precast.WS['Shark Bite'] = set_combine(sets.DEXAGI,{
+  head="Empress Hairpin",
+  body="Dragon Harness",
+  back="Cerberus Mantle",
 })
     
   sets.precast.WS['Shark Bite'].Atk = set_combine(sets.precast.WS['Shark Bite'],{}) 

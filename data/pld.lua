@@ -35,7 +35,7 @@ organizer_items = {
     state.IdleMode:options('Normal','SuperMDT','SuperPDT')
     state.OffenseMode:options('Normal','Acc','Heavy','Wyrm')
     state.WeaponskillMode:options('Normal','Acc')
-    state.PhysicalDefenseMode:options('PDT','Breath')
+    state.PhysicalDefenseMode:options('PDT','SPDT','Breath')
     state.MagicalDefenseMode:options('MDT')
     
     state.RestingMode:options('Normal','TP')
@@ -51,11 +51,11 @@ organizer_items = {
   end
   function user_unload()
 
-    windower.send_command('sta !packets off')
+    windower.send_command('sta !packets on')
 
 end
-  
-  function job_post_precast(spell,action,spellMap,eventArgs)
+
+function job_post_precast(spell,action,spellMap,eventArgs)
     if spell.type == 'Waltz' and spell.target.type == 'SELF' then
       equip(sets.precast.WaltzSelf)
     end
@@ -125,7 +125,7 @@ end
       end
       ]]
       if player.hpp < 50 then
-          idleSet = set_combine(idleSet,{ring2="Hercules' ring"})
+          idleSet = set_combine(idleSet,{right_ring="Hercules' ring"})
       end
       
       if (player.hpp >= 85) then

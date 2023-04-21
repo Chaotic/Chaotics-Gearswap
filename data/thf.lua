@@ -53,14 +53,14 @@ state.RestingMode:options('Normal','TP')
 initialize_crafting_mode(player.name)
 
 -- ^ = Ctrl  ! = Alt   @ = Win
-send_command('bind !f10 gs c cycle Ranged')
+--send_command('bind !f10 gs c cycle Ranged')
 send_command('bind !f9 gs c cycle TreasureMode')
 
 end
 
 function user_unload()
 
-  windower.send_command('sta !packets off')
+  windower.send_command('sta !packets on')
 
 end
 
