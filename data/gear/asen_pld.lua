@@ -97,13 +97,15 @@ function init_gear_sets()
                                                 sets.enmity,
                                                 sets.midcast.FastRecast,
                                                 {
-                                                        head="Valor Coronet",
+                                                  left_ear="Hospitaler Earring",
+                                                  head="Valor Coronet",
                                               }
                                             )
                   
     sets.midcast['Healing Magic'].self = set_combine(
                                                     sets.midcast['Healing Magic'],
                                                     {
+                                                      left_ear="Hospitaler Earring",
                                                       head="Valor Coronet",
                                                     }
                                                 )
