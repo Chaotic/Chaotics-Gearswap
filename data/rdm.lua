@@ -93,6 +93,10 @@ function job_get_spell_map(spell, default_spell_map)
   
 end
 
+function job_update_tracker(command)
+  return command..'wait 0.3;track add Cookies: ${inventory:Wizard Cookie};'
+end
+
 function job_buff_change(buff,gain)
 
   handle_standard_buffs(buff,gain)

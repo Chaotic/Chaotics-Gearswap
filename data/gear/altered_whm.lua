@@ -12,12 +12,14 @@ function init_gear_sets()
     feet="Seer's Pumps +1",
     neck="Justice Badge",
     back="Mist Silk Cape",
+    right_ring="Tamas Ring",
   }
 
   sets.INT = {
     head="Seer's Crown +1",
     hands="Seer's Mitts +1",
     legs="Seer's Slacks +1",
+    right_ring="Tamas Ring",
   }
 	
 	--Precast Magic

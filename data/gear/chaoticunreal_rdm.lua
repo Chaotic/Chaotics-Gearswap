@@ -47,10 +47,10 @@ function init_gear_sets()
         body="Errant Hpl.",
         hands="Zealot's Mitts",
         legs="Errant Slops",
-        feet="Duelist's Boots",
+        feet="Mahatma Pigaches",
         waist="Penitent's Rope",
         left_ring="Turquoise Ring",
-        right_ring="Turquoise Ring",
+        right_ring="Tamas Ring",
         back="White Cape +1"
     }
 	   
@@ -63,7 +63,7 @@ function init_gear_sets()
         left_ear="Morion Earring",
         right_ear="Morion Earring",
         left_ring="Genius Ring",
-        right_ring="Genius Ring",
+        right_ring="Tamas Ring",
         back="Black Cape +1",
         neck="Philomath Stole",
     }
@@ -78,8 +78,8 @@ function init_gear_sets()
         waist="Penitent's Rope",
         left_ear="Helenus's Earring",
         right_ear="Cass. Earring",
-        left_ring="Turquoise Ring",
-        right_ring="Vilma's Ring",
+        right_ring="Tamas Ring",
+        left_ring="Vilma's Ring",
         back="White Cape +1"
 }
      
@@ -100,13 +100,16 @@ function init_gear_sets()
     ammo="Bibiki Seashell",
     legs="Yigit Seraweels",
     left_ear="Antivenom Earring",
+    right_ear="Relaxing Earring",
+
   }
   sets.resting.TP = {
     body="Errant Hpl.",
     ammo="Bibiki Seashell",
     legs="Yigit Seraweels",
     left_ear="Antivenom Earring",
-    }
+    right_ear="Relaxing Earring",
+  }
   -- precast magic
   sets.precast.FC= {
     head="Warlock's Chapeau",
@@ -130,6 +133,8 @@ function init_gear_sets()
   })
                                                      
   sets.midcast['Divine Magic'] = set_combine(sets.MND,sets.midcast.FastRecast,{
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
     head="Elite Beret",
   })
                  
@@ -139,6 +144,8 @@ function init_gear_sets()
   })
                                                      
   sets.midcast['Enfeebling Magic'] = {
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
     neck="Spider Torque",
     body="Warlock's Tabard",
     head="Elite Beret",
@@ -166,6 +173,8 @@ function init_gear_sets()
                                                                     right_ear="Cass. Earring",
                                                                   })  
   sets.midcast['Elemental Magic'] = set_combine(sets.INT,sets.midcast.FastRecast,{
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
     head="Warlock's Chapeau",
   })
    
@@ -176,6 +185,7 @@ function init_gear_sets()
                                                      
   sets.midcast['Dark Magic'] = set_combine(sets.INT,sets.midcast.FastRecast,{
     right_ear="Dark Earring",
+    left_ear="Abyssal Earring",
   })
                  
   sets.midcast['Dark Magic'].Acc = set_combine(sets.midcast['Dark Magic'],{
@@ -218,7 +228,7 @@ function init_gear_sets()
   sets.engaged= {
                   head="Walahra Turban",
                   neck="Peacock amulet",
-                  body="Scorpion Harness",
+                  body="Scp. Harness +1",
                   hands="Dusk Gloves",
                   legs="Yigit Seraweels",
                   feet="Dusk Ledelsens",
@@ -252,7 +262,7 @@ sets.precast.WS['Vorpal Blade'] = set_combine(sets.precast.WS,
 sets.precast.WS['Vorpal Blade'].Acc = set_combine(sets.precast.WS['Vorpal Blade'],
       {
         neck="Peacock amulet",
-        body="Scorpion Harness",
+        body="Scp. Harness +1",
         waist="Potent Belt",
         left_ring="Lava's Ring",
         right_ring="Kusha's Ring",

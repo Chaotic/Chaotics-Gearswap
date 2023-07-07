@@ -45,6 +45,9 @@ function job_self_command(commandArgs,eventArgs)
     elseif commandArgs[1] == 'cyclegear' then
         cycle_gear()
         eventArgs.handled = true
+    elseif commandArgs[1] == 'fill' then
+        send_command('fillmode')
+        eventArgs.handled = true
     end
 end
 
@@ -84,6 +87,10 @@ function initialize_job()
     end)
 
     windower.register_event('time change', time_change)
+    update_tracker()
+    check_rings()
+    check_earrings()
+
     
 end
 
@@ -93,8 +100,70 @@ function job_sub_job_change(new,old)
     if custom_job_sub_job_change then
         custom_job_sub_job_change(new,old)
     end
+    update_tracker()
 
 end
+
+function update_tracker()
+    local main = player.main_job
+    local sub = player.sub_job
+    local magejobs = {'WHM','BLM','RDM','PLD','DRK','BRD','NIN','SMN','BLU','SCH'}
+    local command = 'track clear;wait 0.3;'
+    local magefound = false
+    if main == 'NIN' or sub == 'NIN' then
+        command = command..'track add Shihei: ${inventory:shihei};wait 0.3;track add Toolbag Shihei: ${all:Toolbag (Shihe)};'
+    end
+    for mainjob = 1,10 do
+        if (main == magejobs[mainjob] or sub == magejobs[mainjob]) and magefound == false then
+            command = command..'wait 0.3;track add Echos: ${all:Echo Drops};'
+            magefound = true
+         end
+    end
+    if job_update_tracker then
+        command = job_update_tracker(command)
+    end
+    send_command(command)
+
+  end
+
+function check_rings()
+    local main = player.main_job
+    if main == "WHM" or main == "BLM" or main == "RDM" or main == "SMN" or main == "SCH" or main == "SCH" then
+        if player.inventory['Tamas Ring'] then
+        else
+            add_to_chat('Tamas Ring not found')
+        end
+    elseif main == "PLD" then
+        if player.inventory['Sattva Ring'] then
+        else
+            add_to_chat('Sattva Ring not found')
+        end
+    else
+        if player.inventory['Rajas Ring'] then
+        else
+            add_to_chat('Rajas Ring not found')
+        end
+    end
+end
+
+function check_earrings()
+    local main = player.main_job
+end
+--[[
+    {'WAR','MNK','WHM','BLM','RDM','THF','PLD','DRK','BST','BRD','RNG','SAM','NIN','DRG','SMN','BLU','COR','PUP','DNC','SCH'}
+
+if player.inventory['Abyssal Earring'] then
+    currentEarring = 'Abyssal Earring'
+elseif player.inventory['Beastly Earring'] then
+    currentEarring = 'Beastly Earring'
+elseif player.inventory['Bushinomimi'] then
+    currentEarring = 'Bushinomimi'
+elseif player.inventory["Knight\'s Earring"] then
+    currentEarring = 'Knight\'s Earring'
+elseif player.inventory['Suppanomimi'] then
+    currentEarring = 'Suppanomimi'
+end
+]]
 
 function select_default_macro_book(main,sub)
 	
@@ -390,14 +459,17 @@ end
 -----------------------------------------------------------------------------------------------------
 --  Crafting Stuff to handle equiping gear when needed 
 
---  This function sets up the crafting sets based on the character name.  Since Chaoticunreal does my crafting while the other two mine/gather he has more
+--  This function sets up the crafting sets based on the character name.  Since ChaoticUnreal does my crafting while the other two mine/gather he has more
 function initialize_crafting_sets(name)
-    if name == "Chaoticunreal" then
+    if name == "ChaoticUnreal" then
         sets.idle['Alchemy'] = {
                     main="Caduceus",
                     body="Alchemist's Apron",
                 }
-        sets.idle['Bonecraft'] = {}
+        sets.idle['Bonecraft'] = {
+                    head="Protective Specs.",
+                    body="Boneworker's Apn.",
+                }
         sets.idle['Clothcraft'] = {
                     head="Magnifying Specs.",
                     body="Weaver's Apron",
@@ -424,7 +496,10 @@ function initialize_crafting_sets(name)
                     body="Blacksmith's Apn.",
                     hands="Smithy's Mitts",
                 }
-        sets.idle['Woodworking'] = {}
+        sets.idle['Woodworking'] = {
+                    body="Carpenter's Apron",
+                    hands="Carpenter's Gloves",
+                }
         sets.idle['Gathering'] = {
                     body="Field Tunica",
                     hands="Field Gloves",
@@ -435,7 +510,10 @@ function initialize_crafting_sets(name)
                             {
                                 left_ring="Alchemist's Ring",
                             })
-        sets.idle['Bonecraft-Ring'] = set_combine(sets.idle['Bonecraft'],{})
+        sets.idle['Bonecraft-Ring'] = set_combine(sets.idle['Bonecraft'],
+                            {
+                                left_ring="Bonecrafter's Ring",
+                            })
         sets.idle['Clothcraft-Ring'] = set_combine(sets.idle['Clothcraft'],
                             {
                                 left_ring="Tailor's Ring",
@@ -456,7 +534,10 @@ function initialize_crafting_sets(name)
                             {
                                 left_ring="Smith's Ring",
                             })
-        sets.idle['Woodworking-Ring'] = set_combine(sets.idle['Woodworking'],{})
+        sets.idle['Woodworking-Ring'] = set_combine(sets.idle['Woodworking'],
+                            {
+                                left_ring="Carpenter's Ring",
+                            })
 elseif name == "Asen" then
     sets.idle['Fishing'] = {
                                 body="Fsh. Tunica",
@@ -486,7 +567,7 @@ end
 
 --  This sets up the valid crafting modes. They are switched via macros
 function initialize_crafting_mode(name)
-    if name == "Chaoticunreal" then
+    if name == "ChaoticUnreal" then
         state.CraftingMode = M{['description'] = 'Crafting Mode','None','Alchemy','Alchemy-Ring','Bonecraft','Bonecraft-Ring','Clothcraft','Clothcraft-Ring','Cooking','Cooking-Ring','Fishing','Goldsmithing','Goldsmithing-Ring','Leathercraft','Leathercraft-Ring','Smithing','Smithing-Ring','Woodworking','Woodworking-Ring','Gathering'}
     elseif name == "Asen" then
         state.CraftingMode = M{['description'] = 'Crafting Mode','None','Fishing','Gathering'}

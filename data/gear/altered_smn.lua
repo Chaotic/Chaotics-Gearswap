@@ -11,6 +11,7 @@ function init_gear_sets()
     feet="Seer's Pumps +1",
     neck="Justice Badge",
     back="Mist Silk Cape",
+    right_ring="Tamas Ring",
   }
 
   sets.INT = {
@@ -18,6 +19,8 @@ function init_gear_sets()
     body="Errant Hpl.",
     hands="Seer's Mitts +1",
     legs="Errant Slops",
+    right_ring="Tamas Ring",
+    neck="Philomath Stole",
   }
   
   sets.grip                        

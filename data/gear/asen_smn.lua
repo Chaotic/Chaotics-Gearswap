@@ -10,6 +10,7 @@ function init_gear_sets()
                 legs="Errant Slops",
                 feet="Seer's Pumps +1",
                 neck="Justice Badge",
+                right_ring="Tamas Ring",
               }
 
   sets.INT = {
@@ -17,18 +18,10 @@ function init_gear_sets()
                 body="Errant Hpl.",
                 hands="Seer's Mitts +1",
                 legs="Errant Slops",
+                right_ring="Tamas Ring",
+                neck="Philomath Stole",
                             }
   
-  sets.grip                        
-   = {Fire      = {sub="Fire Grip"}
-     ,Earth     = {sub="Earth Grip"}
-     ,Water     = {sub="Water Grip"}
-     ,Wind      = {sub="Wind Grip"}
-     ,Ice       = {sub="Ice Grip"}
-     ,Lightning = {sub="Thunder Grip"}
-     ,Light     = {sub="Light Grip"}
-     ,Dark      = {sub="Dark Grip"}}
-     
   sets.enmityUp = {}
      
   sets.enmityDown = {}
@@ -125,6 +118,7 @@ function init_gear_sets()
     ammo="Bibiki Seashell",
     legs="Yigit Seraweels",
     left_ear="Antivenom Earring",
+    right_ear="Relaxing Earring",
   }
   -- Idle sets
   sets.idle = {
@@ -137,9 +131,10 @@ function init_gear_sets()
     feet="Evoker's Pigaches",
     neck="Justice Badge",
     waist="Summoning Belt",
-    left_ear="Bloodbead Earring",
+    left_ear="Antivenom Earring",
+    right_ear="Bloodbead Earring",
+    left_ring="Jelly Ring",
     right_ring="Vilma's Ring",
-    left_ring="Evoker's Ring",
   }
      
   sets.idle.Avatar = set_combine(sets.idle,{

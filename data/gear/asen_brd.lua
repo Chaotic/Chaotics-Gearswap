@@ -7,7 +7,6 @@ function init_gear_sets()
     hands="Zealot's Mitts",
     legs="Savage Loincloth",
   }
-
   sets.INT = {}
 
   sets.CHR = {
@@ -15,6 +14,7 @@ function init_gear_sets()
     head="Noble's Ribbon",
     neck="Bird Whistle",
     body="Savage Separates",
+    hands="Choral Cuffs",
     left_ring="Opal Ring",
     right_ring="Opal Ring",
     feet="Savage Gaiters",
@@ -22,19 +22,25 @@ function init_gear_sets()
     back="Lucent Cape",
   }
   
-  sets.Singing = {}
+  sets.Singing = {
+    hands="Choral Cuffs",
+  }
   sets.Wind = set_combine(sets.Singing,{
+    body="Minstrel's Coat",
+    legs="Choral Cannions",
     left_ring="Nereid Ring",
     right_ring="Nereid Ring",
   })
-  sets.String = set_combine(sets.Singing,{})
+  sets.String = set_combine(sets.Singing,{
+    body="Minstrel's Coat",
+  })
   
 --  These will be filled in as I get instruments / spells
 sets.midcast['Minne'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.String,{
   range="Harp +1",
 })
 sets.midcast['Requiem'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
-  range="Flute +2",
+  range="Hamelin Flute",
 })
 sets.midcast['Threnody'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
   range="Piccolo +1",
@@ -43,10 +49,11 @@ sets.midcast['Minuet'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,
   range="Cornette +2",
 })
 sets.midcast['Lullaby'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
+  main="Iridal Staff",
   range="Mary's horn",
 })
 sets.midcast['March'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
-  range="Faerie Piccolo",
+  range="Iron Ram Horn",
 })
 sets.midcast['Mambo'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
   range="Gemshorn +1",
@@ -57,43 +64,42 @@ sets.midcast['Elegy'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
 sets.midcast['Madrigal'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
   range="Traversiere +2",
 })
-
+sets.midcast['Paeon'] = set_combine(sets.midcast.FastRecast,sets.String,sets.CHR,{
+  range="Ebony Harp +1",
+})
+sets.midcast['Carol'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
+  range="Crumhorn +1",
+})
+sets.midcast['Prelude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
+  range="Angel's Flute +1",
+})
 -- This doesn't boost ballad but nothing does beides relic so use it as a base.
 sets.midcast['Ballad'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
-  range="Ryl.Spr. Horn",
+  range="Iron Ram Horn",
 })
-sets.midcast['Prelude'] = sets.midcast['Ballad']
 sets.midcast['Etude'] = sets.midcast['Ballad']
-sets.midcast['Paeon'] = sets.midcast['Minne']
-sets.midcast['Carol'] = sets.midcast['Ballad']
 --[[
-
-sets.midcast['Prelude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
-  range="Maple Harp +1",
-})
 sets.midcast['Etude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
   range="Maple Harp +1",
 })
 
-sets.midcast['Paeon'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
-  range="Maple Harp +1",
-})
-sets.midcast['Carol'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
-  range="Maple Harp +1",
-})
+
+
 
 ]]
 
   -- idle
   sets.idle = {
     main="Monster Signa",
-    range="Cornette +2",
+    range="Iron Ram Horn",
     head="Empress Hairpin",
     neck="Bird Whistle",
-    body="Savage Separates",
-    hands="Zealot's Mitts",
-    legs="Beetle Subligar +1",
-    feet="Bounding Boots",
+    body="Minstrel's Coat",
+    hands="Choral Cuffs",
+    legs="Choral Cannions",
+    feet="Choral Slippers",
+    left_ear="Cass. Earring",
+    right_ear="Helenus's Earring",
     left_ring="Nereid Ring",
     right_ring="Nereid Ring",
     back="Traveler's Mantle",
@@ -113,7 +119,9 @@ sets.midcast['Carol'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
   sets.precast.FC['BardSong'] = set_combine(sets.precast.FC,{})
 
   -- midcast magic
-  sets.midcast.FastRecast = set_combine(sets.precast.FC,{})
+  sets.midcast.FastRecast = set_combine(sets.precast.FC,{
+    waist="Velocious Belt",
+  })
                  
   sets.midcast['Utsusemi: Ni'] = set_combine(sets.midcast.FastRecast,{})
    
@@ -161,7 +169,10 @@ sets.midcast['Carol'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
   -- bard songs
   sets.midcast['BardSong'] = set_combine(sets.midcast.FastRecast,sets.CHR,{})
                  
-  sets.midcast.BardDebuff = set_combine(sets.CHR,{})
+  sets.midcast.BardDebuff = set_combine(sets.CHR,{
+      left_ear="Cass. Earring",
+      right_ear="Helenus's Earring",
+    })
 
   -- Defense sets
   sets.defense.PDT = {}

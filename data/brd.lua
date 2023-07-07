@@ -155,7 +155,7 @@ end
 
 function job_buff_change(name,gain)
 
-    handle_standard_buffs(buff,gain)
+    handle_standard_buffs(name,gain)
   
   if name == 'Elemental Seal' then
     if gain then

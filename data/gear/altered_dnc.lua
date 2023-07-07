@@ -16,8 +16,9 @@ function init_gear_sets()
     }
   
     sets.CHR = {
-      head="Entrancing Ribbon",
+      head="Dancer's Tiara",
       body="Savage Separates",
+      legs="Dancer's Tights",
       neck="Bird Whistle",
       left_ring="Vilma's Ring",
     }
@@ -35,7 +36,9 @@ function init_gear_sets()
       legs="Savage Loincloth",
     }  
     -- Waltz set (chr and vit)
-    sets.precast.Waltz = set_combine(sets.CHR,{})
+    sets.precast.Waltz = set_combine(sets.CHR,{
+      body="Dancer's Casaque",
+    })
   
     sets.precast.WaltzSelf = set_combine(sets.precast.Waltz,sets.VIT,
                                         {})
@@ -43,9 +46,13 @@ function init_gear_sets()
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz']= {}
   
-    sets.precast.Samba = {}
+    sets.precast.Samba = {
+      head="Dancer's Tiara",
+    }
   
-    sets.precast.Jig = {}
+    sets.precast.Jig = {
+      feet="Dancer's Toe Shoes",
+    }
   
     sets.precast.JA['Violent Flourish'] = {}
   
@@ -81,8 +88,8 @@ function init_gear_sets()
                   waist={ name="Velocious Belt", augments={'STR+3','Water resistance+20','Water resistance+30',}},
                   left_ear="Drone Earring",
                   right_ear="Drone Earring",
-                  left_ring="Lava's Ring",
-                  right_ring="Kusha's Ring",
+                  left_ring="Sniper's Ring",
+                  right_ring="Rajas Ring",
                   back="Nomad's Mantle +1",
                 }
   
@@ -102,7 +109,16 @@ function init_gear_sets()
     sets.defense.PDT = {}
   
     sets.defense.MDT = {}
-  
+    -- ranged
+    sets.precast.RA = {
+      neck="Peacock Amulet",
+      body="Rapparee Harness",
+      left_ring="Scorpion Ring",
+      right_ring="Scorpion Ring",
+      legs="Bravo's Subligar",
+    }
+       
+    sets.midcast.RA = {}
     -- engaged
     sets.engaged = {
                       range="War Hoop",
@@ -114,8 +130,8 @@ function init_gear_sets()
                       waist={ name="Velocious Belt", augments={'STR+3','Water resistance+20','Water resistance+30',}},
                       left_ear="Drone Earring",
                       right_ear="Drone Earring",
-                      left_ring="Lava's Ring",
-                      right_ring="Kusha's Ring",
+                      left_ring="Sniper's Ring",
+                      right_ring="Rajas Ring",
                       back="Traveler's Mantle",
                     }
   
@@ -138,6 +154,9 @@ function init_gear_sets()
   -- BASE WEAPONSKILL SETS
   sets.precast.WS  = {
     body="Scp. Harness +1",
+    waist="Life Belt",
+    left_ring="Sniper's Ring",
+    right_ring="Rajas Ring",
   }
     
   sets.precast.WS.Atk = set_combine(sets.precast.WS,{}) 
@@ -156,8 +175,8 @@ function init_gear_sets()
     neck="Peacock amulet",
     body="Scp. Harness +1",
     waist="Life Belt",
-    left_ring="Lava's Ring",
-    right_ring="Kusha's Ring",
+    left_ring="Sniper's Ring",
+    right_ring="Rajas Ring",
   })
    
   -- Evisceration

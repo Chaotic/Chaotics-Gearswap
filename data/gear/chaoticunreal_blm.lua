@@ -52,7 +52,7 @@ function init_gear_sets()
                     left_ear="Helenus's Earring",
                     right_ear="Cass. Earring",
                     left_ring="Genius Ring",
-                    right_ring="Genius Ring",
+                    right_ring="Tamas Ring",
                   }
     sets.idle.DW = {
                     main=gear.Staff.PDT,
@@ -65,7 +65,7 @@ function init_gear_sets()
                     left_ear="Helenus's Earring",
                     right_ear="Cass. Earring",
                     left_ring="Genius Ring",
-                    right_ring="Genius Ring",
+                    right_ring="Tamas Ring",
                   }
 
     sets.idle.Town
@@ -79,30 +79,38 @@ function init_gear_sets()
 
     sets.resting = {
                       main=gear.Staff.HMP,
-                      body="Seer's Tunic +1",
+                      body="Errant Hpl.",
                       ammo="Bibiki Seashell",
-                      right_ear="Antivenom Earring",
+                      legs="Yigit Seraweels",
+                      left_ear="Antivenom Earring",
+                      right_ear="Relaxing Earring",
                     }
     sets.resting.DW = sets.resting     
     --base magic sets
     sets.MND = {
-      head="Garrison Sallet",
-      hands="Zealot's Mitts",
-      legs="Savage Loincloth",
-      feet="Seer's Pumps +1",
       neck="Justice Badge",
+      body="Errant Hpl.",
+      hands="Zealot's Mitts",
+      legs="Errant Slops",
+      feet="Mahatma Pigaches",
       waist="Penitent's Rope",
+      left_ring="Turquoise Ring",
+      right_ring="Tamas Ring",
+      back="White Cape +1"
     }
 
     sets.INT = {
-      head="Wizard's Petasos",
-      hands="Seer's Mitts +1",
-      legs="Seer's Slacks +1",
-      waist="Penitent's Rope",
-      left_ring="Genius Ring",
-      right_ring="Genius Ring",
-      back="Black Cape +1",
-      neck="Philomath Stole",
+          head="Wizard's Petasos",
+          hands="Seer's Mitts +1",
+          body="Errant Hpl.",
+          waist="Penitent's Rope",
+          legs="Errant Slops",
+          left_ear="Morion Earring",
+          right_ear="Morion Earring",
+          left_ring="Genius Ring",
+          right_ring="Tamas Ring",
+          back="Black Cape +1",
+          neck="Philomath Stole",
     }
 
     sets.MND["Normal"] = set_combine(sets.MND,{})
@@ -167,6 +175,7 @@ function init_gear_sets()
                                                   main=gear.ElementalStaff,
                                                   legs="Wizard's Tonban",
                                                   right_ear="Dark Earring",
+                                                  left_ear="Abyssal Earring",
                                                 })
 
     sets.midcast['Enhancing Magic'] = set_combine(sets.midcast.FastRecast,

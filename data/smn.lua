@@ -238,6 +238,7 @@ function get_sets()
     gear.perp_staff = {main="Iridal Staff"}
     
     send_command('bind !f9 gs c cycle IdleMode')
+
   
   end
   
@@ -246,11 +247,12 @@ function get_sets()
   
     windower.send_command('sta !packets on')
     windower.send_command('lua u pettp')
+
   
   end
   
   function job_midcast(spell, action, spellMap, eventArgs)
-  
+
     -- handle different equipsets for White and Black magic
     if not spell.interrupted and spell.type == 'BloodPactWard' and spellMap ~= 'DebuffBloodPactWard' then
       wards.flag = true
@@ -268,6 +270,7 @@ function get_sets()
   end
   
   function job_post_midcast(spell,action,spellMap,eventArgs)
+    
   --[[
     if spell.skill == 'Enhancing Magic' or spell.skill == 'Summoning Magic' or (spell.skill == 'Healing Magic' and not (spellMap == 'Cure' or spellMap == 'Curaga')) then
       if player.status == 'Idle' and state.IdleMode.value == 'Normal' and state.CastingMode.value ~= 'Combat' then
@@ -347,7 +350,6 @@ function get_sets()
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
   function job_buff_change(buff, gain)
-  
     handle_standard_buffs(buff,gain)
   
     if state.Buff[buff] ~= nil or storms:contains(buff) then
@@ -500,7 +502,7 @@ end
     if pet.isvalid and avatars:contains(pet.name) then
       command = command..'input /pet "Release" <me>;wait 1.1;'
       releasedAvatar = pet.name
-      releaseWait = 10
+      releaseWait = 10.5
     end
   
     if not (pet.isvalid and spirits:contains(pet.name)) then
@@ -589,10 +591,10 @@ function equipPerpGear(pet,CustomSet)
     if pet.element == world.weather_element then
       CustomSet = set_combine(CustomSet, sets.perp.Weather)
     end
-    gear.perp_staff.name = elements.perpetuance_staff_of[pet.element]
     if sets.perp[pet.name] then
       CustomSet = set_combine(CustomSet, sets.perp[pet.name])
     end
+    gear.perp_staff.name = elements.perpetuance_staff_of[pet.element]
     if gear.perp_staff.name and finditem(gear.perp_staff.name) then
       CustomSet = set_combine(CustomSet, sets.perp.staff_and_grip)
     end
@@ -670,4 +672,8 @@ function create_pact_timer(spell_name)
 
       send_command(timer_cmd)
   end
+end
+
+function job_update_tracker(command)
+  return command..'wait 0.3;track add Cookies: ${inventory:Coin Cookie};wait 0.3;track add Drink: ${all:Yagudo Drink};'
 end

@@ -6,9 +6,10 @@ function initialize_skins(name)
             skins = {
                 ['BLM'] = {set=285},
                 ['PLD'] = {set=157},
-                ['SMN'] = {head=116,body=578,hands=215,legs=577,feet=577}
+                ['SMN'] = {head=116,body=578,hands=215,legs=577,feet=577},
+                ['BRD'] = {head=379,body=578,hands=215,legs=215,feet=215}
             }
-        elseif name == "Chaoticunreal" then
+        elseif name == "ChaoticUnreal" then
             skins = {
                 ['BLM'] = {set=285},
                 ['RDM'] = {body=334,hands=334,legs=334,feet=334},
@@ -19,7 +20,8 @@ function initialize_skins(name)
             skins = {
                 ['BLM'] = {set=285},
                 ['THF'] = {set=225,main=756,sub=756},
-                ['SMN'] = {head=116,body=578,hands=215,legs=577,feet=577}
+                ['SMN'] = {head=116,body=578,hands=215,legs=577,feet=577},
+                ['DNC'] = {set=305}
             }
       end
     end
@@ -34,7 +36,7 @@ function initialize_skins(name)
             command = command..'wait 2;input /s !setskin '..slots[slot]..' '..ids[slots[slot]]..';'
           end
         end 
-        send_command('input /lockstyle off;wait 2;gs c update;'..command..'wait 10; input /lockstyle on')
+        send_command('input /lockstyle off;wait 2;gs c update;'..command..'wait 5; input /lockstyle on')
       
       end
     

@@ -30,9 +30,8 @@ function get_sets()
     --offhand_katana = S{'Narigitsune','Mamushito +1','Shusui'}
   
     initialize_job()
-  
   end
-  
+
   function user_setup()
   
     state.OffenseMode:options('Normal','HybridAcc','Acc')
@@ -68,7 +67,7 @@ end
     
     if spell.type == 'WeaponSkill' and not daytime then
       if state.WeaponskillMode.value == 'Normal' then
-        equip({feet="Koga kyahan +1"})
+        equip({feet="Koga kyahan"})
       end
     end
   
@@ -77,9 +76,11 @@ end
   function job_post_midcast(spell,default_spell_map)
   
     if spell.skill == 'Ninjutsu' then
+    --[[
       if spell.element == world.weather_element or spell.element == world.day_element then
         equip({waist="Hachirin-no-obi"})
       end
+    ]]
     end
   
   end
@@ -101,11 +102,13 @@ end
   function customize_idle_set(idleSet)
 
       crafting_mode = state.CraftingMode.value
+--[[  
       if daytime then
         idleSet = set_combine(idleSet,{waist="Lycopodium sash"})
       elseif not daytime then
         idleSet = set_combine(idleSet,{waist="Lycopodium sash"})
       end
+  ]]
       idleSet = maybe_equip_crafting(idleSet,crafting_mode)
       return idleSet
     

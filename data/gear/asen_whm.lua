@@ -7,17 +7,20 @@ function init_gear_sets()
   -- misc
   sets.MND = {
     head="Garrison Sallet",
-    hands="Seer's Mitts +1",
+    hands="Zealot's Mitts",
     legs="Savage Loincloth",
     feet="Seer's Pumps +1",
     neck="Justice Badge",
     back="Mist Silk Cape",
+    right_ring="Tamas Ring",
   }
 
   sets.INT = {
     head="Seer's Crown +1",
     hands="Seer's Mitts +1",
     legs="Seer's Slacks +1",
+    waist="Shaman's Belt",
+    right_ring="Tamas Ring",
   }
 	
 	--Precast Magic
@@ -51,23 +54,26 @@ function init_gear_sets()
   }
   -- Idle sets
   sets.idle = {
-    main="Elm Staff +1",
-    sub="Lizard Strap",
-    head="Seer's Crown +1",
+    main="Yew Wand +1",
+    head="Empress Hairpin",
     body="Seer's Tunic +1",
-    hands="Seer's Mitts +1",
+    hands="Zealot's Mitts",
     legs="Seer's Slacks +1",
     feet="Seer's Pumps +1",
     neck="Justice Badge",
+    left_ear="Optical Earring",
+    left_ring="Warp Ring",
+    right_ring="San d'Orian Ring",
     waist="Shaman's Belt",
-    left_ear="Morion Earring",
-    right_ear="Morion Earring",
-    left_ring="Eremite's Ring",
-    right_ring="Eremite's Ring",
   }
  
   sets.idle.Town = set_combine(sets.idle,
                                 {
+                                  head="Seer's Crown +1",
+                                  body="Seer's Tunic +1",
+                                  hands="Seer's Mitts +1",
+                                  legs="Seer's Slacks +1",
+                                  feet="Seer's Pumps +1",
                                     back="Nexus cape"
                                 })
 
@@ -101,19 +107,16 @@ function init_gear_sets()
  
   -- engaged
   sets.engaged = {
-    main="Elm Staff +1",
-    sub="Lizard Strap",
-    head="Seer's Crown +1",
-    body="Seer's Tunic +1",
-    hands="Seer's Mitts +1",
-    legs="Seer's Slacks +1",
-    feet="Seer's Pumps +1",
+    main="Yew Wand +1",
+    head="Empress Hairpin",
+    body="Chocobo Shirt",
+    hands="Zealot's Mitts",
+    legs="Garrison Hose",
+    feet="Mithran Gaiters",
     neck="Justice Badge",
-    waist="Shaman's Belt",
-    left_ear="Morion Earring",
-    right_ear="Morion Earring",
-    left_ring="Eremite's Ring",
-    right_ring="Eremite's Ring",
+    left_ear="Optical Earring",
+    left_ring="Warp Ring",
+    right_ring="San d'Orian Ring",
   }
 
   initialize_crafting_sets(player.name)	

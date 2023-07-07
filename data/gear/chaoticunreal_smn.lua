@@ -8,10 +8,10 @@
       body="Errant Hpl.",
       hands="Zealot's Mitts",
       legs="Errant Slops",
-      feet="Seer's Pumps +1",
+      feet="Mahatma Pigaches",
       waist="Penitent's Rope",
       left_ring="Turquoise Ring",
-      right_ring="Turquoise Ring",
+      right_ring="Tamas Ring",
       back="White Cape +1"
   }
    
@@ -24,21 +24,10 @@
       left_ear="Morion Earring",
       right_ear="Morion Earring",
       left_ring="Genius Ring",
-      right_ring="Genius Ring",
+      right_ring="Tamas Ring",
       back="Black Cape +1",
       neck="Philomath Stole",
   }    
-      -- grips														 	   
-      sets.grip = {
-      Fire 	    = {sub="Fire Grip"},
-      Earth 	  = {sub="Earth Grip"},
-      Water 	  = {sub="Water Grip"},
-      Wind 	    = {sub="Wind Grip"},
-      Ice 	    = {sub="Ice Grip"},
-      Lightning = {sub="Thunder Grip"},
-      Light 	  = {sub="Light Grip"},
-      Dark 	    = {sub="Dark Grip"}
-  }
        
     sets.enmityUp = {}
        
@@ -56,6 +45,7 @@
     sets.precast.BloodPactWard = set_combine(sets.precast.JA['Elemental Siphon'],{
       body="Yinyang Robe",
       hands="Summoner's Brcr.",
+      feet="Summoner's Pgch.",
     })
                    
     sets.precast.BloodPactRage = set_combine(sets.precast.BloodPactWard,{})
@@ -141,6 +131,7 @@
       ammo="Bibiki Seashell",
       legs="Yigit Seraweels",
       left_ear="Antivenom Earring",
+      right_ear="Relaxing Earring",
     }
   
     -- Idle sets
@@ -157,13 +148,13 @@
       waist="Summoning Belt",
       left_ear="Morion Earring",
       right_ear="Morion Earring",
-      left_ring="Evoker's Ring",
-      right_ring="Vilma's Ring",
+      right_ring="Tamas Ring",
+      left_ring="Vilma's Ring",
     }
     sets.idle.Avatar = set_combine(sets.idle,{
       left_ring="Evoker's Ring",
       legs="Evoker's Spats",
-      feet="Evoker's Pigaches",
+      feet="Summoner's Pgch.",
     })
                    
     sets.idle.Spirit = set_combine(sets.idle,{
@@ -212,8 +203,8 @@
       waist="Shaman's Belt",
       left_ear="Morion Earring",
       right_ear="Morion Earring",
-      left_ring="Genius Ring",
-      right_ring="Vilma's Ring",
+      right_ring="Tamas Ring",
+      left_ring="Vilma's Ring",
     }
   
     -- ws
@@ -223,11 +214,8 @@
     initialize_level_30_gear()
     initialize_level_40_gear()
     initialize_level_50_gear()
-          -- Idle sets
 
-
-
-
+    -- Idle sets
     initialize_crafting_sets(player.name)
   
   end
@@ -244,7 +232,6 @@ function initialize_level_30_gear()
     left_ear="Morion Earring",
     right_ear="Morion Earring",
     left_ring="Warp Ring",
-    right_ring="Eremite's Ring",
   }
   sets.resting['30'] = {
     main="Pilgrim's Wand",

@@ -25,7 +25,8 @@ function global_on_load()
 	send_command('bind f12 gs c update user')
 	send_command('bind !f12 gs c reset DefenseMode')
 
-	--[[send_command('bind ^- gs c toggle selectnpctargets')
+	--[[
+		send_command('bind ^- gs c toggle selectnpctargets')
 	send_command('bind ^= gs c cycle pctargetmode')
       
 	  -- Defensive cycles

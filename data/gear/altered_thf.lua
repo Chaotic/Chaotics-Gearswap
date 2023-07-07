@@ -40,7 +40,7 @@ function init_gear_sets()
      }  
 
   sets.Crossbow = {
-                    range="Power Crossbow"
+                    range="Staurobow",
                   }
   sets['Normal'] = set_combine(sets.Crossbow,{
                     ammo="Crossbow Bolt"
@@ -114,7 +114,7 @@ function init_gear_sets()
 
   -- idle
   sets.idle = {
-    range="Power Crossbow",
+    range="Staurobow",
     head="Walahra Turban",
     neck="Peacock amulet",
     body="Rapparee Harness",
@@ -142,6 +142,8 @@ function init_gear_sets()
   }
   sets.defense.SubtleBlow = set_combine(sets.defense.Evasion,{
     body="Dragon Harness",
+    left_ring="Sniper's Ring",
+    right_ring="Rajas Ring",
   })
   
   sets.defense.PDT = {}
@@ -160,8 +162,8 @@ function init_gear_sets()
     feet="Dusk Ledelsens",
     left_ear="Suppanomimi",
     right_ear="Drone Earring",
-    left_ring="Lava's Ring",
-    right_ring="Kusha's Ring",
+    left_ring="Sniper's Ring",
+    right_ring="Rajas Ring",
     back="Cerberus Mantle",
   }
      
@@ -194,7 +196,10 @@ function init_gear_sets()
     body="Scp. Harness +1",
   }
     
-  sets.precast.WS.Atk = set_combine(sets.precast.WS,{}) 
+  sets.precast.WS.Atk = set_combine(sets.precast.WS,{
+    left_ring="Sniper's Ring",
+    right_ring="Rajas Ring",
+  }) 
   
   sets.precast.WS.Acc = set_combine(sets.precast.WS,
   {
@@ -210,8 +215,8 @@ function init_gear_sets()
     neck="Peacock amulet",
     body="Scp. Harness +1",
     waist="Life Belt",
-    left_ring="Lava's Ring",
-    right_ring="Kusha's Ring",
+    left_ring="Sniper's Ring",
+    right_ring="Rajas Ring",
   })
 
   -- Evisceration
@@ -240,8 +245,9 @@ function init_gear_sets()
     neck="Peacock amulet",
     body="Scp. Harness +1",
     waist="Life Belt",
-    left_ring="Lava's Ring",
-    right_ring="Kusha's Ring",
+    left_ring="Sniper's Ring",
+    right_ring="Rajas Ring",
+
   })
 
   -- Dancing Edge
@@ -270,8 +276,8 @@ function init_gear_sets()
     neck="Peacock amulet",
     body="Scp. Harness +1",
     waist="Life Belt",
-    left_ring="Lava's Ring",
-    right_ring="Kusha's Ring",
+    left_ring="Sniper's Ring",
+    right_ring="Rajas Ring",
   })
 
   -- Exenterator

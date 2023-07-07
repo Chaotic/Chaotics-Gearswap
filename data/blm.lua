@@ -84,7 +84,9 @@ function job_midcast(spell,action,spellMap,eventArgs)
   
   function customize_idle_set(idleSet)
   
-  crafting_mode = state.CraftingMode.value
+    if state.CraftingMode.value then
+      crafting_mode = state.CraftingMode.value
+    end
    
 --[[
     if daytime then 
@@ -153,7 +155,10 @@ function handle_level_sync(gain)
   end
 end
 
---[[  I'm not a fan of most of this.  Doubly so euiping gear in these functions.  Since I don't use most of it comment it out for now
+function job_update_tracker(command)
+  return command..'wait 0.3;track add Cookies: ${inventory:Coin Cookie};wait 0.3;track add Drink: ${all:Yagudo Drink};'
+end
+--  I'm not a fan of most of this.  Doubly so euiping gear in these functions.  Since I don't use most of it comment it out for now
   
 function job_post_midcast(spell,action,spellMap,eventArgs)
   
@@ -162,15 +167,18 @@ function job_post_midcast(spell,action,spellMap,eventArgs)
           if spell.skill == 'Elemental Magic' then
             equip({legs="Sorcerer's tonban"})
           end
-          equip({waist="Hachirin-no-obi",main="Chatoyant staff"})
+--          equip({waist="Hachirin-no-obi",main="Chatoyant staff"})
+          equip({waist="Hachirin-no-obi",main="Iridal staff"})
         elseif spell.element == world.day_element then
           if spell.skill == 'Elemental Magic' then
             equip({legs="Sorcerer's tonban"})
           end
-          equip({waist="Hachirin-no-obi",main="Claustrum"})
+--          equip({waist="Hachirin-no-obi",main="Claustrum"})
+            equip({waist="Hachirin-no-obi",main="Iridal staff"})
         elseif spell.element == world.weather_element then
-          equip({waist="Hachirin-no-obi",main="Chatoyant staff"})
-        end
+--          equip({waist="Hachirin-no-obi",main="Chatoyant staff"})
+            equip({waist="Hachirin-no-obi",main="Iridal staff"})
+end
             
         if state.CastingMode.value == 'TH' then
           equip({main="Lotus Katana"})
@@ -189,5 +197,3 @@ function job_post_midcast(spell,action,spellMap,eventArgs)
       end
     
       end
-    end
-    ]]

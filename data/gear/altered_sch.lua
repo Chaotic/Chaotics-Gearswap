@@ -16,6 +16,7 @@ function init_gear_sets()
     feet="Seer's Pumps +1",
     neck="Justice Badge",
     back="Mist Silk Cape",
+    right_ring="Tamas Ring",
   }
 
   sets.INT = {
@@ -24,7 +25,7 @@ function init_gear_sets()
     hands="Seer's Mitts +1",
     legs="Seer's Slacks +1",
     left_ring="Wisdom Ring",
-    right_ring="Wisdom Ring",
+    right_ring="Tamas Ring",
   }
 	
 	-- idle/resting

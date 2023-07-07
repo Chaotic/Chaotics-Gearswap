@@ -39,6 +39,7 @@
   sets.idle = {
     main=gear.Staff.PDT,
     ammo="Bibiki Seashell",
+    neck="Philomath Stole",
     body="Demon's Cloak",
     hands="Wizard's Gloves",
     legs="Wizard's Tonban",
@@ -46,7 +47,7 @@
     left_ear="Helenus's Earring",
     right_ear="Cass. Earring",
     left_ring="Wisdom Ring",
-    right_ring="Wisdom Ring",
+    right_ring="Tamas Ring",
     back="Mist Silk Cape",
   }
   sets.idle.DW = sets.idle
@@ -59,36 +60,40 @@
   -- Resting sets
   sets.resting = {
     main=gear.Staff.HMP,
-    body="Seer's Tunic +1",
+    body="Errant Hpl.",
     ammo="Bibiki Seashell",
-    right_ear="Antivenom Earring",
+    legs="Yigit Seraweels",
+    left_ear="Antivenom Earring",
+    right_ear="Relaxing Earring",
   }
   sets.resting.DW = sets.resting
     --base magic sets
   -- misc
   sets.MND = {
     head="Garrison Sallet",
+    body="Errant Hpl.",
     hands="Seer's Mitts +1",
     legs="Savage Loincloth",
     feet="Seer's Pumps +1",
     neck="Justice Badge",
     left_ring="Wisdom Ring",
-    right_ring="Wisdom Ring",
+    right_ring="Tamas Ring",
     back="Mist Silk Cape",
   }
 
   sets.INT = {
+    head="Wizard's Petasos",
     hands="Seer's Mitts +1",
-    legs="Seer's Slacks +1",
     left_ring="Wisdom Ring",
-    right_ring="Wisdom Ring",
+    right_ring="Tamas Ring",
+    body="Errant Hpl.",
+    legs="Errant Slops",
+    neck="Philomath Stole",
   }
 
-  sets.MND["Normal"] =  set_combine(sets.MND,{
-    })
+  sets.MND["Normal"] = set_combine(sets.MND,{})
 
-  sets.INT["Normal"] = set_combine(sets.INT,{
-    })
+sets.INT["Normal"] = set_combine(sets.INT,{})
 
 
     sets.MND["DW"] = sets.MND["Normal"]
@@ -113,7 +118,7 @@
 
       sets.midcast['Enfeebling Magic'] = {
                                             main=gear.ElementalStaff,
-      body="Wizard's Coat",
+                                            body="Wizard's Coat",
                                           }
 
     sets.midcast['Enfeebling Magic']['BlackMagic'] = set_combine(sets.INT[state.IdleMode.current],
@@ -148,6 +153,7 @@
                                                 {
                                                   main=gear.ElementalStaff,
                                                   legs="Wizard's Tonban",
+                                                  left_ear="Abyssal Earring",
                                                 })
 
     sets.midcast['Enhancing Magic'] = set_combine(sets.midcast.FastRecast,
@@ -208,8 +214,8 @@
       waist="Shaman's Belt",
       left_ear="Morion Earring",
       right_ear="Morion Earring",
-      left_ring="Warp ring",
-      right_ring="Eremite's Ring",
+      left_ring="Eremite's Ring",
+      right_ring="Tamas Ring",
     }
 sets.idle['30'].DW = {
       main="Yew Wand +1",
@@ -223,8 +229,8 @@ sets.idle['30'].DW = {
       waist="Shaman's Belt",
       left_ear="Morion Earring",
       right_ear="Morion Earring",
-      left_ring="Warp ring",
-      right_ring="Eremite's Ring",
+      left_ring="Eremite's Ring",
+      right_ring="Tamas Ring",
     }
 
 sets.idle['30'].Town
@@ -260,8 +266,8 @@ neck="Justice Badge",
 waist="Shaman's Belt",
 left_ear="Morion Earring",
 right_ear="Morion Earring",
-left_ring="Warp ring",
-right_ring="Eremite's Ring",
+left_ring="Eremite's Ring",
+right_ring="Tamas Ring",
 }
 sets.idle['40'].DW = {
 main="Yew Wand +1",
@@ -275,8 +281,8 @@ neck="Justice Badge",
 waist="Shaman's Belt",
 left_ear="Morion Earring",
 right_ear="Morion Earring",
-left_ring="Warp ring",
-right_ring="Eremite's Ring",
+left_ring="Eremite's Ring",
+right_ring="Tamas Ring",
 }
 
 sets.idle['40'].Town
@@ -313,8 +319,8 @@ neck="Justice Badge",
 waist="Shaman's Belt",
 left_ear="Morion Earring",
 right_ear="Morion Earring",
-left_ring="Warp ring",
-right_ring="Eremite's Ring",
+left_ring="Eremite's Ring",
+right_ring="Tamas Ring",
 }
 sets.idle['50'].DW = {
 main="Yew Wand +1",
@@ -328,8 +334,8 @@ neck="Justice Badge",
 waist="Shaman's Belt",
 left_ear="Morion Earring",
 right_ear="Morion Earring",
-left_ring="Warp ring",
-right_ring="Eremite's Ring",
+left_ring="Eremite's Ring",
+right_ring="Tamas Ring",
 }
 
 sets.idle['50'].Town

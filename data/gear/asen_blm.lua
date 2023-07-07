@@ -39,15 +39,15 @@
   sets.idle = {
     main=gear.Staff.PDT,
     ammo={ name="Bibiki Seashell", augments={'HP recovered while healing +5','MP recovered while healing +5','Phys. dmg. taken -3%',}},
-    neck="Justice Badge",
+    neck="Philomath Stole",
     body="Vermillion Cloak",
     hands="Wizard's Gloves",
     legs="Wizard's Tonban",
     feet="Wizard's Sabots",
     left_ear="Helenus's Earring",
     right_ear="Cass. Earring",
-    left_ring="Wisdom Ring",
-    right_ring="Wisdom Ring",
+    left_ring="Jelly Ring",
+    right_ring="Nasatya's Ring",
     back="Mist Silk Cape",
   }
   sets.idle.DW = sets.idle
@@ -60,30 +60,35 @@
   -- Resting sets
   sets.resting = {
     main=gear.Staff.HMP,
-    body="Seer's Tunic +1",
+    body="Errant Hpl.",
     ammo="Bibiki Seashell",
-    right_ear="Antivenom Earring",
+    legs="Yigit Seraweels",
+    left_ear="Antivenom Earring",
+    right_ear="Relaxing Earring",
   }
   sets.resting.DW = sets.resting
     --base magic sets
   -- misc
   sets.MND = {
     head="Garrison Sallet",
+    body="Errant Hpl.",
     hands="Seer's Mitts +1",
     legs="Savage Loincloth",
     feet="Seer's Pumps +1",
     neck="Justice Badge",
     left_ring="Wisdom Ring",
-    right_ring="Wisdom Ring",
+    right_ring="Tamas Ring",
     back="Mist Silk Cape",
   }
 
   sets.INT = {
     head="Wizard's Petasos",
     hands="Seer's Mitts +1",
-    legs="Seer's Slacks +1",
     left_ring="Wisdom Ring",
-    right_ring="Wisdom Ring",
+    right_ring="Tamas Ring",
+    body="Errant Hpl.",
+    legs="Errant Slops",
+    neck="Philomath Stole",
   }
 
   sets.MND["Normal"] = set_combine(sets.MND,{})
@@ -147,6 +152,7 @@ sets.INT["DW"] = sets.INT["Normal"]
                                                 {
                                                   main=gear.ElementalStaff,
                                                   legs="Wizard's Tonban",
+                                                  left_ear="Abyssal Earring",
                                                 })
 
     sets.midcast['Enhancing Magic'] = set_combine(sets.midcast.FastRecast,
