@@ -20,10 +20,10 @@ function define_global_sets()
 
 	-- Staffs
 	gear.Staff = {}
-	gear.Staff.HMP = "Pluto's Staff"
+	gear.Staff.HMP = 'Chatoyant Staff'
 	gear.Staff.PDT = "Earth Staff"
-	gear.default.ElementalGrip = 'Lizard Strap'
-	gear.default.elemental_staff = 'Iridal Staff'
+	gear.default.ElementalGrip = 'Bugard Strap +1'
+	gear.default.elemental_staff = 'Chatoyant Staff'
 	
 	--[[  I don't have these currently
 	-- Dark Rings

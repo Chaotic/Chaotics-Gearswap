@@ -10,6 +10,7 @@ function init_gear_sets()
     legs="Gallant Breeches",
     back="Cerberus Mantle",
     right_ring="Hercules' Ring",
+    left_ring="Sattva Ring",
   }
 
   sets.MND = {
@@ -45,6 +46,7 @@ function init_gear_sets()
                                           legs="Savage Loincloth",
                                           left_ear="Knight's earring",
                                           right_ear="Cassie Earring",
+                                          left_ring="Sattva Ring",
                                       })
   
     -- Don't need any special gear for Healing Waltz.
@@ -176,7 +178,8 @@ function init_gear_sets()
                 legs="Savage Loincloth",
                 feet="Bounding Boots",
                 neck="Peacock amulet",
-                left_ear="Knight's earring",
+--                left_ear="Knight's earring",
+                left_ear="Suppanomimi",
                 right_ear="Cassie Earring",
                 waist="Velocious Belt",
                 left_ring="Dasra's Ring",
@@ -222,11 +225,14 @@ function init_gear_sets()
                   legs="Dusk Trousers",
                   feet="Dusk Ledelsens",
                   neck="Peacock amulet",
-                  left_ear="Knight's earring",
+--                  left_ear="Knight's earring",
+                  left_ear="Suppanomimi",
                   right_ear="Cassie Earring",
                   waist="Velocious Belt",
-                  left_ring="Lava's Ring",
-                  right_ring="Kusha's Ring",
+--                  left_ring="Lava's Ring",
+--                  right_ring="Kusha's Ring",
+                  left_ring="Sniper's Ring",
+                  right_ring="Rajas Ring",
                   back="Cerberus Mantle",
                  }
      
@@ -249,7 +255,7 @@ function init_gear_sets()
                               )
   -- weaponskill
   sets.precast.WS = {
-    neck="Peacock amulet",
+    neck="Chivalrous Chain",
     body="Haubergeon +1",
     hands="Pallas's Bracelets",
     feet="Savage Gaiters"
@@ -270,6 +276,7 @@ function init_gear_sets()
   sets.precast.WS['Vorpal Blade'] = set_combine(
                                                   sets.precast.WS,
                                                   {
+                                                    neck="Chivalrous Chain",
                                                     hands="Pallas's Bracelets",
                                                     back="Cerberus Mantle",
                                                     waist="Potent Belt",
@@ -291,6 +298,7 @@ function init_gear_sets()
 sets.precast.WS['Swift Blade'] = set_combine(
 sets.precast.WS,
 {
+  neck="Chivalrous Chain",
   waist="Potent Belt",
   back="Cerberus Mantle",
 }

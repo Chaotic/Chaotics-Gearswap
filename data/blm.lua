@@ -2,7 +2,7 @@ function get_sets()
 
     --mote library settings
     mote_include_version = 2
-    include('Mote-Include.lua')
+    include('Chaotic-Mote-Include.lua')
       
   end
   
@@ -156,7 +156,7 @@ function handle_level_sync(gain)
 end
 
 function job_update_tracker(command)
-  return command..'wait 0.3;track add Cookies: ${inventory:Coin Cookie};wait 0.3;track add Drink: ${all:Yagudo Drink};'
+  return command..'wait 0.3;track add Cookies: ${all:Coin Cookie};wait 0.3;track add Drink: ${all:Yagudo Drink};'
 end
 --  I'm not a fan of most of this.  Doubly so euiping gear in these functions.  Since I don't use most of it comment it out for now
   
@@ -167,17 +167,14 @@ function job_post_midcast(spell,action,spellMap,eventArgs)
           if spell.skill == 'Elemental Magic' then
             equip({legs="Sorcerer's tonban"})
           end
---          equip({waist="Hachirin-no-obi",main="Chatoyant staff"})
-          equip({waist="Hachirin-no-obi",main="Iridal staff"})
+          --equip({waist="Hachirin-no-obi",main="Chatoyant staff"})
         elseif spell.element == world.day_element then
           if spell.skill == 'Elemental Magic' then
             equip({legs="Sorcerer's tonban"})
           end
---          equip({waist="Hachirin-no-obi",main="Claustrum"})
-            equip({waist="Hachirin-no-obi",main="Iridal staff"})
+          --equip({waist="Hachirin-no-obi",main="Claustrum"})
         elseif spell.element == world.weather_element then
---          equip({waist="Hachirin-no-obi",main="Chatoyant staff"})
-            equip({waist="Hachirin-no-obi",main="Iridal staff"})
+          --equip({waist="Hachirin-no-obi",main="Chatoyant staff"})
 end
             
         if state.CastingMode.value == 'TH' then

@@ -39,7 +39,9 @@ function init_gear_sets()
     })
 
   -- precast magic
-  sets.precast.FC = {}
+  sets.precast.FC = {
+    left_ear="Loquac. Earring",
+  }
 
   -- midcast magic
   sets.midcast.FastRecast = set_combine(sets.precast.FC,
@@ -66,9 +68,7 @@ function init_gear_sets()
 
   -- idle
   sets.idle= {
-    main="Senjuinrikio",
-    sub="Kabutowari +1",
-              range="Jr.Msk. Chakram",
+              ammo="Tiphia Sting",
               head="Walahra Turban",
               body="Scp. Harness +1",
               hands="Ochiudo's Kote",
@@ -103,9 +103,7 @@ function init_gear_sets()
 
   -- engaged
   sets.engaged = {
-    main="Senjuinrikio",
-    sub="Kabutowari +1",
-                  range="Jr.Msk. Chakram",
+                  ammo="Tiphia Sting",
                   head="Walahra Turban",
                   body="Scp. Harness +1",
                   hands="Dusk Gloves",
@@ -148,6 +146,7 @@ function init_gear_sets()
 
   --ws
   sets.precast.WS = {
+    neck="Chivalrous Chain",
     waist="Potent Belt",
     hands="Ochiudo's Kote",
     legs="Ryl.Kgt. Breeches",
@@ -161,7 +160,9 @@ function init_gear_sets()
   -- STR:30% DEX:30%
   sets.precast.WS['Blade: Jin'] = set_combine(sets.precast.WS,{
     head="Empress Hairpin",
+    neck="Chivalrous Chain",
     feet="Bounding Boots",
+    hands="Pallas's Bracelets",
   })
                 
   sets.precast.WS['Blade: Jin'].HNM = set_combine(sets.precast.WS['Blade: Jin'],{})
@@ -169,7 +170,9 @@ function init_gear_sets()
   -- STR:30% DEX:30%
   sets.precast.WS['Blade: Ku'] = set_combine(sets.precast.WS,{
     head="Empress Hairpin",
+    neck="Chivalrous Chain",
     feet="Bounding Boots",
+    hands="Pallas's Bracelets",
   })
    
   sets.precast.WS['Blade: Ku'].HNM = set_combine(sets.precast.WS['Blade: Ku'],{})

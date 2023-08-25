@@ -28,27 +28,34 @@
     -- sets.resting[state.RestingMode]
     -- engaged Sets
     -- sets.engaged[state.CombatForm][state.CombatWeapon][state.OffenseMode][state.DefenseMode][classes.CustomMeleeGroups (any number)]
+
   function init_gear_sets()
 
     windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
 
+
   --misc.
   sets.lowHP = {}
+    -- Auto equipped sets should look like
+    -- sets.idle[idleScope][state.IdleMode][Pet[Engaged]][CustomIdleGroups]
 
   -- Idle sets
   sets.idle = {
     main=gear.Staff.PDT,
+    sub="Bugard Strap +1",
     ammo={ name="Bibiki Seashell", augments={'HP recovered while healing +5','MP recovered while healing +5','Phys. dmg. taken -3%',}},
     neck="Philomath Stole",
-    body="Vermillion Cloak",
-    hands="Wizard's Gloves",
-    legs="Wizard's Tonban",
-    feet="Wizard's Sabots",
+    head="Yigit Turban",
+    body="Yigit Gomlek",
+    hands="Yigit Gages",
+    legs="Yigit Seraweels",
+    feet="Yigit Crackows",
+    waist="Penitent's Rope",
     left_ear="Helenus's Earring",
     right_ear="Cass. Earring",
     left_ring="Jelly Ring",
     right_ring="Nasatya's Ring",
-    back="Mist Silk Cape",
+    back="Black Cape +1",
   }
   sets.idle.DW = sets.idle
 
@@ -60,7 +67,10 @@
   -- Resting sets
   sets.resting = {
     main=gear.Staff.HMP,
-    body="Errant Hpl.",
+    head="Yigit Turban",
+    body="Yigit Gomlek",
+    hands="Yigit Gages",
+    feet="Yigit Crackows",
     ammo="Bibiki Seashell",
     legs="Yigit Seraweels",
     left_ear="Antivenom Earring",
@@ -70,12 +80,13 @@
     --base magic sets
   -- misc
   sets.MND = {
-    head="Garrison Sallet",
+    head="Yigit Turban",
     body="Errant Hpl.",
-    hands="Seer's Mitts +1",
-    legs="Savage Loincloth",
-    feet="Seer's Pumps +1",
+    hands="Yigit Gages",
+    legs="Errant Slops",
+    feet="Yigit Crackows",
     neck="Justice Badge",
+    waist="Penitent's Rope",
     left_ring="Wisdom Ring",
     right_ring="Tamas Ring",
     back="Mist Silk Cape",
@@ -83,11 +94,14 @@
 
   sets.INT = {
     head="Wizard's Petasos",
-    hands="Seer's Mitts +1",
+    hands="Yigit Gages",
     left_ring="Wisdom Ring",
-    right_ring="Tamas Ring",
     body="Errant Hpl.",
+    waist="Penitent's Rope",
     legs="Errant Slops",
+    feet="Yigit Crackows",
+    right_ring="Tamas Ring",
+    back="Black Cape +1",
     neck="Philomath Stole",
   }
 
@@ -101,7 +115,9 @@ sets.MND["DW"] = sets.MND["Normal"]
 sets.INT["DW"] = sets.INT["Normal"]
 
 --precast magic
-    sets.precast.FC = {}
+    sets.precast.FC = {
+      left_ear="Loquac. Earring",
+    }
 
     sets.midcast.FastRecast = set_combine(sets.precast.FC,
                                         {})
@@ -114,10 +130,15 @@ sets.INT["DW"] = sets.INT["Normal"]
       sets.midcast['Divine Magic'] = set_combine(sets.MND[state.IdleMode.current],
                                                 {
                                                   main=gear.ElementalStaff,
+                                                  sub=gear.ElementalGrip,
+                                                  waist=gear.ElementalObi,
+                                              
                                                 })
 
       sets.midcast['Enfeebling Magic'] = {
         main=gear.ElementalStaff,
+        sub=gear.ElementalGrip,
+        waist=gear.ElementalObi,
         body="Wizard's Coat",
       }
 
@@ -138,6 +159,8 @@ sets.INT["DW"] = sets.INT["Normal"]
       sets.midcast['Elemental Magic'] = set_combine(sets.INT[state.IdleMode.current],
                                                     {
                                                       main=gear.ElementalStaff,
+                                                      sub=gear.ElementalGrip,
+                                                      waist=gear.ElementalObi,
                                                       hands="Wizard's Gloves",
                                                       legs="Druid's Slops",
                                                     })
@@ -151,6 +174,8 @@ sets.INT["DW"] = sets.INT["Normal"]
       sets.midcast['Dark Magic'] = set_combine(sets.INT[state.IdleMode.current],
                                                 {
                                                   main=gear.ElementalStaff,
+                                                  sub=gear.ElementalGrip,
+                                                  waist=gear.ElementalObi,
                                                   legs="Wizard's Tonban",
                                                   left_ear="Abyssal Earring",
                                                 })
@@ -161,7 +186,9 @@ sets.INT["DW"] = sets.INT["Normal"]
     -- custom midcast sets
     sets.midcast.Cure = set_combine(sets.MND[state.IdleMode.current],
                                     {
-                                      main="Iridal Staff",
+                                      main=gear.ElementalStaff,
+                                      sub=gear.ElementalGrip,
+                                      waist=gear.ElementalObi,
                                       legs="Druid's Slops",
                                     })
 
@@ -175,6 +202,8 @@ sets.INT["DW"] = sets.INT["Normal"]
     sets.midcast.EleEnfeebs = set_combine(sets.INT[state.IdleMode.current],
                                             {
                                               main=gear.ElementalStaff,
+                                              sub=gear.ElementalGrip,
+                                              waist=gear.ElementalObi,
                                             })
 
     sets.midcast.Spikes = set_combine(sets.INT[state.IdleMode.current],
@@ -213,8 +242,8 @@ sets.INT["DW"] = sets.INT["Normal"]
               waist="Shaman's Belt",
               left_ear="Morion Earring",
               right_ear="Morion Earring",
-              left_ring="Warp ring",
-              right_ring="Eremite's Ring",
+      left_ring="Eremite's Ring",
+      right_ring="Tamas Ring",
             }
     sets.idle['30'].DW = {
               main="Yew Wand +1",
@@ -228,8 +257,8 @@ sets.INT["DW"] = sets.INT["Normal"]
               waist="Shaman's Belt",
               left_ear="Morion Earring",
               right_ear="Morion Earring",
-              left_ring="Warp ring",
-              right_ring="Eremite's Ring",
+      left_ring="Eremite's Ring",
+      right_ring="Tamas Ring",
             }
 
     sets.idle['30'].Town
@@ -265,8 +294,8 @@ sets.INT["DW"] = sets.INT["Normal"]
       waist="Shaman's Belt",
       left_ear="Morion Earring",
       right_ear="Morion Earring",
-      left_ring="Warp ring",
-      right_ring="Eremite's Ring",
+left_ring="Eremite's Ring",
+right_ring="Tamas Ring",
     }
 sets.idle['40'].DW = {
       main="Yew Wand +1",
@@ -280,8 +309,8 @@ sets.idle['40'].DW = {
       waist="Shaman's Belt",
       left_ear="Morion Earring",
       right_ear="Morion Earring",
-      left_ring="Warp ring",
-      right_ring="Eremite's Ring",
+left_ring="Eremite's Ring",
+right_ring="Tamas Ring",
     }
 
 sets.idle['40'].Town
@@ -318,8 +347,8 @@ sets.resting['40'] = {
       waist="Shaman's Belt",
       left_ear="Morion Earring",
       right_ear="Morion Earring",
-      left_ring="Warp ring",
-      right_ring="Eremite's Ring",
+left_ring="Eremite's Ring",
+right_ring="Tamas Ring",
     }
 sets.idle['50'].DW = {
       main="Yew Wand +1",
@@ -333,8 +362,8 @@ sets.idle['50'].DW = {
       waist="Shaman's Belt",
       left_ear="Morion Earring",
       right_ear="Morion Earring",
-      left_ring="Warp ring",
-      right_ring="Eremite's Ring",
+left_ring="Eremite's Ring",
+right_ring="Tamas Ring",
     }
 
 sets.idle['50'].Town

@@ -66,7 +66,7 @@
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
-    include('Mote-Include.lua')
+    include('Chaotic-Mote-Include.lua')
     include('organizer-lib')
   end
   
@@ -235,7 +235,7 @@ function get_sets()
     
     casting_mode = ''
   
-    gear.perp_staff = {main="Iridal Staff"}
+    gear.perp_staff = {main="Chatoyant Staff"}
     
     send_command('bind !f9 gs c cycle IdleMode')
 
@@ -579,7 +579,6 @@ end
   end
 
 function equipPerpGear(pet,CustomSet)
-  
   if not(state.LevelCap.current) or state.LevelCap.current == 'Normal' then
     if pet.status == 'Engaged' then
       CustomSet = set_combine(CustomSet, sets.idle.Avatar.Melee)

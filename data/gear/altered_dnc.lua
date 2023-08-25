@@ -13,6 +13,9 @@ function init_gear_sets()
       waist="Life Belt",
       body="Scp. Harness +1",
       hands="Dancer's Bangles",
+      -- tights give 3 acc
+      legs="Dancer's Tights",
+      feet="Etoile Toe Shoes",
     }
   
     sets.CHR = {
@@ -37,6 +40,7 @@ function init_gear_sets()
     }  
     -- Waltz set (chr and vit)
     sets.precast.Waltz = set_combine(sets.CHR,{
+      head="Etoile Tiara",
       body="Dancer's Casaque",
     })
   
@@ -67,8 +71,12 @@ function init_gear_sets()
     -- midcast magic
     sets.midcast.FastRecast = set_combine(sets.precast.FC,
                                             {
+
+                                              head="Walahra Turban",
                                               body="Rapparee Harness",
                                               waist="Velocious Belt",
+                                              hands="Dusk Gloves",
+                                              feet="Dusk Ledelsens",
                                           })
   
     sets.midcast['Utsusemi: Ni'] = set_combine(sets.midcast.FastRecast,{})
@@ -79,14 +87,14 @@ function init_gear_sets()
     -- idle
     sets.idle = {
                   range="War Hoop",
-                  head="Empress Hairpin",
+                  head="Walahra Turban",
                   body="Rapparee Harness",
                   hands="Guerilla Gloves",
-                  legs="Beetle Subligar +1",
+                  legs="Dancer's Tights",
                   feet="Bounding Boots",
                   neck="Peacock Amulet",
                   waist={ name="Velocious Belt", augments={'STR+3','Water resistance+20','Water resistance+30',}},
-                  left_ear="Drone Earring",
+                  left_ear="Suppanomimi",
                   right_ear="Drone Earring",
                   left_ring="Sniper's Ring",
                   right_ring="Rajas Ring",
@@ -122,17 +130,18 @@ function init_gear_sets()
     -- engaged
     sets.engaged = {
                       range="War Hoop",
-                      head="Empress Hairpin",
+                      head="Walahra Turban",
                       body="Rapparee Harness",
-                      legs="Beetle Subligar +1",
-                      feet="Bounding Boots",
+                      legs="Dancer's Tights",
+                      hands="Dusk Gloves",
+                      feet="Dusk Ledelsens",
                       neck="Peacock Amulet",
                       waist={ name="Velocious Belt", augments={'STR+3','Water resistance+20','Water resistance+30',}},
-                      left_ear="Drone Earring",
+                      left_ear="Suppanomimi",
                       right_ear="Drone Earring",
                       left_ring="Sniper's Ring",
                       right_ring="Rajas Ring",
-                      back="Traveler's Mantle",
+                      back="Cerberus Mantle",
                     }
   
   sets.engaged.HybridAcc = set_combine(sets.engaged,
@@ -153,13 +162,17 @@ function init_gear_sets()
     -- ws base
   -- BASE WEAPONSKILL SETS
   sets.precast.WS  = {
+    neck="Chivalrous Chain",
     body="Scp. Harness +1",
     waist="Life Belt",
     left_ring="Sniper's Ring",
     right_ring="Rajas Ring",
+    back="Cerberus Mantle",
   }
     
-  sets.precast.WS.Atk = set_combine(sets.precast.WS,{}) 
+  sets.precast.WS.Atk = set_combine(sets.precast.WS,{
+    neck="Chivalrous Chain",
+  }) 
   
   sets.precast.WS.Acc = set_combine(sets.precast.WS,
   {
@@ -178,60 +191,77 @@ function init_gear_sets()
     left_ring="Sniper's Ring",
     right_ring="Rajas Ring",
   })
-   
   -- Evisceration
-  -- DEX 50              
-    sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,
-                                                    {}) 
-    
-    sets.precast.WS['Evisceration'].HybridAcc = set_combine(sets.precast.WS.HybridAcc,
-                                                            {
-                                                              neck="Peacock amulet",
-                                                              body="Scp. Harness +1",
-                                                              waist="Life Belt",
-                                                              left_ring="Lava's Ring",
-                                                              right_ring="Kusha's Ring",
-                                                            }) 
-    
-    sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS.Acc,
-                                                    {
-                                                      neck="Peacock amulet",
-                                                      body="Scp. Harness +1",
-                                                      waist="Life Belt",
-                                                      left_ring="Lava's Ring",
-                                                      right_ring="Kusha's Ring",
-                                                  }) 
-    
-    sets.precast.WS['Evisceration'].Mod = set_combine(sets.precast.WS['Evisceration'],
-                                                    {}) 
-                   
+  -- DEX 50
+  sets.precast.WS['Evisceration'] = set_combine(sets.DEX,{
+                                                            head="Empress Hairpin",
+                                                            body="Scp. Harness +1",
+                                                            neck="Peacock amulet",
+                                                            waist="Life Belt",
+                                                            back="Cerberus Mantle",
+                                                          })
+  
+  sets.precast.WS['Evisceration'].Atk = set_combine(sets.precast.WS['Evisceration'],{})
+                 
+  sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'],
+  {
+    neck="Peacock amulet",
+    body="Scp. Harness +1",
+    waist="Life Belt",
+    left_ring="Lava's Ring",
+    right_ring="Kusha's Ring",
+  })
+
+  sets.precast.WS['Evisceration'].AtkAcc = set_combine(sets.precast.WS['Evisceration'].Atk,
+  {
+    neck="Peacock amulet",
+    body="Scp. Harness +1",
+    waist="Life Belt",
+    left_ring="Sniper's Ring",
+    right_ring="Rajas Ring",
+
+  })
+
   -- Dancing Edge
   -- Dex 40 CHR 40
-    sets.precast.WS['Dancing Edge'] = set_combine(sets.precast.WS,
-                                                    {})
-                  
-    sets.precast.WS['Dancing Edge'].HybridAcc = set_combine(sets.precast.WS.HybridAcc,
-                                                            {})
-                  
-    sets.precast.WS['Dancing Edge'].Acc = set_combine(sets.precast.WS.Acc,
-                                                    {})
-                  
-    sets.precast.WS['Dancing Edge'].Mod = set_combine(sets.precast.WS['Dancing Edge'],
-                                                        {})
+  sets.precast.WS['Dancing Edge'] = set_combine(sets.DEX,{
+    head="Empress Hairpin",
+    body="Scp. Harness +1",
+    neck="Peacock amulet",
+    waist="Life Belt",
+    back="Cerberus Mantle",
+})
+    
+  sets.precast.WS['Dancing Edge'].Atk = set_combine(sets.precast.WS['Dancing Edge'],{})
+               
+  sets.precast.WS['Dancing Edge'].Acc = set_combine(sets.precast.WS['Dancing Edge'],
+  {
+    neck="Peacock amulet",
+    body="Scp. Harness +1",
+    waist="Life Belt",
+    left_ring="Lava's Ring",
+    right_ring="Kusha's Ring",
+  })
+
+  sets.precast.WS['Dancing Edge'].AtkAcc = set_combine(sets.precast.WS['Dancing Edge'].Atk,
+  {
+    neck="Peacock amulet",
+    body="Scp. Harness +1",
+    waist="Life Belt",
+    left_ring="Sniper's Ring",
+    right_ring="Rajas Ring",
+  })
+
   -- Exenterator
-  -- AGI 73                   
-    sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS['Dancing Edge'],
-                                                {})
-                   
-    sets.precast.WS['Exenterator'].HybridAcc = set_combine(sets.precast.WS['Dancing Edge'].HybridAcc,
-                                                            {})
-                   
-    sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS['Dancing Edge'].Acc,
-                                                    {})
-                   
-    sets.precast.WS['Exenterator'].Mod = set_combine(sets.precast.WS['Dancing Edge'].Mod,
-                                                    {})
+  -- AGI 73
+  sets.precast.WS['Exenterator'] = sets.precast.WS['Dancing Edge']
   
+  sets.precast.WS['Exenterator'].Atk = sets.precast.WS['Dancing Edge'].Atk
+  
+  sets.precast.WS['Exenterator'].Acc = sets.precast.WS['Dancing Edge'].Acc
+  
+  sets.precast.WS['Exenterator'].AtkAcc = sets.precast.WS['Dancing Edge'].AtkAcc
+                
     -- pyrrhic kleos
     sets.precast.WS['Pyrrhic Kleos'] = set_combine(sets.precast.WS,
                                                     {})

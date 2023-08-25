@@ -11,7 +11,7 @@ function init_gear_sets()
 
   sets.CHR = {
     main="Monster Signa",
-    head="Noble's Ribbon",
+    head="Bard's Roundlet",
     neck="Bird Whistle",
     body="Savage Separates",
     hands="Choral Cuffs",
@@ -23,9 +23,11 @@ function init_gear_sets()
   }
   
   sets.Singing = {
+    head="Bard's Roundlet",
     hands="Choral Cuffs",
   }
   sets.Wind = set_combine(sets.Singing,{
+    neck="Wind Torque",
     body="Minstrel's Coat",
     legs="Choral Cannions",
     left_ring="Nereid Ring",
@@ -40,6 +42,8 @@ sets.midcast['Minne'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.String
   range="Harp +1",
 })
 sets.midcast['Requiem'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
+  main=gear.ElementalStaff,
+  sub=gear.ElementalGrip,
   range="Hamelin Flute",
 })
 sets.midcast['Threnody'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
@@ -49,7 +53,8 @@ sets.midcast['Minuet'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,
   range="Cornette +2",
 })
 sets.midcast['Lullaby'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
-  main="Iridal Staff",
+  main=gear.ElementalStaff,
+  sub=gear.ElementalGrip,
   range="Mary's horn",
 })
 sets.midcast['March'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
@@ -59,6 +64,8 @@ sets.midcast['Mambo'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
   range="Gemshorn +1",
 })
 sets.midcast['Elegy'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
+  main=gear.ElementalStaff,
+  sub=gear.ElementalGrip,
   range="Horn +1",
 })
 sets.midcast['Madrigal'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
@@ -82,22 +89,18 @@ sets.midcast['Etude'] = sets.midcast['Ballad']
 sets.midcast['Etude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
   range="Maple Harp +1",
 })
-
-
-
-
 ]]
 
   -- idle
   sets.idle = {
-    main="Monster Signa",
+    main=gear.Staff.PDT,
     range="Iron Ram Horn",
-    head="Empress Hairpin",
-    neck="Bird Whistle",
-    body="Minstrel's Coat",
-    hands="Choral Cuffs",
-    legs="Choral Cannions",
-    feet="Choral Slippers",
+    neck="Wind Torque",
+    head="Yigit Turban",
+    body="Yigit Gomlek",
+    hands="Yigit Gages",
+    legs="Yigit Seraweels",
+    feet="Yigit Crackows",
     left_ear="Cass. Earring",
     right_ear="Helenus's Earring",
     left_ring="Nereid Ring",
@@ -111,16 +114,36 @@ sets.midcast['Etude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
                         back="Nexus cape",
                     })
 
-  sets.resting = {}
+  -- Resting sets
+  sets.resting = {
+    main=gear.Staff.HMP,
+    head="Yigit Turban",
+    body="Yigit Gomlek",
+    hands="Yigit Gages",
+    feet="Yigit Crackows",
+    ammo="Bibiki Seashell",
+    legs="Yigit Seraweels",
+    left_ear="Antivenom Earring",
+    right_ear="Relaxing Earring",
+  }
 
   -- precast magic
-  sets.precast.FC = {}
-
-  sets.precast.FC['BardSong'] = set_combine(sets.precast.FC,{})
+  sets.precast.FC = {
+    left_ear="Loquac. Earring",
+  }
+  
+  sets.precast.FC['BardSong'] = set_combine(sets.precast.FC,{
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
+    body="Yigit Gomlek",
+  })
 
   -- midcast magic
   sets.midcast.FastRecast = set_combine(sets.precast.FC,{
+    head="Walahra Turban",
     waist="Velocious Belt",
+    hands="Dusk Gloves",
+    feet="Dusk Ledelsens",
   })
                  
   sets.midcast['Utsusemi: Ni'] = set_combine(sets.midcast.FastRecast,{})
@@ -128,13 +151,28 @@ sets.midcast['Etude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
   sets.midcast['Utsusemi: Ichi'] = set_combine(sets.midcast['Utsusemi: Ni'],{})
   
                                                      
-  sets.midcast['Healing Magic'] = set_combine(sets.MND,sets.midcast.FastRecast,{})
+  sets.midcast['Healing Magic'] = set_combine(sets.MND,sets.midcast.FastRecast,{
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
+
+  })
                                                      
-  sets.midcast['Divine Magic'] = set_combine(sets.MND,{})
+  sets.midcast['Divine Magic'] = set_combine(sets.MND,{
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
+
+  })
                  
   sets.midcast['Divine Magic'].Acc = set_combine(sets.midcast['Divine Magic'],{})
                                                      
-  sets.midcast['Enfeebling Magic'] = {}
+  sets.midcast['Enfeebling Magic'] = {
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
+
+  }
                                                      
   sets.midcast['Enfeebling Magic']['BlackMagic'] = set_combine(sets.INT,{})
    
@@ -146,12 +184,20 @@ sets.midcast['Etude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
   
   sets.midcast['Elemental Magic'] = set_combine(sets.INT,
                 {
-                    ear2="Moldavite earring",
+                  main=gear.ElementalStaff,
+                  sub=gear.ElementalGrip,
+                  waist=gear.ElementalObi,
+                                  ear2="Moldavite earring",
                 })
    
   sets.midcast['Elemental Magic'].Acc = set_combine(sets.midcast['Elemental Magic'],{})
                                                      
-  sets.midcast['Dark Magic'] = set_combine(sets.INT,{})
+  sets.midcast['Dark Magic'] = set_combine(sets.INT,{
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
+
+  })
                  
   sets.midcast['Dark Magic'].Acc = set_combine(sets.midcast['Dark Magic'],{})
                                                      
@@ -167,9 +213,15 @@ sets.midcast['Etude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
   sets.midcast['Cursna'] = set_combine(sets.midcast['Healing Magic'],{})
                  
   -- bard songs
-  sets.midcast['BardSong'] = set_combine(sets.midcast.FastRecast,sets.CHR,{})
+  sets.midcast['BardSong'] = set_combine(sets.midcast.FastRecast,sets.CHR,{
+    sub=gear.ElementalGrip,
+    
+  })
                  
   sets.midcast.BardDebuff = set_combine(sets.CHR,{
+      main=gear.ElementalStaff,
+      sub=gear.ElementalGrip,
+      waist=gear.ElementalObi,
       left_ear="Cass. Earring",
       right_ear="Helenus's Earring",
     })

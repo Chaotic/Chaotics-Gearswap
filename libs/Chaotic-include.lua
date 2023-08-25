@@ -54,7 +54,6 @@ end
 
 function initialize_job()
     include('Era-Utilities.lua')
-    include('Chaotic-HUD.lua')
     
     fix_casting_times()
 
@@ -441,7 +440,7 @@ function handle_standard_buffs(buff,gain)
     --  These ones should be handled the same regardless of the job so handle them in the include.
 
     --add_to_chat(122, 'Buff:'..tostring(buff)..': gain:'..tostring(gain)..':')
-    if buff == 'Level Restriction' or buff == 'Level Sync' or buff == 'Battlefield' then
+    if buff == 'Level Restriction' or buff == 'Level Sync' or buff == 'Battlefield' or buff == 'Confrontation'  then
         if handle_level_sync then
             handle_level_sync(gain)  -- I'll leave this to the job file to handle
         end 

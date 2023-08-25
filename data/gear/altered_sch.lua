@@ -42,8 +42,8 @@ function init_gear_sets()
 		waist="Shaman's Belt",
 		left_ear="Morion Earring",
 		right_ear="Morion Earring",
-		left_ring="Eremite's Ring",
-		right_ring="Eremite's Ring",
+    left_ring="Wisdom Ring",
+    right_ring="Tamas Ring",
 	  }
     sets.idle.DW = {
       main="Yew Wand +1",
@@ -71,6 +71,7 @@ function init_gear_sets()
                       back="Nexus cape",
                     })
 	sets.resting = {
+    head="Sol Cap",
 					main="Pilgrim's Wand",
 					body="Seer's Tunic +1",
 					}

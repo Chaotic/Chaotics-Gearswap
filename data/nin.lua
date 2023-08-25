@@ -14,7 +14,7 @@ organizer_items = {
 function get_sets()
 
     mote_include_version = 2
-    include('Mote-Include.lua')
+    include('Chaotic-Mote-Include.lua')
   
   
   end

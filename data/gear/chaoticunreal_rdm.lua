@@ -43,9 +43,10 @@ function init_gear_sets()
 
 	--Misc
 	sets.MND = {
+        head="Yigit Turban",
         neck="Justice Badge",
         body="Errant Hpl.",
-        hands="Zealot's Mitts",
+        hands="Yigit Gages",
         legs="Errant Slops",
         feet="Mahatma Pigaches",
         waist="Penitent's Rope",
@@ -57,7 +58,7 @@ function init_gear_sets()
 	sets.INT = {
         head="Warlock's Chapeau",
         body="Errant Hpl.",
-        hands="Duelist's Gloves",
+        hands="Yigit Gages",
         waist="Penitent's Rope",
         legs="Errant Slops",
         left_ear="Morion Earring",
@@ -71,10 +72,11 @@ function init_gear_sets()
 	-- idle
 	sets.idle = { 
         neck="Philomath Stole",
-        body="Royal Cloak",
-        hands="Duelist's Gloves",
+        head="Yigit Turban",
+        body="Yigit Gomlek",
+        hands="Yigit Gages",
         legs="Yigit Seraweels",
-        feet="Duelist's Boots",
+        feet="Yigit Crackows",
         waist="Penitent's Rope",
         left_ear="Helenus's Earring",
         right_ear="Cass. Earring",
@@ -94,26 +96,24 @@ function init_gear_sets()
                 {})
 	
     -- sets.resting[state.RestingMode]
-  sets.resting = {
-    main=gear.Staff.HMP,
-    body="Errant Hpl.",
-    ammo="Bibiki Seashell",
-    legs="Yigit Seraweels",
-    left_ear="Antivenom Earring",
-    right_ear="Relaxing Earring",
-
-  }
   sets.resting.TP = {
-    body="Errant Hpl.",
+    head="Yigit Turban",
+    body="Yigit Gomlek",
+    hands="Yigit Gages",
+    feet="Yigit Crackows",
     ammo="Bibiki Seashell",
     legs="Yigit Seraweels",
     left_ear="Antivenom Earring",
     right_ear="Relaxing Earring",
   }
+  sets.resting = set_combine(sets.resting.TP,{
+    main=gear.Staff.HMP,
+  })
   -- precast magic
   sets.precast.FC= {
     head="Warlock's Chapeau",
     ammo="Bibiki Seashell",  -- This has spell interruption on it.
+    left_ear="Loquac. Earring",
   }
 	                                                   
 	-- midcast magic                                   
@@ -135,7 +135,9 @@ function init_gear_sets()
   sets.midcast['Divine Magic'] = set_combine(sets.MND,sets.midcast.FastRecast,{
     main=gear.ElementalStaff,
     sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
     head="Elite Beret",
+
   })
                  
   sets.midcast['Divine Magic'].Acc = set_combine(sets.midcast['Divine Magic'],{
@@ -146,6 +148,7 @@ function init_gear_sets()
   sets.midcast['Enfeebling Magic'] = {
     main=gear.ElementalStaff,
     sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
     neck="Spider Torque",
     body="Warlock's Tabard",
     head="Elite Beret",
@@ -175,7 +178,9 @@ function init_gear_sets()
   sets.midcast['Elemental Magic'] = set_combine(sets.INT,sets.midcast.FastRecast,{
     main=gear.ElementalStaff,
     sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
     head="Warlock's Chapeau",
+    body="Yigit Gomlek",
   })
    
   sets.midcast['Elemental Magic'].Acc = set_combine(sets.midcast['Elemental Magic'],{
@@ -184,6 +189,9 @@ function init_gear_sets()
   })
                                                      
   sets.midcast['Dark Magic'] = set_combine(sets.INT,sets.midcast.FastRecast,{
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
     right_ear="Dark Earring",
     left_ear="Abyssal Earring",
   })
@@ -209,7 +217,9 @@ function init_gear_sets()
                  
   sets.midcast.Cure = set_combine(sets.midcast['Healing Magic'],sets.midcast.FastRecast,
                                   {
-                                    main="Iridal Staff"
+                                    main=gear.ElementalStaff,
+                                    sub=gear.ElementalGrip,
+                                    waist=gear.ElementalObi,
                                   })
                  
   sets.midcast.Curaga = set_combine(sets.midcast.Cure,{})

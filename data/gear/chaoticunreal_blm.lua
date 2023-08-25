@@ -42,44 +42,34 @@ function init_gear_sets()
   -- Idle sets
     sets.idle = {
                     main=gear.Staff.PDT,
-                    sub="Lizard Strap",
+                    sub="Bugard Strap +1",
                     neck="Philomath Stole",
-                    body="Royal Cloak",
-                    hands="Wizard's Gloves",
-                    legs="Wizard's Tonban",
-                    feet="Wizard's Sabots",
+                    head="Yigit Turban",
+                    body="Yigit Gomlek",
+                    hands="Yigit Gages",
+                    legs="Yigit Seraweels",
+                    feet="Yigit Crackows",
                     waist="Penitent's Rope",
                     left_ear="Helenus's Earring",
                     right_ear="Cass. Earring",
-                    left_ring="Genius Ring",
-                    right_ring="Tamas Ring",
-                  }
-    sets.idle.DW = {
-                    main=gear.Staff.PDT,
-                    neck="Philomath Stole",
-                    body="Royal Cloak",
-                    hands="Wizard's Gloves",
-                    legs="Wizard's Tonban",
-                    feet="Wizard's Sabots",
-                    waist="Penitent's Rope",
-                    left_ear="Helenus's Earring",
-                    right_ear="Cass. Earring",
-                    left_ring="Genius Ring",
-                    right_ring="Tamas Ring",
-                  }
+                    left_ring="Jelly Ring",
+                    right_ring="Nasatya's Ring",
+                    back="Black Cape +1",
+        }
+  sets.idle.DW = sets.idle
 
     sets.idle.Town
        = set_combine(sets.idle,{
                      back="Nexus cape",
                      })
-    sets.idle.Town.DW
-       = set_combine(sets.idle.DW,{
-                     back="Nexus cape",
-                     })
-
+  sets.idle.Town.DW = sets.idle.Town
+  -- Resting sets
     sets.resting = {
                       main=gear.Staff.HMP,
-                      body="Errant Hpl.",
+                      head="Yigit Turban",
+                      body="Yigit Gomlek",
+                      hands="Yigit Gages",
+                      feet="Yigit Crackows",
                       ammo="Bibiki Seashell",
                       legs="Yigit Seraweels",
                       left_ear="Antivenom Earring",
@@ -88,11 +78,12 @@ function init_gear_sets()
     sets.resting.DW = sets.resting     
     --base magic sets
     sets.MND = {
-      neck="Justice Badge",
+      head="Yigit Turban",
       body="Errant Hpl.",
-      hands="Zealot's Mitts",
+      hands="Yigit Gages",
       legs="Errant Slops",
       feet="Mahatma Pigaches",
+      neck="Justice Badge",
       waist="Penitent's Rope",
       left_ring="Turquoise Ring",
       right_ring="Tamas Ring",
@@ -101,10 +92,11 @@ function init_gear_sets()
 
     sets.INT = {
           head="Wizard's Petasos",
-          hands="Seer's Mitts +1",
+          hands="Yigit Gages",
           body="Errant Hpl.",
           waist="Penitent's Rope",
           legs="Errant Slops",
+          feet="Yigit Crackows",
           left_ear="Morion Earring",
           right_ear="Morion Earring",
           left_ring="Genius Ring",
@@ -123,7 +115,9 @@ function init_gear_sets()
     sets.INT["DW"] = sets.INT["Normal"]
 
     --precast magic
-    sets.precast.FC = {}
+    sets.precast.FC = {
+      left_ear="Loquac. Earring",
+    }
 
     sets.midcast.FastRecast = set_combine(sets.precast.FC,
                                         {})
@@ -136,10 +130,15 @@ function init_gear_sets()
     sets.midcast['Divine Magic'] = set_combine(sets.MND[state.IdleMode.current],
                                                 {
                                                   main=gear.ElementalStaff,
+                                                  sub=gear.ElementalGrip,
+                                                  waist=gear.ElementalObi,
+                                              
                                                 })
 
     sets.midcast['Enfeebling Magic'] = {
       main=gear.ElementalStaff,
+      sub=gear.ElementalGrip,
+      waist=gear.ElementalObi,
       body="Wizard's Coat",
     }
 
@@ -160,6 +159,8 @@ function init_gear_sets()
     sets.midcast['Elemental Magic'] = set_combine(sets.INT[state.IdleMode.current],
                                                     {
                                                       main=gear.ElementalStaff,
+                                                      sub=gear.ElementalGrip,
+                                                      waist=gear.ElementalObi,
                                                       hands="Wizard's Gloves",
                                                       legs="Druid's Slops",
                                                     })
@@ -173,6 +174,8 @@ function init_gear_sets()
     sets.midcast['Dark Magic'] = set_combine(sets.INT[state.IdleMode.current],
                                                 {
                                                   main=gear.ElementalStaff,
+                                                  sub=gear.ElementalGrip,
+                                                  waist=gear.ElementalObi,
                                                   legs="Wizard's Tonban",
                                                   right_ear="Dark Earring",
                                                   left_ear="Abyssal Earring",
@@ -184,7 +187,9 @@ function init_gear_sets()
     -- custom midcast sets
     sets.midcast.Cure = set_combine(sets.MND[state.IdleMode.current],
                                     {
-                                      main="Iridal Staff",
+                                      main=gear.ElementalStaff,
+                                      sub=gear.ElementalGrip,
+                                      waist=gear.ElementalObi,
                                       legs="Druid's Slops",
                                     })
 
@@ -198,6 +203,8 @@ function init_gear_sets()
     sets.midcast.EleEnfeebs = set_combine(sets.INT[state.IdleMode.current],
                                             {
                                               main=gear.ElementalStaff,
+                                              sub=gear.ElementalGrip,
+                                              waist=gear.ElementalObi,
                                             })
 
     sets.midcast.Spikes = set_combine(sets.INT[state.IdleMode.current],
@@ -236,8 +243,8 @@ function init_gear_sets()
               waist="Shaman's Belt",
               left_ear="Morion Earring",
               right_ear="Morion Earring",
-              left_ring="Warp ring",
-              right_ring="Eremite's Ring",
+              left_ring="Eremite's Ring",
+              right_ring="Tamas Ring",
             }
     sets.idle['30'].DW = {
               main="Yew Wand +1",
@@ -251,8 +258,8 @@ function init_gear_sets()
               waist="Shaman's Belt",
               left_ear="Morion Earring",
               right_ear="Morion Earring",
-              left_ring="Warp ring",
-              right_ring="Eremite's Ring",
+              left_ring="Eremite's Ring",
+              right_ring="Tamas Ring",
             }
 
     sets.idle['30'].Town
@@ -288,8 +295,8 @@ function init_gear_sets()
       waist="Shaman's Belt",
       left_ear="Morion Earring",
       right_ear="Morion Earring",
-      left_ring="Warp ring",
-      right_ring="Eremite's Ring",
+left_ring="Eremite's Ring",
+right_ring="Tamas Ring",
     }
 sets.idle['40'].DW = {
       main="Yew Wand +1",
@@ -303,8 +310,8 @@ sets.idle['40'].DW = {
       waist="Shaman's Belt",
       left_ear="Morion Earring",
       right_ear="Morion Earring",
-      left_ring="Warp ring",
-      right_ring="Eremite's Ring",
+left_ring="Eremite's Ring",
+right_ring="Tamas Ring",
     }
 
 sets.idle['40'].Town
@@ -341,8 +348,8 @@ sets.resting['40'] = {
       waist="Shaman's Belt",
       left_ear="Morion Earring",
       right_ear="Morion Earring",
-      left_ring="Warp ring",
-      right_ring="Eremite's Ring",
+left_ring="Eremite's Ring",
+right_ring="Tamas Ring",
     }
 sets.idle['50'].DW = {
       main="Yew Wand +1",
@@ -356,8 +363,8 @@ sets.idle['50'].DW = {
       waist="Shaman's Belt",
       left_ear="Morion Earring",
       right_ear="Morion Earring",
-      left_ring="Warp ring",
-      right_ring="Eremite's Ring",
+left_ring="Eremite's Ring",
+right_ring="Tamas Ring",
     }
 
 sets.idle['50'].Town

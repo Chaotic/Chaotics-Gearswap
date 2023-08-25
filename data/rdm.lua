@@ -3,7 +3,7 @@ function get_sets()
   mote_include_version = 2
   -- Includes 
   -- Motes is the main one
-  include('Mote-Include.lua')
+  include('Chaotic-Mote-Include.lua')
 end
 
 function job_setup()
@@ -199,7 +199,7 @@ function job_post_midcast(spell,action,spellMap,eventsArgs)
       if spell.element == world.weather_element or spell.element == world.day_element then
         
         if world.weather_element ~= 'Dark' and spellMap == 'Cure' then
-          --equip({waist="Hachirin-no-obi"})
+          equip({waist="Hachirin-no-obi"})
         end
         
      end
@@ -208,86 +208,3 @@ function job_post_midcast(spell,action,spellMap,eventsArgs)
   
   end
 ]]
-  
-
---  Still working on this.
-
-function load_hud_info()
-  --------------------------------------------------------------------------------------------------------------
--- HUD Initial setup and Positioning
---------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------
-hud_x_pos = 1475    --important to update these if you have a smaller screen
-hud_y_pos = 300     --important to update these if you have a smaller screen
-hud_draggable = true
-hud_font_size = 10
-hud_transparency = 0 -- a value of 0 (invisible) to 255 (no transparency at all)
-hud_font = 'Impact'
-hud_padding = 10
---------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------
--- Customize HUD looks and content
--- Colors: ('red', 'blue', 'green', 'white', 'yellow', 'cyan', 'magenta', 'black', 'orange')
-
-sectionsColors:set('orange')
-keybindsColors:set('yellow')
-optionsColors:set('white')
-selectionColors:set('blue')   
-
-textHideMode:set(false)
-textHideOptions:set(false)
-textHideJob:set(false)
-textHideBattle:set(false)
-textHideHUD:set(false)
-useLiteMode:set(false)
-keybinds:set(false)
-
---[[
-    This gets passed in when the Keybinds is turned on.
-    IF YOU CHANGED ANY OF THE KEYBINDS ABOVE, edit the ones below so it can be reflected in the hud using the "//gs c hud keybinds" command
-]]
---[[  Need to set these up with the actual binds I use but I like the concept will return to it.
--- Setup your Key Bindings here:
-windower.send_command('bind insert gs c nuke cycle')            -- Insert Cycles Nuke element
-windower.send_command('bind !insert gs c nuke cycledown')       -- ALT+Insert Cycles Nuke element in reverse order 
-
-windower.send_command('bind f9 gs c toggle idlemode')           -- F9 to change Idle Mode    
-windower.send_command('bind f8 gs c toggle meleemode')          -- F8 to change Melee Mode  
-windower.send_command('bind !f9 gs c toggle melee')             -- Alt-F9 Toggle Melee mode on / off, locking of weapons
-windower.send_command('bind home gs c toggle mainweapon')       -- Home Toggle Main Weapon
-windower.send_command('bind !home gs c toggle subweapon')       -- ALT-Home Toggle sub Weapon.
-windower.send_command('bind !` input /ma Stun <t>')             -- Alt-` Quick Stun Shortcut.
-windower.send_command('bind delete gs c nuke enspellup')        -- delete Cycle Enspell Up
-windower.send_command('bind !delete gs c nuke enspelldown')     -- Alt-delete Cycle Enspell Down
-windower.send_command('bind !f10 gs c toggle nukemode')         -- Alt-F10 to change Nuking Mode
-windower.send_command('bind f10 gs c toggle matchsc')           -- F10 to change Match SC Mode         
-windower.send_command('bind !end gs c hud lite')                -- Alt-End to toggle light hud version       
-windower.send_command('bind ^end gs c hud keybinds')            -- CTRL-End to toggle Keybinds  
-
-keybinds_on = {}
-keybinds_on['key_bind_idle'] = '(F9)'
-keybinds_on['key_bind_melee'] = '(F8)'
-keybinds_on['key_bind_casting'] = '(ALT-F10)'
-keybinds_on['key_bind_mainweapon'] = '(HOME)'
-keybinds_on['key_bind_subweapon'] = '(Alt-HOME)'
-keybinds_on['key_bind_element_cycle'] = '(INS)'
-keybinds_on['key_bind_enspell_cycle'] = '(DEL)'
-keybinds_on['key_bind_lock_weapon'] = '(ALT-F9)'
-keybinds_on['key_bind_matchsc'] = '(F10)'
-]]
---------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------
--- HUD STUFF -- TO BE EXTERNALIZED
---------------------------------------------------------------------------------------------------------------
-meleeing = M('AUTO', 'OFF', 'ON')
-lock = M('OFF', 'ON')
-mBurst = M(false)
-runspeed = M('OFF', 'ON')
-oldElement = elements.current
-mBurstOldValue = mBurst.value
-matchsc = M('AUTO', 'OFF', 'ON')
-MB_Window = 0   
-time_start = 0
---------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------
-end

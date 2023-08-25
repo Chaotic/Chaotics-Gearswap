@@ -28,27 +28,34 @@
     -- sets.resting[state.RestingMode]
     -- engaged Sets
     -- sets.engaged[state.CombatForm][state.CombatWeapon][state.OffenseMode][state.DefenseMode][classes.CustomMeleeGroups (any number)]
+
   function init_gear_sets()
 
     windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
 
+
   --misc.
   sets.lowHP = {}
+    -- Auto equipped sets should look like
+    -- sets.idle[idleScope][state.IdleMode][Pet[Engaged]][CustomIdleGroups]
 
   -- Idle sets
   sets.idle = {
     main=gear.Staff.PDT,
+    sub="Bugard Strap +1",
     ammo="Bibiki Seashell",
     neck="Philomath Stole",
-    body="Demon's Cloak",
-    hands="Wizard's Gloves",
-    legs="Wizard's Tonban",
-    feet="Wizard's Sabots",
+    head="Yigit Turban",
+    body="Yigit Gomlek",
+    hands="Yigit Gages",
+    legs="Yigit Seraweels",
+    feet="Yigit Crackows",
+    waist="Penitent's Rope",
     left_ear="Helenus's Earring",
     right_ear="Cass. Earring",
     left_ring="Wisdom Ring",
     right_ring="Tamas Ring",
-    back="Mist Silk Cape",
+    back="Black Cape +1",
   }
   sets.idle.DW = sets.idle
 
@@ -60,7 +67,10 @@
   -- Resting sets
   sets.resting = {
     main=gear.Staff.HMP,
-    body="Errant Hpl.",
+    head="Yigit Turban",
+    body="Yigit Gomlek",
+    hands="Yigit Gages",
+    feet="Yigit Crackows",
     ammo="Bibiki Seashell",
     legs="Yigit Seraweels",
     left_ear="Antivenom Earring",
@@ -70,12 +80,13 @@
     --base magic sets
   -- misc
   sets.MND = {
-    head="Garrison Sallet",
+    head="Yigit Turban",
     body="Errant Hpl.",
-    hands="Seer's Mitts +1",
-    legs="Savage Loincloth",
-    feet="Seer's Pumps +1",
+    hands="Yigit Gages",
+    legs="Errant Slops",
+    feet="Yigit Crackows",
     neck="Justice Badge",
+    waist="Penitent's Rope",
     left_ring="Wisdom Ring",
     right_ring="Tamas Ring",
     back="Mist Silk Cape",
@@ -83,11 +94,14 @@
 
   sets.INT = {
     head="Wizard's Petasos",
-    hands="Seer's Mitts +1",
+    hands="Yigit Gages",
     left_ring="Wisdom Ring",
-    right_ring="Tamas Ring",
     body="Errant Hpl.",
+    waist="Penitent's Rope",
     legs="Errant Slops",
+    feet="Yigit Crackows",
+    right_ring="Tamas Ring",
+    back="Black Cape +1",
     neck="Philomath Stole",
   }
 
@@ -101,7 +115,9 @@ sets.INT["Normal"] = set_combine(sets.INT,{})
     sets.INT["DW"] = sets.INT["Normal"]
     
     --precast magic
-  sets.precast.FC = {}
+    sets.precast.FC = {
+      left_ear="Loquac. Earring",
+    }
 
   sets.midcast.FastRecast = set_combine(sets.precast.FC,
                                         {})
@@ -112,13 +128,18 @@ sets.INT["Normal"] = set_combine(sets.INT,{})
                                                 {})
 
       sets.midcast['Divine Magic'] = set_combine(sets.MND[state.IdleMode.current],
-                                                {
-                                                  main=gear.ElementalStaff,
-                                                })
+      {
+        main=gear.ElementalStaff,
+        sub=gear.ElementalGrip,
+        waist=gear.ElementalObi,
+    
+      })
 
       sets.midcast['Enfeebling Magic'] = {
-                                            main=gear.ElementalStaff,
-                                            body="Wizard's Coat",
+                                              main=gear.ElementalStaff,
+                                              sub=gear.ElementalGrip,
+                                              waist=gear.ElementalObi,
+                                              body="Wizard's Coat",
                                           }
 
     sets.midcast['Enfeebling Magic']['BlackMagic'] = set_combine(sets.INT[state.IdleMode.current],
@@ -138,7 +159,8 @@ sets.INT["Normal"] = set_combine(sets.INT,{})
       sets.midcast['Elemental Magic'] = set_combine(sets.INT[state.IdleMode.current],
                                                     {
                                                       main=gear.ElementalStaff,
-                                                      body="Demon's Cloak",
+                                                      sub=gear.ElementalGrip,
+                                                      waist=gear.ElementalObi,
                                                       hands="Wizard's Gloves",
                                                       legs="Druid's Slops",
                                                     })
@@ -152,6 +174,8 @@ sets.INT["Normal"] = set_combine(sets.INT,{})
       sets.midcast['Dark Magic'] = set_combine(sets.INT[state.IdleMode.current],
                                                 {
                                                   main=gear.ElementalStaff,
+                                                  sub=gear.ElementalGrip,
+                                                  waist=gear.ElementalObi,
                                                   legs="Wizard's Tonban",
                                                   left_ear="Abyssal Earring",
                                                 })
@@ -162,7 +186,9 @@ sets.INT["Normal"] = set_combine(sets.INT,{})
     -- custom midcast sets
     sets.midcast.Cure = set_combine(sets.MND[state.IdleMode.current],
                                     {
-                                        main="Iridal Staff",
+                                      main=gear.ElementalStaff,
+                                      sub=gear.ElementalGrip,
+                                      waist=gear.ElementalObi,
                                         legs="Druid's Slops",
                                     })
 
@@ -176,6 +202,8 @@ sets.INT["Normal"] = set_combine(sets.INT,{})
     sets.midcast.EleEnfeebs = set_combine(sets.INT[state.IdleMode.current],
                                             {
                                               main=gear.ElementalStaff,
+                                              sub=gear.ElementalGrip,
+                                              waist=gear.ElementalObi,
                                             })
 
     sets.midcast.Spikes = set_combine(sets.INT[state.IdleMode.current],

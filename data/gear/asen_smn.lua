@@ -4,11 +4,11 @@ function init_gear_sets()
 
   -- misc
   sets.MND = {
-                head="Garrison Sallet",
+                head="Yigit Turban",
                 body="Errant Hpl.",
-                hands="Seer's Mitts +1",
+                hands="Yigit Gages",
                 legs="Errant Slops",
-                feet="Seer's Pumps +1",
+                feet="Yigit Crackows",
                 neck="Justice Badge",
                 right_ring="Tamas Ring",
               }
@@ -16,8 +16,9 @@ function init_gear_sets()
   sets.INT = {
                 head="Seer's Crown +1",
                 body="Errant Hpl.",
-                hands="Seer's Mitts +1",
+                hands="Yigit Gages",
                 legs="Errant Slops",
+                feet="Yigit Crackows",
                 right_ring="Tamas Ring",
                 neck="Philomath Stole",
                             }
@@ -36,25 +37,41 @@ function init_gear_sets()
   -- bp precast
   sets.precast.BloodPactWard = set_combine(sets.precast.JA['Elemental Siphon'],{
     body="Yinyang Robe",
+    feet="Summoner's Pgch.",
   })
                  
   sets.precast.BloodPactRage = set_combine(sets.precast.BloodPactWard,{})
 
   -- Fast cast sets for spells
-  sets.precast.FC = {}
-     
+  sets.precast.FC = {
+      left_ear="Loquac. Earring",     
+    }
+       
   sets.midcast.FastRecast = set_combine(sets.precast.FC,{
+    head="Walahra Turban",
     waist="Velocious Belt",
   })
 
   -- midcast magic
-  sets.midcast['Healing Magic'] = set_combine(sets.MND,sets.midcast.FastRecast,{})
+    sets.midcast['Healing Magic'] = set_combine(sets.MND,sets.midcast.FastRecast,{
+      main=gear.ElementalStaff,
+      sub=gear.ElementalGrip,
+      waist=gear.ElementalObi,
+    })
                  
-  sets.midcast['Divine Magic'] = set_combine(sets.MND,{})
+  sets.midcast['Divine Magic'] = set_combine(sets.MND,{
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
+  })
                 
   sets.midcast['Divine Magic'].Acc = set_combine(sets.midcast['Divine Magic'],{})
 
-  sets.midcast['Enfeebling Magic'] = {}
+  sets.midcast['Enfeebling Magic'] = {
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
+  }
      
   sets.midcast['Enfeebling Magic']['BlackMagic'] = set_combine(sets.INT,{})
                 
@@ -64,15 +81,27 @@ function init_gear_sets()
                               
   sets.midcast['Enfeebling Magic']['WhiteMagic'].Acc = set_combine(sets.MND,sets.midcast['Enfeebling Magic'],{})
 
-  sets.midcast['Elemental Magic'] = set_combine(sets.INT,{})
+  sets.midcast['Elemental Magic'] = set_combine(sets.INT,{
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
+    body="Yigit Gomlek",
+  })
                  
   sets.midcast['Elemental Magic'].Acc = set_combine(sets.midcast['Elemental Magic'],{})
 
-  sets.midcast['Dark Magic'] = set_combine(sets.midcast.FastRecast,{})
+  sets.midcast['Dark Magic'] = set_combine(sets.midcast.FastRecast,{
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
+  })
 
 
-  sets.midcast['Dark Magic'].Acc = set_combine(sets.INT,{})
-                 
+  sets.midcast['Dark Magic'].Acc = set_combine(sets.INT,{
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
+  })
   -- custom midcast magic                            
   sets.midcast['Stoneskin'] = set_combine(sets.midcast.FastRecast,sets.MND,{})
                  
@@ -83,7 +112,9 @@ function init_gear_sets()
   sets.midcast['Aquaveil'] = set_combine(sets.midcast['Phalanx'],{})
                  
   sets.midcast.Cure = set_combine(sets.midcast['Healing Magic'],{
-    main="Iridal Staff",
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
   })
                  
   sets.midcast.Curaga = set_combine(sets.midcast.Cure,{})
@@ -114,47 +145,54 @@ function init_gear_sets()
   -- Resting sets
   sets.resting = {
     main=gear.Staff.HMP,
-    body="Errant Hpl.",
+    head="Yigit Turban",
+    body="Yigit Gomlek",
+    hands="Yigit Gages",
+    feet="Yigit Crackows",
     ammo="Bibiki Seashell",
     legs="Yigit Seraweels",
     left_ear="Antivenom Earring",
     right_ear="Relaxing Earring",
   }
+  
   -- Idle sets
   sets.idle = {
     main=gear.Staff.PDT,
+    sub="Bugard Strap +1",
     ammo="Bibiki Seashell",
-    head="Evoker's Horn",  
+    head="Yigit Turban",
     body="Yinyang Robe",
-    hands="Evoker's Bracers",
-    legs="Evoker's Spats",
-    feet="Evoker's Pigaches",
+    hands="Yigit Gages",
+    legs="Yigit Seraweels",
+    feet="Yigit Crackows",
     neck="Justice Badge",
     waist="Summoning Belt",
     left_ear="Antivenom Earring",
     right_ear="Bloodbead Earring",
-    left_ring="Jelly Ring",
-    right_ring="Vilma's Ring",
+    right_ring="Tamas Ring",
+    left_ring="Vilma's Ring",
   }
      
   sets.idle.Avatar = set_combine(sets.idle,{
     left_ring="Evoker's Ring",
-    legs="Evoker's Spats",
-    feet="Evoker's Pigaches",
+      hands="Yigit Gages",
+      legs="Yigit Seraweels",
+      feet="Yigit Crackows",
   })
                  
   sets.idle.Spirit = set_combine(sets.idle,{
     left_ring="Evoker's Ring",
-    legs="Evoker's Spats",
-    feet="Evoker's Pigaches",
+      hands="Yigit Gages",
+      legs="Yigit Seraweels",
+      feet="Yigit Crackows",
   })
                  
   sets.idle.Town = set_combine(sets.idle,{
     head="Evoker's Horn",  
     body="Yinyang Robe",
-    hands="Evoker's Bracers",
-    legs="Evoker's Spats",
-    feet="Evoker's Pigaches",
+      hands="Yigit Gages",
+      legs="Yigit Seraweels",
+      feet="Yigit Crackows",
     left_ring="Evoker's Ring",
     back="Nexus cape"
   })
@@ -174,25 +212,24 @@ function init_gear_sets()
    
   sets.perp.Garuda = {}
    
-  sets.perp.Alexander = set_combine(sets.midcast.Pet.BloodPactWard,{})
-
   sets.perp.staff_and_grip = {main=gear.perp_staff}
 
   -- engaged
   sets.engaged = {
-    main="Iridal Staff",
+    main="Chatoyant Staff",
+    sub="Bugard Strap +1",
     ammo="Bibiki Seashell",
-    head="Evoker's Horn",  
+    head="Yigit Turban",
     body="Yinyang Robe",
-    hands="Evoker's Bracers",
-    legs="Evoker's Spats",
-    feet="Evoker's Pigaches",
+      hands="Yigit Gages",
+      legs="Yigit Seraweels",
+      feet="Yigit Crackows",
     neck="Justice Badge",
-    waist="Summoning Belt",
     left_ear="Bloodbead Earring",
-    right_ring="Vilma's Ring",
     left_ring="Evoker's Ring",
-  }
+    right_ring="Tamas Ring",
+    waist="Summoning Belt",
+    }
 
   -- ws
   sets.precast.WS = set_combine(sets.INT,{})

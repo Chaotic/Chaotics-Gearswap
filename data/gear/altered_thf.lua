@@ -194,6 +194,7 @@ function init_gear_sets()
   -- BASE WEAPONSKILL SETS
   sets.precast.WS  = {
     body="Scp. Harness +1",
+    neck="Chivalrous Chain",
   }
     
   sets.precast.WS.Atk = set_combine(sets.precast.WS,{

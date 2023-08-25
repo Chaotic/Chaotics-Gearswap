@@ -2,7 +2,7 @@ function get_sets()
 
   mote_include_version = 2
 
-  include('Mote-Include.lua')
+  include('Chaotic-Mote-Include.lua')
   
 end
 
@@ -26,7 +26,7 @@ function user_setup()
   state.PhysicalDefenseMode:options('PDT')
   state.MagicalDefenseMode:options('MDT')
   state.CastingMode:options('Normal','Acc','Combat')
-
+  initialize_crafting_mode(player.name)
   sleeps            = S{'Sleep', 'Sleep II', 'Sleepga', 'Sleepga II', 'Bind'}
   elemental_debuffs = S{'Burn','Choke','Shock','Rasp','Drown','Frost'}
 
@@ -63,7 +63,7 @@ function job_precast(spell,action,spellMap,eventArgs)
       end
 
     end
-    
+    equip(sets.precast.FC[spell.type])
   end
 
 end
