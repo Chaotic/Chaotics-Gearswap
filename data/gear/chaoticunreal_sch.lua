@@ -4,13 +4,15 @@ function init_gear_sets()
     
 
 	-- misc
-	sets.sublimation = {}
+	sets.sublimation = {
+		head="Scholar's M.board",
+	}
      
     --base magic sets
     sets.MND = {
-		main="Yew Wand +1",
 		head="Garrison Sallet",
-		hands="Zealot's Mitts",
+		body="Scholar's Gown",
+		hands="Scholar's Bracers",
 		legs="Savage Loincloth",
 		feet="Seer's Pumps +1",
 		neck="Justice Badge",
@@ -19,69 +21,47 @@ function init_gear_sets()
 	  }
 	
 	  sets.INT = {
-		main="Yew Wand +1",
-		head="Seer's Crown +1",
+		head="Scholar's M.board",
+		body="Scholar's Gown",
 		hands="Seer's Mitts +1",
 		legs="Seer's Slacks +1",
 		waist="Shaman's Belt",
 		left_ear="Morion Earring",
 		right_ear="Morion Earring",
-		left_ring="Eremite's Ring",
+		left_ring="Genius Ring",
 		right_ring="Tamas Ring",
+		back="Black Cape +1",
 	  }
 	
 	-- idle/resting
     --idle
 	sets.idle = {
-		main="Elm Staff +1",
+		main=gear.Staff.PDT,
 		sub="Lizard Strap",
-		head="Seer's Crown +1",
-		body="Seer's Tunic +1",
-		hands="Seer's Mitts +1",
-		legs="Seer's Slacks +1",
-		feet="Seer's Pumps +1",
+		body="Royal Cloak",
+		hands="Scholar's Bracers",
+		legs="Scholar's Pants",
+		feet="Scholar's Loafers",
 		neck="Justice Badge",
 		waist="Shaman's Belt",
 		left_ear="Morion Earring",
 		right_ear="Morion Earring",
 		left_ring="Eremite's Ring",
 		right_ring="Tamas Ring",
+		back="Black Cape +1",
 	  }
-	  sets.idle.DW = {
-		main="Yew Wand +1",
-		sub="Yew Wand +1",
-		head="Seer's Crown +1",
-		body="Seer's Tunic +1",
-		hands="Seer's Mitts +1",
-		legs="Seer's Slacks +1",
-		feet="Seer's Pumps +1",
-		neck="Justice Badge",
-		waist="Shaman's Belt",
-		left_ear="Morion Earring",
-		right_ear="Morion Earring",
-		left_ring="Warp ring",
-		right_ring="Eremite's Ring",
-	  }
-	sets.idle.Town
-	 = set_combine(sets.idle,
+	sets.idle.DW = sets.idle
+	sets.idle.Town = set_combine(sets.idle,
                     {
-                        ring2="Warp ring",
                         back="Nexus cape"
                     })
-					sets.idle.Town.DW
-					= set_combine(sets.idle.DW,{
-								  back="Nexus cape",
-								  })
+	sets.idle.Town.DW = sets.idle.Town
 	sets.resting = {
-		head="Sol Cap",
-					main="Pilgrim's Wand",
+					head="Sol Cap",
+					main=gear.Staff.HMP,
 					body="Seer's Tunic +1",
 					}
-					sets.resting.DW = {
-						main="Yew Wand +1",
-						sub="Pilgrim's Wand",
-						body="Seer's Tunic +1",
-					  }                                                  
+	sets.resting.DW = sets.resting                                           
 	-- precast                                         
 	sets.precast.FC = {}
 	
@@ -124,7 +104,7 @@ function init_gear_sets()
 	sets.midcast['Dark Magic'] = set_combine(sets.INT,
                                             {})
 	               
-  sets.midcast['Dark Magic'].Acc = set_combine(sets.midcast['Dark Magic'],
+    sets.midcast['Dark Magic'].Acc = set_combine(sets.midcast['Dark Magic'],
                                                 {})
 	                                                   
 	sets.midcast['Enhancing Magic'] = set_combine(sets.MND,
@@ -164,4 +144,100 @@ function init_gear_sets()
                                         {})
 
 	initialize_crafting_sets(player.name)	
-								end
+	initialize_level_30_gear()
+    initialize_level_40_gear()
+    initialize_level_50_gear()
+end
+function initialize_level_30_gear()
+	--idle
+	sets.idle['30'] = {
+		main="Elm Staff +1",
+		sub="Lizard Strap",
+		head="Seer's Crown +1",
+		body="Seer's Tunic +1",
+		hands="Seer's Mitts +1",
+		legs="Seer's Slacks +1",
+		feet="Seer's Pumps +1",
+		neck="Justice Badge",
+		waist="Shaman's Belt",
+		left_ear="Morion Earring",
+		right_ear="Morion Earring",
+		left_ring="Eremite's Ring",
+		right_ring="Tamas Ring",
+		back="Black Cape +1",
+	}
+sets.idle['30'].DW = {
+		main="Yew Wand +1",
+		sub="Yew Wand +1",
+		head="Seer's Crown +1",
+		body="Seer's Tunic +1",
+		hands="Seer's Mitts +1",
+		legs="Seer's Slacks +1",
+		feet="Seer's Pumps +1",
+		neck="Justice Badge",
+		waist="Shaman's Belt",
+		left_ear="Morion Earring",
+		right_ear="Morion Earring",
+		left_ring="Warp ring",
+		right_ring="Eremite's Ring",
+		back="Black Cape +1",
+	}
+
+sets.idle['30'].Town
+= set_combine(sets.idle['30'],{
+	   back="Nexus cape",
+	   })
+sets.idle['30'].Town.DW
+= set_combine(sets.idle['30'].DW,{
+	   back="Nexus cape",
+	   })
+
+sets.resting['30'] = {
+		head="Sol Cap",
+		main="Pilgrim's Wand",
+		body="Seer's Tunic +1",
+	  }
+	  sets.resting['30'].DW = {
+		head="Sol Cap",
+		main="Yew Wand +1",
+	   	sub="Pilgrim's Wand",
+		body="Seer's Tunic +1",
+	  }
+end
+function initialize_level_40_gear()
+--idle
+sets.idle['40'] = set_combine(sets.idle['30'],
+{
+  left_ring="Vilma's Ring",
+})
+sets.resting['40'] = sets.resting['30']
+sets.idle['40'].DW = set_combine(sets.idle['30'].DW,
+{
+  left_ring="Vilma's Ring",
+})
+sets.resting['40'].DW = sets.resting['30'].DW
+sets.idle['40'].Town
+= set_combine(sets.idle['40]'],{
+back="Nexus cape",
+})
+sets.idle['40'].Town.DW
+= set_combine(sets.idle['40'].DW,{
+back="Nexus cape",
+})
+end
+function initialize_level_50_gear()
+--idle
+sets.idle['50'] = set_combine(sets.idle['40'])
+sets.resting['50'] = sets.resting['40']
+sets.idle['50'].DW = set_combine(sets.idle['40'].DW)
+sets.resting['50'].DW = sets.resting['40'].DW
+
+sets.idle['50'].Town
+= set_combine(sets.idle['50]'],{
+back="Nexus cape",
+})
+sets.idle['50'].Town.DW
+= set_combine(sets.idle['50'].DW,{
+back="Nexus cape",
+})
+end

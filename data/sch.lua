@@ -60,6 +60,7 @@ function user_setup()
 	state.IdleMode:options('Normal','DW','Combat','CombatDW')
     state.OffenseMode:options('Normal','DW')
 	state.RestingMode:options('Normal','DW')
+	state.LevelCap:options('Normal','30','40','50')
   initialize_crafting_mode(player.name)
 	
 end
@@ -73,11 +74,12 @@ function job_post_precast(spell,action,spellMap,eventArgs)
   if spell.type:contains('Magic') then
   
 	  if state.Buff['Dark Arts'] or  state.Buff['Light Arts'] then
-		   equip({head="Argute mortarboard",feet="Scholar's loafers +1"})
-	  end
+		--equip({head="Argute mortarboard",feet="Scholar's loafers"})
+		equip({feet="Scholar's loafers"})
+	end
 	   
     if spell.element == world.weather_element and (state.Buff['Celerity'] or state.Buff['Alacrity']) then
-      equip({feet="Argute loafers"})
+      --equip({feet="Argute loafers"})
     end
     
 	end
@@ -141,23 +143,16 @@ function job_post_midcast(spell,action,spellMap,eventArgs)
 	-- argute loafers logic
 	if state.Buff['Alacrity'] or state.Buff['Celerity'] then
 		if (spell.skill == 'Healing Magic' or spell.skill == 'Enhancing Magic') and spell.element == world.weather_element then
-			equip({feet="Argute loafers"})
+			--equip({feet="Argute loafers"})
 		end
 	end
 	
 	-- midcast logic
 	if state.Buff['Dark Arts'] and dark_arts_skill:contains(spell.skill) and spell.skill ~= 'Elemental Magic' then
-		equip({body="Scholar's gown +1"})
+		equip({body="Scholar's gown"})
 	elseif state.Buff['Light Arts'] and light_arts_skill:contains(spell.skill) then
-		if spell.skill == 'Enhancing Magic' then
-			equip({legs="Scholar's pants +1"})
-			if spell.name == 'Phalanx' then
-				equip({main="Crook"})
-			end
-		else
-			equip({main="Crook",legs="Scholar's pants +1"})
+			equip({legs="Scholar's pants"})
 		end
-	end
 	
 	-- add grip if not engaged
 	if state.CastingMode.value == 'Acc' then
@@ -172,6 +167,17 @@ function job_post_midcast(spell,action,spellMap,eventArgs)
 
 end
 
+function job_handle_equipping_gear(playerStatus, eventArgs)
+-- Need to update this just copied from SMN
+local HandleSet
+  if playerStatus == 'Idle' then
+	HandleSet = customize_idle_set(sets.idle)
+  elseif playerStatus == 'Engaged' then
+	HandleSet = sets.engaged
+  end
+  equip(HandleSet)
+end
+
 function customize_idle_set(idleSet)
 
   crafting_mode = state.CraftingMode.value
@@ -182,11 +188,11 @@ function customize_idle_set(idleSet)
 		end
 	else
 		if player.mpp > 95 then 
-			idleSet = set_combine(idleSet,{main="Terra's staff"})
+			idleSet = set_combine(idleSet,{main=gear.Staff.PDT})
 		end
-		if daytime then 
+		--[[if daytime then 
 			idleSet = set_combine(idleSet,{waist="Lycopodium sash"})
-		end
+		end]]
 	end
 	idleSet = maybe_equip_crafting(idleSet,crafting_mode)
 
@@ -229,32 +235,22 @@ function job_status_change(new,old,eventArgs)
 	  end
 	end
   end
+  function handle_level_sync(gain)
+	if gain then
+	  if player.main_job_level>59 then
+		send_command('gs c set LevelCap Normal')
+	  elseif player.main_job_level>49 then
+		send_command('gs c set LevelCap 50')
+	  elseif player.main_job_level>39 then
+		send_command('gs c set LevelCap 40')
+	  elseif player.main_job_level>29 then
+		send_command('gs c set LevelCap 30')
+		end
+	else
+	  send_command('gs c set LevelCap Normal')
+	end
+  end
 
-  -------------------------------------------------------------------------------------------------------------------
--- User self-commands.
--------------------------------------------------------------------------------------------------------------------
-  -- Custom uber-handling of Helix
-  function handle_helix()
-    if areas.Cities:contains(world.area) then
-      add_to_chat(122, 'Cannot use Healix in a city area.')
-      return
-    end
-  
-    local helixElement
-  
-        -- If we decided to use a storm, set that as the spirit element to cast.
-    if world.weather_element ~= 'None' and (get_weather_intensity() > 0 or world.weather_element ~= elements.weak_to[world.day_element]) then
-      if world.weather_element ~= 'Lightning' or world.day_element ~= 'Lightning' then
-        helixElement = world.weather_element
-      end
-    else
-      helixElement = world.day_element
-    end
-  
-    local command = ''
-  
-      command = command..'input /ma "'..elements.helix_of[helixElement]..'" <t>;wait 4;'
-  
-    send_command(command)
-    
+  function job_update_tracker(command)
+	return command..'wait 0.3;track add Cookies: ${all:Coin Cookie};wait 0.3;track add Drink: ${all:Yagudo Drink};'
   end

@@ -26,6 +26,7 @@ function init_gear_sets()
     legs="Seer's Slacks +1",
     left_ring="Wisdom Ring",
     right_ring="Tamas Ring",
+    back="Black Cape +1",
   }
      
 	-- idle/resting
@@ -40,10 +41,11 @@ function init_gear_sets()
       feet="Seer's Pumps +1",
       neck="Justice Badge",
       waist="Shaman's Belt",
-      left_ear="Morion Earring",
-      right_ear="Morion Earring",
+      left_ear="Bloodbead Earring",
+      right_ear="Moldavite Earring",
       left_ring="Wisdom Ring",
       right_ring="Tamas Ring",
+      back="Black Cape +1",
 	  }
     sets.idle.DW = {
       main="Yew Wand +1",
@@ -55,10 +57,11 @@ function init_gear_sets()
       feet="Seer's Pumps +1",
       neck="Justice Badge",
       waist="Shaman's Belt",
-      left_ear="Morion Earring",
-      right_ear="Morion Earring",
-      left_ring="Eremite's Ring",
-      right_ring="Eremite's Ring",
+      left_ear="Bloodbead Earring",
+      right_ear="Moldavite Earring",
+      left_ring="Wisdom Ring",
+      right_ring="Tamas Ring",
+      back="Black Cape +1",
 	  }
 	sets.idle.Town = set_combine(sets.idle,
                     {
@@ -68,12 +71,13 @@ function init_gear_sets()
                                         back="Nexus cape",
                                       })
 	sets.resting = {
-    head="Sol Cap",
+          head="Sol Cap",
 					main="Pilgrim's Wand",
 					body="Seer's Tunic +1",
 					}
-          sets.resting.DW = {
-						main="Yew Wand +1",
+  sets.resting.DW = {
+            head="Sol Cap",
+    				main="Yew Wand +1",
 						sub="Pilgrim's Wand",
 						body="Seer's Tunic +1",
 					  }                                                        
@@ -158,5 +162,102 @@ function init_gear_sets()
   sets.midcast['Kaustra'] = set_combine(sets.midcast['Dark Magic'].Acc,
                                         {})
 
-	initialize_crafting_sets(player.name)	
+                                        initialize_crafting_sets(player.name)	
+                                        initialize_level_30_gear()
+                                          initialize_level_40_gear()
+                                          initialize_level_50_gear()
+                                      end
+                                      function initialize_level_30_gear()
+                                        --idle
+                                        sets.idle['30'] = {
+      main="Elm Staff",
+      sub="Lizard Strap",
+      head="Seer's Crown +1",
+      body="Seer's Tunic +1",
+      hands="Seer's Mitts +1",
+      legs="Seer's Slacks +1",
+      feet="Seer's Pumps +1",
+      neck="Justice Badge",
+      waist="Shaman's Belt",
+      left_ear="Bloodbead Earring",
+      left_ring="Wisdom Ring",
+      right_ring="Tamas Ring",
+      back="Black Cape +1",
+                                        }
+                                      sets.idle['30'].DW = {
+      main="Yew Wand +1",
+      sub="Yew Wand +1",
+      head="Seer's Crown +1",
+      body="Seer's Tunic +1",
+      hands="Seer's Mitts +1",
+      legs="Seer's Slacks +1",
+      feet="Seer's Pumps +1",
+      neck="Justice Badge",
+      waist="Shaman's Belt",
+      left_ear="Bloodbead Earring",
+      left_ring="Wisdom Ring",
+      right_ring="Tamas Ring",
+      back="Black Cape +1",
+                                        }
+                                      
+                                      sets.idle['30'].Town
+                                      = set_combine(sets.idle['30'],{
+                                           back="Nexus cape",
+                                           })
+                                      sets.idle['30'].Town.DW
+                                      = set_combine(sets.idle['30'].DW,{
+                                           back="Nexus cape",
+                                           })
+                                      
+                                      sets.resting['30'] = {
+                                          head="Sol Cap",
+                                          main="Pilgrim's Wand",
+                                          body="Seer's Tunic +1",
+                                          }
+                                          sets.resting['30'].DW = {
+                                          head="Sol Cap",
+                                          main="Yew Wand +1",
+                                             sub="Pilgrim's Wand",
+                                          body="Seer's Tunic +1",
+                                          }
+                                      end
+                                      function initialize_level_40_gear()
+                                      --idle
+                                      sets.idle['40'] = set_combine(sets.idle['30'],
+                                      {
+                                        right_ear="Moldavite Earring",
+                                        left_ring="Vilma's Ring",
+                                      })
+                                      sets.resting['40'] = sets.resting['30']
+                                      sets.idle['40'].DW = set_combine(sets.idle['30'].DW,
+                                      {
+                                        right_ear="Moldavite Earring",
+                                        left_ring="Vilma's Ring",
+                                      })
+                                      sets.resting['40'].DW = sets.resting['30'].DW
+                                      sets.idle['40'].Town
+                                      = set_combine(sets.idle['40]'],{
+                                      back="Nexus cape",
+                                      })
+                                      sets.idle['40'].Town.DW
+                                      = set_combine(sets.idle['40'].DW,{
+                                      back="Nexus cape",
+                                      })
+                                      end
+                                      function initialize_level_50_gear()
+                                      --idle
+                                      sets.idle['50'] = set_combine(sets.idle['40'])
+                                      sets.resting['50'] = sets.resting['40']
+                                      sets.idle['50'].DW = set_combine(sets.idle['40'].DW)
+                                      sets.resting['50'].DW = sets.resting['40'].DW
+                                      
+                                      sets.idle['50'].Town
+                                      = set_combine(sets.idle['50]'],{
+                                      back="Nexus cape",
+                                      })
+                                      sets.idle['50'].Town.DW
+                                      = set_combine(sets.idle['50'].DW,{
+                                      back="Nexus cape",
+                                      })
+                                      
 end
