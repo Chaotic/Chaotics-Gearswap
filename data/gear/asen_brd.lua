@@ -13,13 +13,13 @@ function init_gear_sets()
     main="Monster Signa",
     head="Bard's Roundlet",
     neck="Bird Whistle",
-    body="Savage Separates",
     hands="Choral Cuffs",
     left_ring="Opal Ring",
     right_ring="Opal Ring",
     feet="Savage Gaiters",
     waist="Corsette +1",
     back="Lucent Cape",
+    legs="Bard's Cannions",
   }
   
   sets.Singing = {
@@ -29,6 +29,7 @@ function init_gear_sets()
   sets.Wind = set_combine(sets.Singing,{
     neck="Wind Torque",
     body="Minstrel's Coat",
+    hands="Bard's Cuffs",
     legs="Choral Cannions",
     left_ring="Nereid Ring",
     right_ring="Nereid Ring",
@@ -71,11 +72,11 @@ sets.midcast['Elegy'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
 sets.midcast['Madrigal'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,{
   range="Traversiere +2",
 })
-sets.midcast['Paeon'] = set_combine(sets.midcast.FastRecast,sets.String,sets.CHR,{
-  range="Ebony Harp +1",
-})
 sets.midcast['Carol'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
   range="Crumhorn +1",
+})
+sets.midcast['Paeon'] = set_combine(sets.midcast.FastRecast,sets.String,sets.CHR,{
+  range="Ebony Harp +1",
 })
 sets.midcast['Prelude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
   range="Angel's Flute +1",
@@ -85,11 +86,6 @@ sets.midcast['Ballad'] = set_combine(sets.midcast.FastRecast,sets.CHR,sets.Wind,
   range="Iron Ram Horn",
 })
 sets.midcast['Etude'] = sets.midcast['Ballad']
---[[
-sets.midcast['Etude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
-  range="Maple Harp +1",
-})
-]]
 
   -- idle
   sets.idle = {
@@ -109,15 +105,16 @@ sets.midcast['Etude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
     waist="Corsette +1",
   }
      
-  sets.idle.Town = set_combine(sets.idle,
-                    {
-                        back="Nexus cape",
-                    })
+  sets.idle.Town = set_combine(sets.idle,{
+    main="Chatoyant Staff",
+    back="Nexus cape",
+  })
 
   -- Resting sets
   sets.resting = {
     main=gear.Staff.HMP,
     head="Yigit Turban",
+    neck="Grandiose Chain",
     body="Yigit Gomlek",
     hands="Yigit Gages",
     feet="Yigit Crackows",
@@ -125,13 +122,13 @@ sets.midcast['Etude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
     legs="Yigit Seraweels",
     left_ear="Antivenom Earring",
     right_ear="Relaxing Earring",
+    back="Invigorating Cape",
   }
 
   -- precast magic
   sets.precast.FC = {
     left_ear="Loquac. Earring",
   }
-  
   sets.precast.FC['BardSong'] = set_combine(sets.precast.FC,{
     sub=gear.ElementalGrip,
     waist=gear.ElementalObi,
@@ -146,40 +143,30 @@ sets.midcast['Etude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
     feet="Dusk Ledelsens",
   })
                  
-  sets.midcast['Utsusemi: Ni'] = set_combine(sets.midcast.FastRecast,{})
-   
+  sets.midcast['Utsusemi: Ni'] = set_combine(sets.midcast.FastRecast,{})   
   sets.midcast['Utsusemi: Ichi'] = set_combine(sets.midcast['Utsusemi: Ni'],{})
-  
-                                                     
+
   sets.midcast['Healing Magic'] = set_combine(sets.MND,sets.midcast.FastRecast,{
     main=gear.ElementalStaff,
     sub=gear.ElementalGrip,
     waist=gear.ElementalObi,
-
   })
                                                      
   sets.midcast['Divine Magic'] = set_combine(sets.MND,{
     main=gear.ElementalStaff,
     sub=gear.ElementalGrip,
     waist=gear.ElementalObi,
-
   })
-                 
   sets.midcast['Divine Magic'].Acc = set_combine(sets.midcast['Divine Magic'],{})
-                                                     
+
   sets.midcast['Enfeebling Magic'] = {
     main=gear.ElementalStaff,
     sub=gear.ElementalGrip,
     waist=gear.ElementalObi,
-
-  }
-                                                     
+ }
   sets.midcast['Enfeebling Magic']['BlackMagic'] = set_combine(sets.INT,{})
-   
   sets.midcast['Enfeebling Magic']['BlackMagic'].Acc = set_combine(sets.midcast['Enfeebling Magic']['BlackMagic'],sets.midcast['Enfeebling Magic'],{})
-  
   sets.midcast['Enfeebling Magic']['WhiteMagic'] = set_combine(sets.MND,{})
-   
   sets.midcast['Enfeebling Magic']['WhiteMagic'].Acc = set_combine(sets.midcast['Enfeebling Magic']['WhiteMagic'],sets.midcast['Enfeebling Magic'],{})
   
   sets.midcast['Elemental Magic'] = set_combine(sets.INT,
@@ -187,27 +174,22 @@ sets.midcast['Etude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
                   main=gear.ElementalStaff,
                   sub=gear.ElementalGrip,
                   waist=gear.ElementalObi,
-                                  ear2="Moldavite earring",
+                  right_ear="Moldavite earring",
                 })
-   
   sets.midcast['Elemental Magic'].Acc = set_combine(sets.midcast['Elemental Magic'],{})
-                                                     
+  
   sets.midcast['Dark Magic'] = set_combine(sets.INT,{
     main=gear.ElementalStaff,
     sub=gear.ElementalGrip,
     waist=gear.ElementalObi,
-
   })
-                 
   sets.midcast['Dark Magic'].Acc = set_combine(sets.midcast['Dark Magic'],{})
-                                                     
+
   sets.midcast['Enhancing Magic'] = set_combine(sets.midcast.FastRecast,{})
-                                                     
   -- custom midcast magic                            
   sets.midcast['Stoneskin'] = set_combine(sets.MND,{})
                  
   sets.midcast.Cure = set_combine(sets.midcast['Healing Magic'],{})
-                 
   sets.midcast.Curaga = set_combine(sets.midcast.Cure,{})
 
   sets.midcast['Cursna'] = set_combine(sets.midcast['Healing Magic'],{})
@@ -215,9 +197,7 @@ sets.midcast['Etude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
   -- bard songs
   sets.midcast['BardSong'] = set_combine(sets.midcast.FastRecast,sets.CHR,{
     sub=gear.ElementalGrip,
-    
   })
-                 
   sets.midcast.BardDebuff = set_combine(sets.CHR,{
       main=gear.ElementalStaff,
       sub=gear.ElementalGrip,
@@ -228,7 +208,6 @@ sets.midcast['Etude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
 
   -- Defense sets
   sets.defense.PDT = {}
-     
   sets.defense.MDT = {}
 
   -- Engaged sets
@@ -236,7 +215,6 @@ sets.midcast['Etude'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
 
   -- WS sets
   sets.precast.WS = {}
-   
   sets.precast.WS.Acc = set_combine(sets.precast.WS,{})
 
   initialize_crafting_sets(player.name)

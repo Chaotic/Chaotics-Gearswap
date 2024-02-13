@@ -7,21 +7,31 @@ function initialize_skins(name)
                 ['BLM'] = {set=285},
                 ['PLD'] = {set=157},
                 ['SMN'] = {head=116,body=578,hands=215,legs=577,feet=577},
-                ['BRD'] = {head=379,body=578,hands=215,legs=215,feet=215}
+                ['BRD'] = {head=379,body=578,hands=215,legs=215,feet=215},
+                ['SCH'] = {head=140,body=306,hands=306,legs=215,feet=21},
+                ['WAR'] = {head=179,body=328,hands=282,legs=282,feet=3},
+                ['DNC'] = {set=305}
             }
         elseif name == "ChaoticUnreal" then
             skins = {
                 ['BLM'] = {set=285},
-                ['RDM'] = {body=334,hands=334,legs=334,feet=334},
+                ['RDM'] = {head=000,body=334,hands=334,legs=334,feet=334},
                 ['SMN'] = {head=116,body=578,hands=215,legs=577,feet=577},
-                ['NIN'] = {head=186,body=196,hands=89,legs=294,feet=294}
+                ['NIN'] = {head=186,body=196,hands=89,legs=294,feet=294},
+                ['SCH'] = {head=140,body=306,hands=306,legs=215,feet=21},
+                ['WHM'] = {head=57,body=57,hands=8,legs=142,feet=142},
+                ['BRD'] = {head=379,body=578,hands=215,legs=215,feet=215}
             }
         elseif name == "Altered" then
             skins = {
                 ['BLM'] = {set=285},
                 ['THF'] = {set=225,main=756,sub=756},
                 ['SMN'] = {head=116,body=578,hands=215,legs=577,feet=577},
-                ['DNC'] = {set=305}
+                ['DNC'] = {set=305},
+                ['SAM'] = {head=116,body=37,hands=215,legs=88,feet=98},
+                ['SCH'] = {head=140,body=306,hands=306,legs=215,feet=21},
+                ['NIN'] = {head=186,body=196,hands=89,legs=294,feet=294}
+                
             }
       end
     end

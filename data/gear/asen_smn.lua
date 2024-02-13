@@ -9,17 +9,19 @@ function init_gear_sets()
                 hands="Yigit Gages",
                 legs="Errant Slops",
                 feet="Yigit Crackows",
-                neck="Justice Badge",
+                neck="Ajari Necklace",
                 right_ring="Tamas Ring",
+                left_ring="Hale Ring",
               }
 
   sets.INT = {
-                head="Seer's Crown +1",
+                head="Summoner's Horn",
                 body="Errant Hpl.",
                 hands="Yigit Gages",
                 legs="Errant Slops",
                 feet="Yigit Crackows",
                 right_ring="Tamas Ring",
+                left_ring="Hale Ring",
                 neck="Philomath Stole",
                             }
   
@@ -31,13 +33,16 @@ function init_gear_sets()
   sets.precast.JA['Elemental Siphon'] = {
     head="Evoker's Horn",
     waist="Summoning Belt",
+    hands="Summoner's Brcr.",
     left_ring="Evoker's Ring",
   }
 
   -- bp precast
   sets.precast.BloodPactWard = set_combine(sets.precast.JA['Elemental Siphon'],{
     body="Yinyang Robe",
+    hands="Summoner's Brcr.",
     feet="Summoner's Pgch.",
+    head="Summoner's Horn",
   })
                  
   sets.precast.BloodPactRage = set_combine(sets.precast.BloodPactWard,{})
@@ -146,6 +151,7 @@ function init_gear_sets()
   sets.resting = {
     main=gear.Staff.HMP,
     head="Yigit Turban",
+    neck="Grandiose Chain",
     body="Yigit Gomlek",
     hands="Yigit Gages",
     feet="Yigit Crackows",
@@ -153,20 +159,22 @@ function init_gear_sets()
     legs="Yigit Seraweels",
     left_ear="Antivenom Earring",
     right_ear="Relaxing Earring",
+    back="Invigorating Cape",
+    waist="Hierarch Belt",
   }
   
   -- Idle sets
   sets.idle = {
-    main=gear.Staff.PDT,
+    main="Chatoyant Staff",
     sub="Bugard Strap +1",
-    ammo="Bibiki Seashell",
+    ammo="Fortune Egg",
     head="Yigit Turban",
     body="Yinyang Robe",
     hands="Yigit Gages",
     legs="Yigit Seraweels",
     feet="Yigit Crackows",
-    neck="Justice Badge",
-    waist="Summoning Belt",
+    neck="Ajari Necklace",
+    waist="Hierarch Belt",
     left_ear="Antivenom Earring",
     right_ear="Bloodbead Earring",
     right_ring="Tamas Ring",
@@ -188,11 +196,11 @@ function init_gear_sets()
   })
                  
   sets.idle.Town = set_combine(sets.idle,{
-    head="Evoker's Horn",  
+    head="Yigit Turban",  
     body="Yinyang Robe",
-      hands="Yigit Gages",
-      legs="Yigit Seraweels",
-      feet="Yigit Crackows",
+    hands="Yigit Gages",
+    legs="Yigit Seraweels",
+    feet="Yigit Crackows",
     left_ring="Evoker's Ring",
     back="Nexus cape"
   })
@@ -201,16 +209,20 @@ function init_gear_sets()
   sets.idle.Avatar.Melee = set_combine(sets.idle.Avatar,{})
 
   sets.perp = {
+                main=gear.perp_staff,
                 left_ring="Evoker's Ring",
               }
      
   sets.perp.Day = {}
    
-  sets.perp.Weather = {}
+  sets.perp.Weather = {
+                          head="Summoner's Horn",
+                        }
    
-  sets.perp.Carbuncle = {hands="Carbuncle mitts"}
+  sets.perp.Carbuncle = set_combine(sets.perp,{hands="Carbuncle mitts"})
    
-  sets.perp.Garuda = {}
+  sets.perp.Garuda = set_combine(sets.perp,{})
+  sets.perp.Diabolos = set_combine(sets.perp,{})
    
   sets.perp.staff_and_grip = {main=gear.perp_staff}
 
@@ -221,9 +233,9 @@ function init_gear_sets()
     ammo="Bibiki Seashell",
     head="Yigit Turban",
     body="Yinyang Robe",
-      hands="Yigit Gages",
-      legs="Yigit Seraweels",
-      feet="Yigit Crackows",
+    hands="Yigit Gages",
+    legs="Yigit Seraweels",
+    feet="Yigit Crackows",
     neck="Justice Badge",
     left_ear="Bloodbead Earring",
     left_ring="Evoker's Ring",

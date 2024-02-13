@@ -10,11 +10,11 @@ function global_on_load()
     
 	-- ^ = Ctrl  ! = Alt   @ = Win
 	
-    --[[ Most of these I don't use and there is some overlap Saving for when I find a use
+    
     send_command('bind f9 gs c cycle OffenseMode')
-	send_command('bind ^f9 gs c cycle HybridMode')
-	send_command('bind !f9 gs c cycle RangedMode')
-	send_command('bind @f9 gs c cycle WeaponskillMode')]]
+	--send_command('bind ^f9 gs c cycle HybridMode')
+	--send_command('bind !f9 gs c cycle RangedMode')
+	--send_command('bind @f9 gs c cycle WeaponskillMode')
 	send_command('bind ^f1 game_forceambientlight')
 
 	send_command('bind f10 gs c set DefenseMode Physical')

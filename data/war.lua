@@ -1,15 +1,3 @@
-include('organizer-lib')
-organizer_items = {
-    warp="Instant Warp",
-    echos="Echo Drops",
-    invis="Prism Powder",
-    sneak="Silent Oil",
-    shihei="Shihei",
-    choco="Chocobo Whistle",
-    nexus="Nexus Cape",
-    warpring="Warp Ring"
-    }
-
 function get_sets()
 
   mote_include_version = 2
@@ -34,7 +22,7 @@ end
 
 function user_setup()
 
-    state.OffenseMode:options('Normal','Acc')
+    state.OffenseMode:options('Normal','DW', 'Acc','AccDW')
     state.WeaponskillMode:options('Normal','HNM')
     state.PhysicalDefenseMode:options('PDT')
     state.MagicalDefenseMode:options('MDT')
@@ -50,29 +38,7 @@ function user_unload()
 end
 function job_post_precast(spell,action,spellMap,eventsArgs)
   
-  if spell.type == 'WeaponSkill' then
-  
-    if state.Buff['Warrior\'s Charge'] then
-      if daytime then
-        equip({ear2="Fenrir's earring"})
-      else
-        equip({ear2="Merman's earring"})
-      end
-    else
-      if daytime then
-        equip({ear1="Fenrir's earring"})
-      else
-        equip({ear1="Merman's earring"})
-      end
-    end
-    
-    if player.sub_job == 'SAM' then
-      if gaxe_singlehit:contains(spell.english) then
-        equip({body="Aurum cuirass"})
-      end
-    end
-    
-  elseif spell.type == 'JobAbility' then
+  if spell.type == 'JobAbility' then
     if state.Tank.value then
       equip(set_combine(sets.enmityUp,sets.precast.JA[spell.english]) or sets.enmityUp)
     else
@@ -81,11 +47,6 @@ function job_post_precast(spell,action,spellMap,eventsArgs)
   elseif spell.type == 'Waltz' and spell.target.type == 'SELF' then
     
     equip(sets.precast.WaltzSelf)
-    
-    if world.day_element == 'Dark' then
-      equip({back="Shadow mantle"})
-    
-    end
   end
 
 end
@@ -108,7 +69,7 @@ function job_buff_change(buff,gain)
 end
 
 function job_status_change(new,old)
-
+--[[
   if new == "Engaged" then
     if player.equipment.main == 'Bravura' or player.equipment.main == 'Ragnarok' then
       state.CombatWeapon:set(player.equipment.main)
@@ -119,7 +80,7 @@ function job_status_change(new,old)
     end
     adjust_melee_groups()
   end
-
+]]
 end
 
 function get_custom_wsmode(spell,spellMap,default_wsmode)
@@ -136,26 +97,13 @@ end
 
 function customize_idle_set(idleSet)
 
-  if player.hpp < 51 then
-    idleSet = set_combine(idleSet,{ring2="Hercules' ring"})
-  end
-  
-  if player.hpp < 75 then
-      idleSet = set_combine(idleSet,{body="Barone corazza"})
-    if daytime then
-      idleSet = set_combine(idleSet,{waist="Lycopodium sash"})
-    end
-  end
-
+  crafting_mode = state.CraftingMode.value
+  idleSet = maybe_equip_crafting(idleSet,crafting_mode)
   return idleSet
   
 end
 
 function customize_melee_set(meleeSet)
-
-  if daytime and state.OffenseMode.value == 'Normal' and state.CombatWeapon.value ~= 'DW' then
-    meleeSet = set_combine(meleeSet,{ear1="Fenrir's earring"})
-  end
 
   return meleeSet
 

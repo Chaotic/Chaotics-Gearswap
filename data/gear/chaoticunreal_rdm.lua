@@ -50,7 +50,7 @@ function init_gear_sets()
         legs="Errant Slops",
         feet="Mahatma Pigaches",
         waist="Penitent's Rope",
-        left_ring="Turquoise Ring",
+        left_ring="Hale Ring",
         right_ring="Tamas Ring",
         back="White Cape +1"
     }
@@ -66,13 +66,14 @@ function init_gear_sets()
         left_ring="Genius Ring",
         right_ring="Tamas Ring",
         back="Black Cape +1",
-        neck="Philomath Stole",
-    }
+        neck="Wit Pendant",
+        }
 
 	-- idle
 	sets.idle = { 
-        neck="Philomath Stole",
-        head="Yigit Turban",
+        ammo="Fortune Egg",
+        neck="Wit Pendant",
+        head="Duelist's Chapeau",
         body="Yigit Gomlek",
         hands="Yigit Gages",
         legs="Yigit Seraweels",
@@ -80,24 +81,24 @@ function init_gear_sets()
         waist="Penitent's Rope",
         left_ear="Helenus's Earring",
         right_ear="Cass. Earring",
-        right_ring="Tamas Ring",
-        left_ring="Vilma's Ring",
-        back="White Cape +1"
+        left_ring="Jelly Ring",
+        right_ring="Nasatya's Ring",
+        back="Black Cape +1",
 }
      
-  sets.idle.Town = set_combine(sets.idle,
-                {
-                  back="Nexus cape"
-                })
+  sets.idle.Town = set_combine(sets.idle,{
+    main="Chatoyant Staff",
+    back="Nexus cape",
+  })
    
   sets.idle.Combat = set_combine(sets.idle,{})
    
-  sets.idle.Town.Combat = set_combine(sets.idle.Combat,
-                {})
+  sets.idle.Town.Combat = set_combine(sets.idle.Combat,{})
 	
     -- sets.resting[state.RestingMode]
   sets.resting.TP = {
     head="Yigit Turban",
+    neck="Grandiose Chain",
     body="Yigit Gomlek",
     hands="Yigit Gages",
     feet="Yigit Crackows",
@@ -105,6 +106,8 @@ function init_gear_sets()
     legs="Yigit Seraweels",
     left_ear="Antivenom Earring",
     right_ear="Relaxing Earring",
+    back="Invigorating Cape",
+    waist="Hierarch Belt",
   }
   sets.resting = set_combine(sets.resting.TP,{
     main=gear.Staff.HMP,
@@ -151,7 +154,7 @@ function init_gear_sets()
     waist=gear.ElementalObi,
     neck="Spider Torque",
     body="Warlock's Tabard",
-    head="Elite Beret",
+    head="Duelist's Chapeau",
   }
                                                      
   sets.midcast['Enfeebling Magic']['BlackMagic'] = set_combine(sets.INT,sets.midcast.FastRecast,{})
@@ -244,17 +247,20 @@ function init_gear_sets()
                   feet="Dusk Ledelsens",
                   waist="Velocious Belt",
                   left_ear="Dodge Earring",
-                  right_ear="Dodge Earring",
+                  right_ear="Brutal Earring",
                   left_ring="Lava's Ring",
                   right_ring="Kusha's Ring",
                   back="Cerberus Mantle",
                 }
    sets.engaged.Sword = set_combine(sets.engaged,{
-                  left_ear="Suppanomimi"
+                  left_ear="Suppanomimi",
+                  right_ear="Brutal Earring",
+
                 })
 
     sets.engaged.DW = set_combine(sets.engaged,{
-                  left_ear="Suppanomimi"
+                  left_ear="Suppanomimi",
+                  right_ear="Brutal Earring",
                 })
   
    sets.engaged.Sword.DW = set_combine(sets.engaged.Sword,sets.engaged.DW,{})

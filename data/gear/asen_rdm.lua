@@ -18,6 +18,7 @@ function init_gear_sets()
 	sets.idle = { 
         main="Tuck",
         sub="Kaiser Sword",
+        ammo="Fortune Egg",
         head="Empress Hairpin",
         body="Bone Harness",
         hands="Bone Mittens +1",

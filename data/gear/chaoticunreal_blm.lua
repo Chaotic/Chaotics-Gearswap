@@ -31,204 +31,192 @@
 
 function init_gear_sets()
 
-    windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
+  windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
 
 
     --misc.
-      sets.lowHP = {}
-    -- Auto equipped sets should look like
-    -- sets.idle[idleScope][state.IdleMode][Pet[Engaged]][CustomIdleGroups]
+    sets.lowHP = {}
+  -- Auto equipped sets should look like
+  -- sets.idle[idleScope][state.IdleMode][Pet[Engaged]][CustomIdleGroups]
 
   -- Idle sets
-    sets.idle = {
-                    main=gear.Staff.PDT,
-                    sub="Bugard Strap +1",
-                    neck="Philomath Stole",
-                    head="Yigit Turban",
-                    body="Yigit Gomlek",
-                    hands="Yigit Gages",
-                    legs="Yigit Seraweels",
-                    feet="Yigit Crackows",
-                    waist="Penitent's Rope",
-                    left_ear="Helenus's Earring",
-                    right_ear="Cass. Earring",
-                    left_ring="Jelly Ring",
-                    right_ring="Nasatya's Ring",
-                    back="Black Cape +1",
-        }
+  sets.idle = {
+    main=gear.Staff.PDT,
+    sub="Bugard Strap +1",
+    ammo="Fortune Egg",
+    neck="Philomath Stole",
+    head="Yigit Turban",
+    body="Yigit Gomlek",
+    hands="Yigit Gages",
+    legs="Yigit Seraweels",
+    feet="Yigit Crackows",
+    waist="Penitent's Rope",
+    left_ear="Helenus's Earring",
+    right_ear="Cass. Earring",
+    left_ring="Jelly Ring",
+    right_ring="Nasatya's Ring",
+    back="Black Cape +1",
+  }
   sets.idle.DW = sets.idle
 
-    sets.idle.Town
-       = set_combine(sets.idle,{
-                     back="Nexus cape",
-                     })
+  sets.idle.Town = set_combine(sets.idle,{
+    main="Chatoyant Staff",
+    back="Nexus cape",
+  })
   sets.idle.Town.DW = sets.idle.Town
   -- Resting sets
-    sets.resting = {
-                      main=gear.Staff.HMP,
-                      head="Yigit Turban",
-                      body="Yigit Gomlek",
-                      hands="Yigit Gages",
-                      feet="Yigit Crackows",
-                      ammo="Bibiki Seashell",
-                      legs="Yigit Seraweels",
-                      left_ear="Antivenom Earring",
-                      right_ear="Relaxing Earring",
-                    }
-    sets.resting.DW = sets.resting     
+  sets.resting = {
+    main=gear.Staff.HMP,
+    head="Yigit Turban",
+    neck="Grandiose Chain",
+    body="Yigit Gomlek",
+    hands="Yigit Gages",
+    feet="Yigit Crackows",
+    ammo="Bibiki Seashell",
+    legs="Yigit Seraweels",
+    left_ear="Antivenom Earring",
+    right_ear="Relaxing Earring",
+    back="Invigorating Cape",
+    waist="Hierarch Belt",
+  }
+  sets.resting.DW = sets.resting     
     --base magic sets
-    sets.MND = {
-      head="Yigit Turban",
-      body="Errant Hpl.",
-      hands="Yigit Gages",
-      legs="Errant Slops",
-      feet="Mahatma Pigaches",
-      neck="Justice Badge",
-      waist="Penitent's Rope",
-      left_ring="Turquoise Ring",
-      right_ring="Tamas Ring",
-      back="White Cape +1"
-    }
+  sets.MND = {
+    head="Yigit Turban",
+    body="Errant Hpl.",
+    hands="Yigit Gages",
+    legs="Errant Slops",
+    feet="Mahatma Pigaches",
+    neck="Justice Badge",
+    waist="Penitent's Rope",
+    left_ring="Hale Ring",
+    right_ring="Tamas Ring",
+    back="White Cape +1"
+  }
 
-    sets.INT = {
-          head="Wizard's Petasos",
-          hands="Yigit Gages",
-          body="Errant Hpl.",
-          waist="Penitent's Rope",
-          legs="Errant Slops",
-          feet="Yigit Crackows",
-          left_ear="Morion Earring",
-          right_ear="Morion Earring",
-          left_ring="Genius Ring",
-          right_ring="Tamas Ring",
-          back="Black Cape +1",
-          neck="Philomath Stole",
-    }
+  sets.INT = {
+    head="Wizard's Petasos",
+    hands="Yigit Gages",
+    body="Errant Hpl.",
+    waist="Penitent's Rope",
+    legs="Errant Slops",
+    feet="Yigit Crackows",
+    left_ear="Morion Earring",
+    right_ear="Morion Earring",
+    left_ring="Genius Ring",
+    right_ring="Tamas Ring",
+    back="Black Cape +1",
+    neck="Philomath Stole",
+  }
 
-    sets.MND["Normal"] = set_combine(sets.MND,{})
-
-    sets.INT["Normal"] = set_combine(sets.INT,{})
-
-
-    sets.MND["DW"] = sets.MND["Normal"]
-
-    sets.INT["DW"] = sets.INT["Normal"]
+  sets.MND["Normal"] = set_combine(sets.MND,{})
+  sets.INT["Normal"] = set_combine(sets.INT,{})
+  sets.MND["DW"] = sets.MND["Normal"]
+  sets.INT["DW"] = sets.INT["Normal"]	
 
     --precast magic
-    sets.precast.FC = {
-      left_ear="Loquac. Earring",
-    }
+  sets.precast.FC = {
+    left_ear="Loquac. Earring",
+  }
 
-    sets.midcast.FastRecast = set_combine(sets.precast.FC,
-                                        {})
+    -- midcast
+  sets.midcast.FastRecast = set_combine(sets.precast.FC,{})
 
     --non-cure healing magic
-    sets.midcast['Healing Magic'] = set_combine(sets.MND[state.IdleMode.current],
-                                                sets.midcast.FastRecast,
-                                                {})
+  sets.midcast['Healing Magic'] = set_combine(sets.MND[state.IdleMode.current],sets.midcast.FastRecast,{})
 
-    sets.midcast['Divine Magic'] = set_combine(sets.MND[state.IdleMode.current],
-                                                {
-                                                  main=gear.ElementalStaff,
-                                                  sub=gear.ElementalGrip,
-                                                  waist=gear.ElementalObi,
-                                              
-                                                })
+  sets.midcast['Divine Magic'] = set_combine(sets.MND[state.IdleMode.current],{
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
+  })
 
-    sets.midcast['Enfeebling Magic'] = {
-      main=gear.ElementalStaff,
-      sub=gear.ElementalGrip,
-      waist=gear.ElementalObi,
-      body="Wizard's Coat",
-    }
+  sets.midcast['Enfeebling Magic'] = {
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
+    head="Sorcerer's Petas.",
+    body="Wizard's Coat",
+    left_ear="Helenus's Earring",
+    right_ear="Cass. Earring",
+  }
 
-    sets.midcast['Enfeebling Magic']['BlackMagic'] = set_combine(sets.INT[state.IdleMode.current],
-                                                                    {})
+  sets.midcast['Enfeebling Magic']['BlackMagic'] = set_combine(sets.INT[state.IdleMode.current],{})
+  sets.midcast['Enfeebling Magic']['BlackMagic'].Accuracy = set_combine(sets.INT[state.IdleMode.current],sets.midcast['Enfeebling Magic'],{})
+  sets.midcast['Enfeebling Magic']['WhiteMagic'] = set_combine(sets.MND[state.IdleMode.current],{})
+  sets.midcast['Enfeebling Magic']['WhiteMagic'].Accuracy = set_combine(sets.MND[state.IdleMode.current],sets.midcast['Enfeebling Magic'],{})
 
-    sets.midcast['Enfeebling Magic']['BlackMagic'].Accuracy = set_combine(sets.INT[state.IdleMode.current],
-                                                                            sets.midcast['Enfeebling Magic'],
-                                                                            {})
+	sets.midcast['Elemental Magic'] = set_combine(sets.INT[state.IdleMode.current],{
+    main=gear.ElementalStaff,
+    sub=gear.ElementalGrip,
+    waist=gear.ElementalObi,
+    head="Sorcerer's Petas.",
+    body="Igqira Weskit",
+    left_ear="Helenus's Earring",
+    right_ear="Cass. Earring",
+    hands="Wizard's Gloves",
+    legs="Druid's Slops",
+  })
 
-    sets.midcast['Enfeebling Magic']['WhiteMagic'] = set_combine(sets.MND[state.IdleMode.current],
-                                                                    {})
-
-    sets.midcast['Enfeebling Magic']['WhiteMagic'].Accuracy = set_combine(sets.MND[state.IdleMode.current],
-                                                                            sets.midcast['Enfeebling Magic'],
-                                                                            {})
-
-    sets.midcast['Elemental Magic'] = set_combine(sets.INT[state.IdleMode.current],
-                                                    {
-                                                      main=gear.ElementalStaff,
-                                                      sub=gear.ElementalGrip,
-                                                      waist=gear.ElementalObi,
-                                                      hands="Wizard's Gloves",
-                                                      legs="Druid's Slops",
-                                                    })
-
-    sets.midcast['Elemental Magic'].HybridAcc = set_combine(sets.midcast['Elemental Magic'],
-                                                            {})
-
-    sets.midcast['Elemental Magic'].Accuracy = set_combine(sets.midcast['Elemental Magic'],
-                                                            {})
-
-    sets.midcast['Dark Magic'] = set_combine(sets.INT[state.IdleMode.current],
-                                                {
-                                                  main=gear.ElementalStaff,
-                                                  sub=gear.ElementalGrip,
-                                                  waist=gear.ElementalObi,
-                                                  legs="Wizard's Tonban",
-                                                  right_ear="Dark Earring",
-                                                  left_ear="Abyssal Earring",
-                                                })
-
-    sets.midcast['Enhancing Magic'] = set_combine(sets.midcast.FastRecast,
-                                                    {})
+  sets.midcast['Elemental Magic'].HybridAcc = set_combine(sets.midcast['Elemental Magic'],{
+    left_ear="Helenus's Earring",
+    right_ear="Cass. Earring",
+  })
+  sets.midcast['Elemental Magic'].Accuracy = set_combine(sets.midcast['Elemental Magic'],{
+    left_ear="Helenus's Earring",
+    right_ear="Cass. Earring",
+  })
+                                                  
+sets.midcast['Dark Magic'] = set_combine(sets.INT[state.IdleMode.current],{
+  main=gear.ElementalStaff,
+  sub=gear.ElementalGrip,
+  waist=gear.ElementalObi,
+  legs="Wizard's Tonban",
+  right_ear="Dark Earring",
+  left_ear="Abyssal Earring",
+  hands="Sorcerer's Gloves",
+})
+sets.midcast['Dark Magic'].HybridAcc = set_combine(sets.midcast['Dark Magic'],{})
+sets.midcast['Dark Magic'].Acc = set_combine(sets.midcast['Dark Magic'],{})
+        
+sets.midcast['Enhancing Magic'] = set_combine(sets.midcast.FastRecast,{})
 
     -- custom midcast sets
-    sets.midcast.Cure = set_combine(sets.MND[state.IdleMode.current],
-                                    {
-                                      main=gear.ElementalStaff,
-                                      sub=gear.ElementalGrip,
-                                      waist=gear.ElementalObi,
-                                      legs="Druid's Slops",
-                                    })
+sets.midcast.Cure = set_combine(sets.MND[state.IdleMode.current],{
+  main=gear.ElementalStaff,
+  sub=gear.ElementalGrip,
+  waist=gear.ElementalObi,
+  legs="Druid's Slops",
+})
 
-    sets.midcast.Curaga = set_combine(sets.midcast.Cure,
-                                        {})
+sets.midcast.Curaga = set_combine(sets.midcast.Cure,{})
 
-    sets.midcast.Sleep = set_combine(sets.midcast.FastRecast,
-                                    sets.midcast['Enfeebling Magic']['BlackMagic'],
-                                    {})
+sets.midcast.Sleep = set_combine(sets.midcast.FastRecast,sets.midcast['Enfeebling Magic']['BlackMagic'],{})
 
-    sets.midcast.EleEnfeebs = set_combine(sets.INT[state.IdleMode.current],
-                                            {
-                                              main=gear.ElementalStaff,
-                                              sub=gear.ElementalGrip,
-                                              waist=gear.ElementalObi,
-                                            })
+sets.midcast.EleEnfeebs = set_combine(sets.INT[state.IdleMode.current],{
+  main=gear.ElementalStaff,
+  sub=gear.ElementalGrip,
+  waist=gear.ElementalObi,
+})
 
-    sets.midcast.Spikes = set_combine(sets.INT[state.IdleMode.current],
-                                    {})
+sets.midcast.Spikes = set_combine(sets.INT[state.IdleMode.current],{})
 
-    sets.midcast['Cursna'] = set_combine(sets.midcast['Healing Magic'],
-                                        {})
+sets.midcast['Cursna'] = set_combine(sets.midcast['Healing Magic'],{})
 
-    sets.midcast['Stoneskin'] = set_combine(sets.midcast['Enhancing Magic'],
-                                            {})
+sets.midcast['Stoneskin'] = set_combine(sets.midcast['Enhancing Magic'],{})
+sets.midcast['Phalanx'] = set_combine(sets.midcast['Stoneskin'],{})
+--magic burst
+sets.magic_burst = {}
 
-    --magic burst
-    sets.magic_burst = {}
+sets.weather_day = {}
 
-    sets.weather_day = {}
+-- Level Sync Sets
+initialize_level_30_gear()
+initialize_level_40_gear()
+initialize_level_50_gear()
 
-    -- Level Sync Sets
-    initialize_level_30_gear()
-    initialize_level_40_gear()
-    initialize_level_50_gear()
-
-    initialize_crafting_sets(player.name)
+initialize_crafting_sets(player.name)
   end
-
   function initialize_level_30_gear()
             --idle
             sets.idle['30'] = {

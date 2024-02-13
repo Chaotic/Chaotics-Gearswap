@@ -5,9 +5,10 @@ function init_gear_sets()
   -- misc
   sets.enmity = {
     head="Valor Coronet",
-    body="Gallant Surcoat",
+    body="Valor Surcoat",
     hands="Valor Gauntlets",
     legs="Gallant Breeches",
+    feet="Valor Leggings",
     back="Cerberus Mantle",
     right_ring="Hercules' Ring",
     left_ring="Sattva Ring",
@@ -40,7 +41,7 @@ function init_gear_sets()
       waist="Corsette +1",
     }
   
-    sets.precast.WaltzSelf = set_combine(sets.precast.Waltz,
+    sets.precast.WaltzSelf = set_combine(sets.enmity,sets.precast.Waltz,
                                         {
                                           body="Gallant Surcoat",
                                           legs="Savage Loincloth",
@@ -59,31 +60,33 @@ function init_gear_sets()
 
   sets.precast.JA['Cover'] = {
     head="Gallant Coronet",
-  } --body="Valor surcoat"
+    body="Valor Surcoat",
+  }
    
   sets.precast.JA['Rampart'] = {
-          head="Valor Coronet",
-} 
+    head="Valor Coronet",
+  } 
    
-  sets.precast.JA['Sentinel'] = {}
+  sets.precast.JA['Sentinel'] = {
+    feet="Valor Leggings",
+  }
    
-  sets.precast.JA['Shield Bash'] = {
+  sets.precast.JA['Shield Bash'] = set_combine(sets.enmity,{
     hands="Valor Gauntlets",
     feet="Gallant Leggings",
-  }
+  })
    
   sets.precast.JA['Holy Circle'] = {
     feet="Gallant Leggings",
   }
    
-  sets.precast.JA['Chivalry'] = set_combine(
-                                              sets.enmity,
-                                              sets.MND,
-                                              {}
-                                          )
+  sets.precast.JA['Chivalry'] = set_combine(sets.enmity,sets.MND,{})
 
+  sets.precast.JA['Provoke'] = set_combine(sets.enmity,{})
   -- precast magic
-  sets.precast.FC = {}
+  sets.precast.FC = {
+    left_ear="Loquac. Earring",
+  }
 
   -- midcast magic
   sets.midcast.FastRecast = set_combine(
@@ -167,6 +170,7 @@ function init_gear_sets()
                                     right_ring="Dasra's Ring",
                                   }
                               )
+
   sets.defense.Breath = {}
 
   -- idle
@@ -178,9 +182,9 @@ function init_gear_sets()
                 legs="Savage Loincloth",
                 feet="Bounding Boots",
                 neck="Peacock amulet",
---                left_ear="Knight's earring",
-                left_ear="Suppanomimi",
-                right_ear="Cassie Earring",
+                left_ear="Knight's earring",
+                --left_ear="Suppanomimi",
+                right_ear="Brutal Earring",
                 waist="Velocious Belt",
                 left_ring="Dasra's Ring",
                 right_ring="Nasatya's Ring",
@@ -204,17 +208,15 @@ function init_gear_sets()
                                   sets.idle,
                                   sets.defense.MDT
                               )
-
-  
-  sets.resting.Normal = {
-                          main="Pluto's Staff",
-                          ammo="Bibiki Seashell",
-                          left_ear="Antivenom Earring",
-                        }
   sets.resting.TP = {
-                      ammo="Bibiki Seashell",
-                      left_ear="Antivenom Earring",
-                    }
+      ammo="Bibiki Seashell",
+      neck="Grandiose Chain",
+      left_ear="Antivenom Earring",
+      right_ear="Relaxing Earring",
+    }
+  sets.resting.Normal = set_combine(sets.resting.TP,{
+    main=gear.Staff.HMP,
+    })
 
   -- engaged
   sets.engaged = {
@@ -225,12 +227,10 @@ function init_gear_sets()
                   legs="Dusk Trousers",
                   feet="Dusk Ledelsens",
                   neck="Peacock amulet",
---                  left_ear="Knight's earring",
-                  left_ear="Suppanomimi",
-                  right_ear="Cassie Earring",
+                  left_ear="Knight's earring",
+--                  left_ear="Suppanomimi",
+                  right_ear="Brutal Earring",
                   waist="Velocious Belt",
---                  left_ring="Lava's Ring",
---                  right_ring="Kusha's Ring",
                   left_ring="Sniper's Ring",
                   right_ring="Rajas Ring",
                   back="Cerberus Mantle",

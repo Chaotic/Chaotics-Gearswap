@@ -55,6 +55,7 @@ function init_gear_sets()
   sets.idle = {
     main="Elm Staff +1",
     sub="Lizard Strap",
+    ammo="Fortune Egg",
     head="Seer's Crown +1",
     body="Seer's Tunic +1",
     hands="Seer's Mitts +1",

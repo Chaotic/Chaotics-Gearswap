@@ -100,9 +100,7 @@ sets.midcast['Elegy'] = set_combine(sets.midcast.FastRecast,sets.Wind,sets.CHR,{
    
   sets.midcast['Enfeebling Magic']['WhiteMagic'].Acc = set_combine(sets.midcast['Enfeebling Magic']['WhiteMagic'],sets.midcast['Enfeebling Magic'],{})
   
-  sets.midcast['Elemental Magic'] = set_combine(sets.INT,
-                {
-                })
+  sets.midcast['Elemental Magic'] = set_combine(sets.INT,{})
    
   sets.midcast['Elemental Magic'].Acc = set_combine(sets.midcast['Elemental Magic'],{})
                                                      

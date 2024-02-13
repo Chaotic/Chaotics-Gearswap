@@ -8,7 +8,6 @@ function get_sets()
   
   function job_setup()
    
-    --kay library settings
     include('Chaotic-include.lua')
       
     initialize_job()
@@ -156,7 +155,7 @@ function handle_level_sync(gain)
 end
 
 function job_update_tracker(command)
-  return command..'wait 0.3;track add Cookies: ${all:Coin Cookie};wait 0.3;track add Drink: ${all:Yagudo Drink};'
+  return command..'wait 0.3;track add Cookies: ${all:Coin Cookie};'
 end
 --  I'm not a fan of most of this.  Doubly so euiping gear in these functions.  Since I don't use most of it comment it out for now
   
@@ -167,14 +166,15 @@ function job_post_midcast(spell,action,spellMap,eventArgs)
           if spell.skill == 'Elemental Magic' then
             equip({legs="Sorcerer's tonban"})
           end
-          --equip({waist="Hachirin-no-obi",main="Chatoyant staff"})
+          equip({waist=gear.ElementalObi,main=gear.ElementalStaff})
         elseif spell.element == world.day_element then
           if spell.skill == 'Elemental Magic' then
             equip({legs="Sorcerer's tonban"})
           end
-          --equip({waist="Hachirin-no-obi",main="Claustrum"})
+          --equip({waist=gear.ElementalObi,main="Claustrum"})
+          equip({waist=gear.ElementalObi,main=gear.ElementalStaff})
         elseif spell.element == world.weather_element then
-          --equip({waist="Hachirin-no-obi",main="Chatoyant staff"})
+          equip({waist=gear.ElementalObi,main=gear.ElementalStaff})
 end
             
         if state.CastingMode.value == 'TH' then
@@ -185,7 +185,7 @@ end
         
       if spellMap == 'Cure' then
         if not (world.weather_element == 'Dark' or world.day_element == 'Dark') then
-          equip({waist="Hachirin-no-obi"})
+          equip({gear.ElementalStaff})
         end
       end
             

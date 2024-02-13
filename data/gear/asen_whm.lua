@@ -55,6 +55,7 @@ function init_gear_sets()
   -- Idle sets
   sets.idle = {
     main="Yew Wand +1",
+    ammo="Fortune Egg",
     head="Empress Hairpin",
     body="Seer's Tunic +1",
     hands="Zealot's Mitts",

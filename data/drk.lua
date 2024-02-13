@@ -91,7 +91,7 @@ function job_post_midcast(spell,action,spellMap,eventArgs)
 
   if spell.skill == 'Elemental Magic' or (spell.name == 'Drain' or spell.name == 'Drain II' or spell.name == 'Aspir') then
     if spell.element == world.day_element or spell.element == world.weather_element then
-      equip({waist="Hachirin-no-obi"})
+      equip({waist=gear.ElementalObi})
     end
   end
 

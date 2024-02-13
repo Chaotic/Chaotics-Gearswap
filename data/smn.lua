@@ -67,7 +67,6 @@
 function get_sets()
     mote_include_version = 2
     include('Chaotic-Mote-Include.lua')
-    include('organizer-lib')
   end
   
   function job_setup()
@@ -308,11 +307,11 @@ function get_sets()
       if spell.element == world.weather_element or spell.element == world.day_element then
         
         if world.weather_element ~= 'Dark' and spellMap == 'Cure' then
-          equip({waist="Hachirin-no-obi"})
+          equip({waist=gear.ElementalObi})
         end
         
         if spell.skill == 'Elemental Magic' then
-          equip({waist="Hachirin-no-obi"})
+          equip({waist=gear.ElementalObi})
         end
         
       end
@@ -674,5 +673,5 @@ function create_pact_timer(spell_name)
 end
 
 function job_update_tracker(command)
-  return command..'wait 0.3;track add Cookies: ${inventory:Coin Cookie};wait 0.3;track add Drink: ${all:Yagudo Drink};'
+  return command..'wait 0.3;track add Cookies: ${inventory:Coin Cookie};'
 end

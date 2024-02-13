@@ -76,11 +76,10 @@ end
   function job_post_midcast(spell,default_spell_map)
   
     if spell.skill == 'Ninjutsu' then
-    --[[
       if spell.element == world.weather_element or spell.element == world.day_element then
-        equip({waist="Hachirin-no-obi"})
+        equip({waist=gear.ElementalObi})
       end
-    ]]
+
     end
   
   end

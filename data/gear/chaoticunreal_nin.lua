@@ -6,8 +6,8 @@ function init_gear_sets()
   sets.INT = {
     left_ear="Morion Earring",
     right_ear="Morion Earring",
-    left_ring="Genius Ring",
-    right_ring="Genius Ring",
+    left_ring="Diamond Ring",
+    right_ring="Diamond Ring",
   }
      
   sets.enmityUp = {
@@ -29,14 +29,11 @@ function init_gear_sets()
   -- Don't need any special gear for Healing Waltz.
   sets.precast.Waltz['Healing Waltz']= {}
 
-  sets.precast.JA['Violent Flourish'] = set_combine(sets.enmityUp,{
-    })
+  sets.precast.JA['Violent Flourish'] = set_combine(sets.enmityUp,{})
 
-  sets.precast.JA['Desperate Flourish'] = set_combine(sets.precast.Step,
-                                                      {})
+  sets.precast.JA['Desperate Flourish'] = set_combine(sets.precast.Step,{})
   
-  sets.precast.JA['Provoke'] = set_combine(sets.enmityUp,{
-    })
+  sets.precast.JA['Provoke'] = set_combine(sets.enmityUp,{})
 
   -- precast magic
   sets.precast.FC = {
@@ -45,12 +42,12 @@ function init_gear_sets()
 
   -- midcast magic
   sets.midcast.FastRecast = set_combine(sets.precast.FC,
-                                          {
-                                            head="Walahra Turban",
-                                            hands="Dusk Gloves",
-                                            waist="Velocious Belt",
-                                            feet="Sarutobi Kyahan",
-                                          }) 
+  {
+    head="Walahra Turban",
+    hands="Dusk Gloves",
+    waist="Velocious Belt",
+    feet="Sarutobi Kyahan",
+  }) 
 
   sets.midcast['Utsusemi: Ni'] = set_combine(sets.midcast.FastRecast,{})
                 
@@ -64,38 +61,39 @@ function init_gear_sets()
   })
                  
   sets.midcast.ElementalNinjutsu = set_combine(sets.midcast.NinjutsuDebuff,{
-})
+    head="Koga Hatsuburi",
+  })
 
   -- idle
   sets.idle= {
-              ammo="Tiphia Sting",
-              head="Walahra Turban",
-              body="Scp. Harness +1",
-              hands="Ochiudo's Kote",
-              waist="Velocious Belt",
-              legs="Ninja Hakama",
-              feet="Ninja kyahan",
-              neck="Peacock Amulet",
-              left_ear="Suppanomimi",
-              right_ear="Dodge Earring",
-              left_ring="Sniper's Ring",
-              right_ring="Rajas Ring",
-              back="Traveler's Mantle",
-              }
+    ammo="Tiphia Sting",
+    head="Walahra Turban",
+    body="Scp. Harness +1",
+    hands="Ochiudo's Kote",
+    waist="Velocious Belt",
+    legs="Ninja Hakama",
+    feet="Ninja kyahan",
+    neck="Peacock Amulet",
+    left_ear="Suppanomimi",
+    right_ear="Brutal Earring",
+    left_ring="Sniper's Ring",
+    right_ring="Rajas Ring",
+    back="Traveler's Mantle",
+  }
 
   sets.idle.Town = set_combine(sets.idle,
-                              {
-                                  back="Nexus cape"
-                              })
+  {
+      back="Nexus cape"
+  })
 
   -- defense
   sets.defense.Evasion = {
     head="Empress Hairpin",
-    left_ear="Dodge Earring",
-    right_ear="Dodge Earring",
+    left_ear="Suppanomimi",
+    right_ear="Velocity Earring",
     body="Scp. Harness +1",
     back="Amemet Mantle",
-    }
+  }
      
   sets.defense.PDT = {}
 
@@ -103,20 +101,20 @@ function init_gear_sets()
 
   -- engaged
   sets.engaged = {
-                  ammo="Tiphia Sting",
-                  head="Walahra Turban",
-                  body="Scp. Harness +1",
-                  hands="Dusk Gloves",
-                  waist="Velocious Belt",
-                  legs="Ryl.Kgt. Breeches",
-                  feet="Sarutobi Kyahan",
-                  neck="Peacock Amulet",
-                  left_ear="Suppanomimi",
-                  right_ear="Dodge Earring",
-                  left_ring="Sniper's Ring",
-                  right_ring="Rajas Ring",
-                  back="Amemet Mantle",
-                  }
+    ammo="Tiphia Sting",
+    head="Walahra Turban",
+    body="Scp. Harness +1",
+    hands="Dusk Gloves",
+    waist="Velocious Belt",
+    legs="Ryl.Kgt. Breeches",
+    feet="Sarutobi Kyahan",
+    neck="Peacock Amulet",
+    left_ear="Suppanomimi",
+    right_ear="Brutal Earring",
+    left_ring="Sniper's Ring",
+    right_ring="Rajas Ring",
+    back="Amemet Mantle",
+  }
      
   sets.engaged.HybridAcc = set_combine(sets.engaged,{
     left_ring="Lava's Ring",
@@ -132,13 +130,13 @@ function init_gear_sets()
 
   -- ranged
   sets.precast.RA = {
-                      neck="Peacock Amulet",
-                      hands="Ninja Tekko",
-                      left_ring="Scorpion Ring +1",
-                      right_ring="Scorpion Ring +1",
-                      legs="Ninja Hakama",
-                      feet="Bounding Boots",
-                    }
+    neck="Peacock Amulet",
+    hands="Ninja Tekko",
+    left_ring="Scorpion Ring +1",
+    right_ring="Scorpion Ring +1",
+    legs="Ninja Hakama",
+    feet="Bounding Boots",
+  }
 
   sets.midcast.RA = set_combine(sets.precast.RA,{})
 
@@ -150,6 +148,7 @@ function init_gear_sets()
     waist="Potent Belt",
     hands="Ochiudo's Kote",
     legs="Ryl.Kgt. Breeches",
+    right_ear="Brutal Earring",
     left_ring="Sniper's Ring",
     right_ring="Rajas Ring",
     back="Cerberus Mantle",

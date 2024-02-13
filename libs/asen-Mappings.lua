@@ -30,13 +30,14 @@ helixes = S{"Luminohelix", "Noctohelix", "Pyrohelix", "Geohelix", "Hydrohelix", 
 elements.helix_of = {['Light']="Luminohelix", ['Dark']="Noctohelix", ['Fire']="Pyrohelix", ['Earth']="Geohelix",
                                 ['Water']="Hydrohelix", ['Wind']="Anemohelix", ['Ice']="Cryohelix", ['Lightning']="Ionohelix"}
                 
+
 runes = S{'Lux', 'Tenebrae', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda'}
 
 elements.rune_of = {['Light']='Lux', ['Dark']='Tenebrae', ['Fire']='Ignis', ['Ice']='Gelus', ['Wind']='Flabra',
      ['Earth']='Tellus', ['Lightning']='Sulpor', ['Water']='Unda'}
 
-elements.obi_of = {['Light']='Korin Obi', ['Dark']='Anrin Obi', ['Fire']='Karin Obi', ['Ice']='Hyorin Obi', ['Wind']='Furin Obi',
-     ['Earth']='Dorin Obi', ['Lightning']='Rairin Obi', ['Water']='Suirin Obi'}
+elements.obi_of = {['Light']='Hachirin-no-Obi', ['Dark']='Hachirin-no-Obi', ['Fire']='Hachirin-no-Obi', ['Ice']='Hachirin-no-Obi', ['Wind']='Hachirin-no-Obi',
+     ['Earth']='Hachirin-no-Obi', ['Lightning']='Hachirin-no-Obi', ['Water']='Hachirin-no-Obi'}
 
 elements.grip_of = {['Light']='Light Grip', ['Dark']='Dark Grip', ['Fire']='Fire Grip', ['Ice']='Ice Grip', ['Wind']='Wind Grip',
      ['Earth']='Earth Grip', ['Lightning']='Thunder Grip', ['Water']='Water Grip'}

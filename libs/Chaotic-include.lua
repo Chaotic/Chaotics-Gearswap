@@ -73,7 +73,7 @@ function initialize_job()
     gear.main = player.equipment.main
     gear.sub = player.equipment.sub
     
-    select_default_macro_book()
+    --select_default_macro_book()
     --set_custom_universal_keybinds()
     
     windower.register_event('zone change', 
@@ -89,13 +89,14 @@ function initialize_job()
     update_tracker()
     check_rings()
     check_earrings()
+    setskin(player.main_job)
 
     
 end
 
 function job_sub_job_change(new,old)
 
-    select_default_macro_book()
+    --select_default_macro_book()
     if custom_job_sub_job_change then
         custom_job_sub_job_change(new,old)
     end

@@ -40,6 +40,7 @@ function init_gear_sets()
 	sets.idle = { 
         main="Brass Xiphos",
         sub="Maple Shield",
+        ammo="Fortune Egg",
         head="Garrison Sallet",
         body="Garrison Tunica",
         hands="Garrison Gloves",

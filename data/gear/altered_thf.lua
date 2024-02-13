@@ -6,9 +6,16 @@ function init_gear_sets()
   sets.postPrecast = {}
   
   sets.TreasureHunter = {
+    sub="Thief's Knife",
+    hands="Assassin's Armlets",
   }
 
-  sets.enmityUp = {}
+  sets.enmityUp = {
+    head="Assassin's Bonnet",
+    body="Assassin's Vest",
+    hands="Assassin's Armlets",
+    feet="Assassin's Pouln.",
+  }
      
   sets.enmityDown = {}
 
@@ -39,6 +46,26 @@ function init_gear_sets()
     waist="Scouter's Rope",
      }  
 
+     sets.CHR = {
+      body="Savage Separates",
+      hands="Assassin's Armlets",
+      neck="Bird Whistle",
+      left_ring="Vilma's Ring",
+    }
+  
+    sets.VIT = {
+      hands="Savage Gauntlets",
+      legs="Savage Loincloth",
+    }  
+  
+    sets.CHRVIT = {
+      body="Savage Separates",
+      neck="Bird Whistle",
+      left_ring="Vilma's Ring",
+      hands="Savage Gauntlets",
+      legs="Savage Loincloth",
+    }  
+    
   sets.Crossbow = {
                     range="Staurobow",
                   }
@@ -85,18 +112,28 @@ function init_gear_sets()
     }
   )
      
-  sets.precast.JA['Mug'] = {}
+  sets.precast.JA['Mug'] = {
+    head="Assassin's Bonnet",
+  }
    
   sets.precast.JA['Hide'] = {
 		body="Rogue's Vest",
 	}
-    
-  sets.precast.Waltz = {}
 
-  sets.precast.WaltzSelf = set_combine(sets.precast.Waltz,{})
+    -- Waltz set (chr and vit)
+    sets.precast.Waltz = set_combine(sets.CHR,{
+    })
+  
+    sets.precast.WaltzSelf = set_combine(sets.precast.Waltz,sets.VIT,
+                                        {})
+  
+    -- Don't need any special gear for Healing Waltz.
+    sets.precast.Waltz['Healing Waltz']= {}
 
   -- precast magic
-  sets.precast.FC = {}
+  sets.precast.FC = {
+    left_ear="Loquac. Earring",
+  }
 
   -- midcast magic
   sets.midcast.FastRecast = set_combine(sets.precast.FC,{
@@ -118,12 +155,12 @@ function init_gear_sets()
     head="Walahra Turban",
     neck="Peacock amulet",
     body="Rapparee Harness",
-    hands="Savage Gauntlets",
+    hands="Assassin's Armlets",
     waist="Velocious Belt",
     legs="Bravo's Subligar",
     feet="Trotter Boots",
     left_ear="Suppanomimi",
-    right_ear="Drone Earring",
+    right_ear="Brutal Earring",
     left_ring="Lava's Ring",
     right_ring="Kusha's Ring",
     back="Nomad's Mantle +1",
@@ -161,7 +198,7 @@ function init_gear_sets()
     legs="Bravo's Subligar",
     feet="Dusk Ledelsens",
     left_ear="Suppanomimi",
-    right_ear="Drone Earring",
+    right_ear="Brutal Earring",
     left_ring="Sniper's Ring",
     right_ring="Rajas Ring",
     back="Cerberus Mantle",
@@ -184,6 +221,7 @@ function init_gear_sets()
   sets.precast.RA = {
     neck="Peacock Amulet",
     body="Rapparee Harness",
+    right_ear="Drone Earring",
     left_ring="Scorpion Ring",
     right_ring="Scorpion Ring",
     legs="Bravo's Subligar",

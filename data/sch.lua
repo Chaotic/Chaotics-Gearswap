@@ -1,17 +1,3 @@
-include('organizer-lib')
-organizer_items = {
-    warp="Instant Warp",
-    echos="Echo Drops",
-    invis="Prism Powder",
-    sneak="Silent Oil",
-    shihei="Shihei",
-    choco="Chocobo Whistle",
-    nexus="Nexus Cape",
-    warpring="Warp Ring",
-    xpring="Empress Band",
-	food="melon pie"
-  }
-
 function get_sets()
 
 	mote_include_version = 2
@@ -55,7 +41,7 @@ end
 
 function user_setup()
 
-	state.CastingMode:options('Normal','Acc','TH')
+    state.CastingMode:options('Normal','HybridAcc','Accuracy','TH','Combat','CombatDW')
     
 	state.IdleMode:options('Normal','DW','Combat','CombatDW')
     state.OffenseMode:options('Normal','DW')
@@ -74,12 +60,11 @@ function job_post_precast(spell,action,spellMap,eventArgs)
   if spell.type:contains('Magic') then
   
 	  if state.Buff['Dark Arts'] or  state.Buff['Light Arts'] then
-		--equip({head="Argute mortarboard",feet="Scholar's loafers"})
-		equip({feet="Scholar's loafers"})
+		equip({head="Argute mortarboard",feet="Scholar's loafers"})
 	end
 	   
     if spell.element == world.weather_element and (state.Buff['Celerity'] or state.Buff['Alacrity']) then
-      --equip({feet="Argute loafers"})
+      equip({feet="Argute loafers"})
     end
     
 	end
@@ -134,9 +119,9 @@ function job_post_midcast(spell,action,spellMap,eventArgs)
 	-- midcast magic
 	if spell.element == world.weather_element or spell.element == world.day_element then
 		if spell.skill == 'Elemental Magic' or spell.skill == 'Dark Magic' then
-			equip({waist="Hachirin-no-obi"})
+			equip({waist=gear.ElementalObi})
 		elseif spellMap == 'Cure' and world.weather_element ~= 'Dark' then
-			equip({waist="Hachirin-no-obi"})
+			equip({waist=gear.ElementalObi})
 		end
 	end
 	
@@ -183,9 +168,9 @@ function customize_idle_set(idleSet)
   crafting_mode = state.CraftingMode.value
 	if state.Buff['Sublimation: Activated'] then
 		idleSet = set_combine(idleSet,sets.sublimation)
-		if daytime then
+		--[[if daytime then
 			idleSet = set_combine(idleSet,{ammo="Fenrir's stone"})
-		end
+		end]]
 	else
 		if player.mpp > 95 then 
 			idleSet = set_combine(idleSet,{main=gear.Staff.PDT})
@@ -252,5 +237,5 @@ function job_status_change(new,old,eventArgs)
   end
 
   function job_update_tracker(command)
-	return command..'wait 0.3;track add Cookies: ${all:Coin Cookie};wait 0.3;track add Drink: ${all:Yagudo Drink};'
+	return command..'wait 0.3;track add Cookies: ${all:Coin Cookie};'
   end

@@ -1,129 +1,217 @@
 function init_gear_sets()
   
     windower.send_command('sta !packets off; wait 1; gs equip sets.idle')
-    
-    
 
   -- misc
   sets.MND = {
-    main="Melampus Staff",
-    head="Garrison Sallet",
-    hands="Zealot's Mitts",
-    legs="Savage Loincloth",
-    feet="Seer's Pumps +1",
-    neck="Justice Badge",
-    waist="Friar's Rope",
+    head="Yigit Turban",
+    hands="Blessed Mitts",
+    body="Errant Hpl.",
+    feet="Mahatma Pigaches",
+    neck="Ajari Necklace",
+    waist="Penitent's Rope",
+    left_ring="Hale Ring",
     right_ring="Tamas Ring",
+    back="White Cape +1"
   }
 
   sets.INT = {
     head="Seer's Crown +1",
-    hands="Seer's Mitts +1",
-    legs="Seer's Slacks +1",
-    waist="Shaman's Belt",
+    body="Errant Hpl.",
+    hands="Yigit Gages",
+    waist="Penitent's Rope",
+    legs="Errant Slops",
     left_ear="Morion Earring",
     right_ear="Morion Earring",
-    left_ring="Eremite's Ring",
+    left_ring="Genius Ring",
     right_ring="Tamas Ring",
+    back="Black Cape +1",
   }
-	
-	--Precast Magic
-	sets.precast.FC 											= {}
-	sets.precast.FC.Cure										= set_combine(sets.precast.FC,{})
-	
-	--Midcast Magic
-	sets.midcast['Enhancing Magic'] 							= {}
-	sets.midcast['Enfeebling Magic'] 							= {}
-	
-	sets.midcast['Healing Magic'] 								= set_combine(sets.MND,{})
-	sets.midcast['Divine Magic']								= set_combine(sets.MND,{})
-	sets.midcast['Enfeebling Magic']['WhiteMagic']				= set_combine(sets.MND,{})
-	sets.midcast['Enfeebling Magic']['WhiteMagic'].Resistant	= set_combine(sets.MND,sets.midcast['Enfeebling Magic']['WhiteMagic'],{})
-	
-	sets.midcast.Regen  										= set_combine(sets.midcast['Healing Magic'],{})
-	
-	sets.midcast['Dark Magic']									= set_combine(sets.INT,{})
-	sets.midcast['Elemental Magic']								= set_combine(sets.INT,{})
-	sets.midcast['Enfeebling Magic']['BlackMagic']				= set_combine(sets.INT,{})
-	sets.midcast['Enfeebling Magic']['BlackMagic'].Resistant	= set_combine(sets.INT,sets.midcast['Enfeebling Magic']['BlackMagic'],{})
-	
-	sets.midcast.CureSelf 										= set_combine(sets.midcast['Healing Magic'],{
-		main="Melampus Staff"
- 	})
-	sets.midcast.FastRecast										= set_combine(sets.precast.FC,{})
-	
--- Resting sets
-sets.resting = {
-  main="Pilgrim's Wand",
-  body="Seer's Tunic +1",
+
+  -- Resting sets
+  sets.resting.TP = {
+    head="Yigit Turban",
+    neck="Grandiose Chain",
+    body="Yigit Gomlek",
+    hands="Yigit Gages",
+    feet="Yigit Crackows",
+    ammo="Bibiki Seashell",
+    legs="Yigit Seraweels",
+    left_ear="Antivenom Earring",
+    right_ear="Relaxing Earring",
+    back="Invigorating Cape",
+    waist="Hierarch Belt",
   }
+
+  sets.resting = set_combine(sets.resting.TP,{
+    main=gear.Staff.HMP,
+  })
 
   -- Idle sets
   sets.idle = {
-    main="Elm Staff +1",
-    sub="Lizard Strap",
-    head="Seer's Crown +1",
-    body="Seer's Tunic +1",
-    hands="Seer's Mitts +1",
-    legs="Seer's Slacks +1",
-    feet="Seer's Pumps +1",
-    neck="Justice Badge",
-    waist="Shaman's Belt",
-    left_ear="Morion Earring",
+    main=gear.Staff.PDT,
+    sub="Bugard Strap +1",
+    ammo="Fortune Egg",
+    head="Yigit Turban",
+    body="Aristocrat's Coat",
+    hands="Yigit Gages",
+    legs="Yigit Seraweels",
+    feet="Yigit Crackows",
+    neck="Grandiose Chain",
+    waist="Penitent's Rope",
+    left_ear="Antivenom Earring",
     right_ear="Morion Earring",
-    left_ring="Eremite's Ring",
-    right_ring="Eremite's Ring",
+    left_ring="Turquoise Ring",
+    right_ring="Tamas Ring",
+    back="White Cape +1"
   }
- 
+  sets.idle.PDT = set_combine(sets.idle,
+                              {
+                                main=gear.Staff.PDT,
+                              })
+  sets.idle.MDT = set_combine(sets.idle,{})
+
   sets.idle.Town = set_combine(sets.idle,
-                                {
-                                    back="Nexus cape"
-                                })
+                            {
+                              main="Chatoyant Staff",
+                                back="Nexus cape"
+                            })
+  
+  sets.Kiting = {}
 
-	sets.Kiting													= {}
-	
-	sets.idle.PDT												= set_combine(sets.idle,{})
-	sets.idle.MDT												= set_combine(sets.idle,{})
-	
-	--Engaged Sets
-	sets.engaged												= {}
-	sets.engaged.Acc											= set_combine(sets.engaged,{})
-	
-	sets.engaged.DW												= {}
-	sets.engaged.DW.Acc											= set_combine(sets.engaged.DW,{})
-	
-	--Weaponskill Sets
-	sets.precast.WS												= {}
-	sets.precast.WS.Acc											= set_combine(sets.precast.WS,{})
-	
-	sets.precast.WS['Hexa Strike']								= set_combine(sets.precast.WS,{})
-	sets.precast.WS['Hexa Strike'].Acc							= set_combine(sets.precast.WS['Hexa Strike'],{})
-
-    -- custom midcast sets
-    sets.midcast.Cure = set_combine(sets.MND,
+  --Precast Magic
+	sets.precast.FC = {
+                      ammo="Bibiki Seashell",  -- This has spell interruption on it.
+                      left_ear="Loquac. Earring",
+                    }
+	sets.precast.FC.Cure = set_combine(sets.precast.FC,
                                     {
-                                        main="Melampus Staff"
+                                      feet="Cure Clogs",
                                     })
 
-    sets.midcast.Curaga = set_combine(sets.midcast.Cure,
-                                    {})
- 
+  -- Haste
+  sets.midcast.FastRecast = set_combine(sets.precast.FC,
+                                        {
+                                          head="Walahra Turban",
+                                          waist="Headlong Belt",
+                                          hands="Blessed Mitts",
+                                          legs="Blessed Trousers",
+                                          feet="Blessed Pumps",
+                                        })
+
+	--Midcast Magic
+	sets.midcast['Enhancing Magic'] = {
+    feet="Cleric's Duckbills",
+  }
+	sets.midcast['Enfeebling Magic'] = {
+                                      main=gear.ElementalStaff,
+                                      sub=gear.ElementalGrip,
+                                      waist=gear.ElementalObi,
+                                      neck="Spider Torque",
+                                      body="Healer's Bliaut",
+                                      head="Elite Beret",
+                                      hands="Cleric's Mitts",
+                                    }
+	
+	sets.midcast['Healing Magic'] = set_combine(sets.MND,sets.midcast.FastRecast,
+                                              {
+                                                hands="Healer's Mitts",
+                                                legs="Druid's Slops",
+                                              })
+	sets.midcast['Divine Magic'] = set_combine(sets.MND,sets.midcast.FastRecast,
+                                              {
+                                                legs="Healer's Pantaln.",
+                                              })
+	sets.midcast['Enfeebling Magic']['WhiteMagic'] = set_combine(sets.MND,sets.midcast.FastRecast,{})
+	sets.midcast['Enfeebling Magic']['WhiteMagic'].Resistant = set_combine(sets.MND,sets.midcast['Enfeebling Magic']['WhiteMagic'],{})
+	
+	sets.midcast.Regen = set_combine(sets.midcast['Healing Magic'],{})
+	
+	sets.midcast['Dark Magic'] = set_combine(sets.INT,sets.midcast.FastRecast,
+                                          {
+                                            main=gear.ElementalStaff,
+                                            sub=gear.ElementalGrip,
+                                            waist=gear.ElementalObi,
+                                            right_ear="Dark Earring",
+                                            left_ear="Abyssal Earring",
+                                          })
+  sets.midcast['Elemental Magic'] = set_combine(sets.INT,sets.midcast.FastRecast,
+                                                {
+                                                  main=gear.ElementalStaff,
+                                                  sub=gear.ElementalGrip,
+                                                  waist=gear.ElementalObi,
+                                                  body="Yigit Gomlek",
+                                                  legs="Druid's Slops",
+                                                })
+	sets.midcast['Enfeebling Magic']['BlackMagic'] = set_combine(sets.INT,sets.midcast.FastRecast,{})
+	sets.midcast['Enfeebling Magic']['BlackMagic'].Resistant = set_combine(sets.INT,sets.midcast['Enfeebling Magic']['BlackMagic'],{})
+	
+  -- custom midcast sets
+  sets.midcast.Cure = set_combine(sets.MND,sets.midcast['Healing Magic'],
+                                  {
+                                    main=gear.ElementalStaff,
+                                    sub=gear.ElementalGrip,
+                                    waist=gear.ElementalObi,
+                                    body="Aristocrat's Coat",
+                                  })
+
+  sets.midcast.Curaga = set_combine(sets.midcast.Cure,{})
+  
+  sets.midcast.CureSelf = set_combine(sets.midcast['Healing Magic'],
+                                      {
+                                        main=gear.ElementalStaff,
+                                        sub=gear.ElementalGrip,
+                                        waist=gear.ElementalObi,
+                                        body="Aristocrat's Coat",
+                                        feet="Cure Clogs",
+ 	                                    })
+	
+	--Engaged Sets
   -- engaged
   sets.engaged = {
-    main="Elm Staff +1",
-    sub="Lizard Strap",
-    head="Seer's Crown +1",
-    body="Seer's Tunic +1",
-    hands="Seer's Mitts +1",
-    legs="Seer's Slacks +1",
-    feet="Seer's Pumps +1",
-    neck="Justice Badge",
-    waist="Shaman's Belt",
-    left_ear="Morion Earring",
-    right_ear="Morion Earring",
-    left_ring="Eremite's Ring",
-    right_ring="Eremite's Ring",
-  }
+                  ammo={ name="Bibiki Seashell", augments={'HP recovered while healing +2','MP recovered while healing +2','Spell interruption rate down -3%',}},
+                  head="Walahra Turban",
+                  body="Aristocrat's Coat",
+                  hands="Blessed Mitts",
+                  legs="Blessed Trousers",
+                  feet="Blessed Pumps",
+                  neck="Peacock Amulet",
+                  waist="Headlong Belt",
+                  left_ear="Antivenom Earring",
+                  right_ear="Brutal Earring",
+                  left_ring="Lava's Ring",
+                  right_ring="Kusha's Ring",
+                  back="Invigorating Cape",
+                }
+	sets.engaged.Acc = set_combine(sets.engaged,{
+    neck="Peacock Amulet",
+    left_ring="Lava's Ring",
+    right_ring="Kusha's Ring",
+    waist="Life Belt",
+  })
+	
+	sets.engaged.DW	= set_combine(sets.engaged,{
+    left_ear="Suppanomimi",
+    right_ear="Brutal Earring",
+
+  })
+	sets.engaged.AccDW = set_combine(sets.engaged.DW,{
+    neck="Peacock Amulet",
+    left_ring="Lava's Ring",
+    right_ring="Kusha's Ring",
+    waist="Life Belt",
+  })
+	
+	--Weaponskill Sets
+	sets.precast.WS = {}
+	sets.precast.WS.Acc = set_combine(sets.precast.WS,{})
+	sets.precast.WS.DW = set_combine(sets.precast.WS,{})
+	sets.precast.WS.AccDW = set_combine(sets.precast.WS,{})
+	
+	sets.precast.WS['Hexa Strike'] = set_combine(sets.precast.WS,{})
+	sets.precast.WS['Hexa Strike'].Acc = set_combine(sets.precast.WS['Hexa Strike'],{})
+	sets.precast.WS['Hexa Strike'].AccDW = set_combine(sets.precast.WS['Hexa Strike'],{})
+	sets.precast.WS['Hexa Strike'].DW = set_combine(sets.precast.WS['Hexa Strike'],{})
 
   initialize_crafting_sets(player.name)	
 end

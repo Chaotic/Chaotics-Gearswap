@@ -5,19 +5,19 @@
     -- misc
     sets.MND = {
       head="Yigit Turban",
-      neck="Justice Badge",
+      neck="Ajari Necklace",
       body="Errant Hpl.",
       hands="Yigit Gages",
       legs="Errant Slops",
       feet="Mahatma Pigaches",
       waist="Penitent's Rope",
-      left_ring="Turquoise Ring",
+      left_ring="Hale Ring",
       right_ring="Tamas Ring",
       back="White Cape +1"
   }
    
     sets.INT = {
-      head="Seer's Crown +1",
+      head="Summoner's Horn",
       body="Errant Hpl.",
       hands="Yigit Gages",
       waist="Penitent's Rope",
@@ -48,6 +48,8 @@
       body="Yinyang Robe",
       hands="Summoner's Brcr.",
       feet="Summoner's Pgch.",
+      head="Summoner's Horn",
+      legs="Summoner's Spats",
     })
                    
     sets.precast.BloodPactRage = set_combine(sets.precast.BloodPactWard,{})
@@ -157,6 +159,7 @@
     sets.resting = {
       main=gear.Staff.HMP,
       head="Yigit Turban",
+      neck="Grandiose Chain",
       body="Yigit Gomlek",
       hands="Yigit Gages",
       feet="Yigit Crackows",
@@ -164,25 +167,28 @@
       legs="Yigit Seraweels",
       left_ear="Antivenom Earring",
       right_ear="Relaxing Earring",
+      back="Invigorating Cape",
+      waist="Hierarch Belt",
     }
   
     -- Idle sets
     sets.idle = {
-      main=gear.Staff.PDT,
+      main="Chatoyant Staff",
       sub="Bugard Strap +1",
-      ammo="Bibiki Seashell",
+      ammo="Fortune Egg",
       head="Yigit Turban",
       body="Yinyang Robe",
       hands="Yigit Gages",
       legs="Yigit Seraweels",
       feet="Yigit Crackows",
-      neck="Justice Badge",
-      waist="Summoning Belt",
+      neck="Ajari Necklace",
+      waist="Hierarch Belt",
       left_ear="Morion Earring",
-      right_ear="Morion Earring",
+      right_ear="Insomnia Earring",
       right_ring="Tamas Ring",
       left_ring="Vilma's Ring",
     }
+    
     sets.idle.Avatar = set_combine(sets.idle,{
       left_ring="Evoker's Ring",
       hands="Yigit Gages",
@@ -192,13 +198,14 @@
                    
     sets.idle.Spirit = set_combine(sets.idle,{
       left_ring="Evoker's Ring",
+      head="Yigit Turban",
       hands="Yigit Gages",
-      legs="Yigit Seraweels",
+      legs="Summoner's Spats",
       feet="Yigit Crackows",
     })
                    
     sets.idle.Town = set_combine(sets.idle,{
-      head="Evoker's Horn",  
+      head="Yigit Turban",
       body="Yinyang Robe",
       hands="Yigit Gages",
       legs="Yigit Seraweels",
@@ -211,12 +218,15 @@
     sets.idle.Avatar.Melee = set_combine(sets.idle.Avatar,{})
   
     sets.perp = {
+                  main=gear.perp_staff,
                   left_ring="Evoker's Ring",
                 }
        
     sets.perp.Day = {}
      
-    sets.perp.Weather = {}
+    sets.perp.Weather = {
+                          head="Summoner's Horn",
+                      }
      
     sets.perp.Carbuncle = {hands="Carbuncle mitts"}
      

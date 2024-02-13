@@ -94,7 +94,7 @@ function job_get_spell_map(spell, default_spell_map)
 end
 
 function job_update_tracker(command)
-  return command..'wait 0.3;track add Cookies: ${inventory:Wizard Cookie};'
+  return command..'wait 0.3;track add Cookies: ${all:Coin Cookie};'
 end
 
 function job_buff_change(buff,gain)
@@ -199,7 +199,7 @@ function job_post_midcast(spell,action,spellMap,eventsArgs)
       if spell.element == world.weather_element or spell.element == world.day_element then
         
         if world.weather_element ~= 'Dark' and spellMap == 'Cure' then
-          equip({waist="Hachirin-no-obi"})
+          equip({waist=gear.ElementalObi})
         end
         
      end

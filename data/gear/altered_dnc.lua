@@ -16,6 +16,9 @@ function init_gear_sets()
       -- tights give 3 acc
       legs="Dancer's Tights",
       feet="Etoile Toe Shoes",
+      left_ring="Lava's Ring",
+      right_ring="Kusha's Ring",
+  
     }
   
     sets.CHR = {
@@ -44,8 +47,7 @@ function init_gear_sets()
       body="Dancer's Casaque",
     })
   
-    sets.precast.WaltzSelf = set_combine(sets.precast.Waltz,sets.VIT,
-                                        {})
+    sets.precast.WaltzSelf = set_combine(sets.precast.Waltz,sets.VIT,{})
   
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz']= {}
@@ -58,7 +60,9 @@ function init_gear_sets()
       feet="Dancer's Toe Shoes",
     }
   
-    sets.precast.JA['Violent Flourish'] = {}
+    sets.precast.JA['Violent Flourish'] = {
+      body="Etoile Casaque",
+    }
   
     sets.precast.JA['Desperate Flourish'] = set_combine(sets.precast.Step,
                                                         {})
@@ -66,7 +70,9 @@ function init_gear_sets()
     sets.precast.JA['Wild Flourish'] = set_combine(sets.precast.JA['Desperate Flourish'])
   
     -- precast magic
-    sets.precast.FC = {}
+    sets.precast.FC = {
+      left_ear="Loquac. Earring",
+    }
   
     -- midcast magic
     sets.midcast.FastRecast = set_combine(sets.precast.FC,
@@ -93,9 +99,9 @@ function init_gear_sets()
                   legs="Dancer's Tights",
                   feet="Bounding Boots",
                   neck="Peacock Amulet",
-                  waist={ name="Velocious Belt", augments={'STR+3','Water resistance+20','Water resistance+30',}},
+                  waist="Velocious Belt",
                   left_ear="Suppanomimi",
-                  right_ear="Drone Earring",
+                  right_ear="Brutal Earring",
                   left_ring="Sniper's Ring",
                   right_ring="Rajas Ring",
                   back="Nomad's Mantle +1",
@@ -110,6 +116,7 @@ function init_gear_sets()
     sets.defense.Evasion = {
                               head="Empress Hairpin",
                               body="Scp. Harness +1",
+                              hands="Etoile Bangles",
                               back="Nomad's Mantle +1",
                               waist="Scouter's Rope",
                             }
@@ -121,6 +128,7 @@ function init_gear_sets()
     sets.precast.RA = {
       neck="Peacock Amulet",
       body="Rapparee Harness",
+      right_ear="Drone Earring",
       left_ring="Scorpion Ring",
       right_ring="Scorpion Ring",
       legs="Bravo's Subligar",
@@ -136,9 +144,9 @@ function init_gear_sets()
                       hands="Dusk Gloves",
                       feet="Dusk Ledelsens",
                       neck="Peacock Amulet",
-                      waist={ name="Velocious Belt", augments={'STR+3','Water resistance+20','Water resistance+30',}},
+                      waist="Velocious Belt",
                       left_ear="Suppanomimi",
-                      right_ear="Drone Earring",
+                      right_ear="Brutal Earring",
                       left_ring="Sniper's Ring",
                       right_ring="Rajas Ring",
                       back="Cerberus Mantle",
